@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cdww6ingxbtq7"]
+
+[ext_resource type="Script" uid="uid://51q0ure12bsh" path="res://Scripts/triggers/rotate_trigger.gd" id="1_wob2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(16, 16)
+
+[node name="Rotate_Trigger" type="Area2D" unique_id=304852355]
+script = ExtResource("1_wob2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=917885483]
+shape = SubResource("RectangleShape2D_66j1p")

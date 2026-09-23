@@ -1,0 +1,285 @@
+[gd_scene format=4 uid="uid://dq3cnw0omuk2j"]
+
+[ext_resource type="Script" uid="uid://cwoluovm33wpe" path="res://Scripts/UI/level_init_logic.gd" id="1_a42je"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="2_lm8bs"]
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="3_k0b8r"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="4_5p0pk"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="5_oobaw"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_yfg7p"]
+[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_o4xd3"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_r5sqe"]
+[ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_id16k"]
+[ext_resource type="PackedScene" uid="uid://musacneqt1st" path="res://Scenes/animated_objects/portal_entrance.tscn" id="10_k0b8r"]
+[ext_resource type="PackedScene" uid="uid://y2m3a4rhd2qt" path="res://Scenes/animated_objects/portal_exit.tscn" id="11_5p0pk"]
+
+[node name="Node2D" type="Node2D" unique_id=806914523]
+script = ExtResource("1_a42je")
+target_res = Vector2(800, 608)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1925520246]
+z_index = -100
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_lm8bs")
+
+[node name="Player" parent="." unique_id=1162954615 instance=ExtResource("3_k0b8r")]
+position = Vector2(48, 560)
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("4_5p0pk")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("5_oobaw")]
+position = Vector2(784, 544)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994251467]
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("6_yfg7p")]
+position = Vector2(816, 544)
+scale = Vector2(1, 4)
+level_name = "27"
+
+[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_o4xd3")]
+position = Vector2(16, 544)
+
+[node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_r5sqe")]
+position = Vector2(416, 392)
+
+[node name="Full_Tile" parent="." unique_id=1054679840 instance=ExtResource("9_id16k")]
+tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAARAAAAAgAAAAAAAAASAAAAAgAAAAAAAAATAAAAAgAAAAAAAAAUAAAAAgAAAAAAAAAVAAAAAgAAAAAAAAAWAAAAAgAAAAAAAAAXAAAAAgAAAAAAAAAYAAAAAgAAAAAAAAAYAAEAAgAAAAAAAAAYAAIAAgAAAAAAAAAYAAMAAgAAAAAAAAAYAAQAAgAAAAAAAAAYAAUAAgAAAAAAAAAYAAYAAgAAAAAAAAAYAAcAAgAAAAAAAAAYAAgAAgAAAAAAAAAYAAkAAgAAAAAAAAAYAAoAAgAAAAAAAAAYAAsAAgAAAAAAAAAYAAwAAgAAAAAAAAAYAA0AAgAAAAAAAAAYAA4AAgAAAAAAAAAYAA8AAgAAAAAAAAAYABIAAgAAAAAAAAAXABIAAgAAAAAAAAAWABIAAgAAAAAAAAAVABIAAgAAAAAAAAAUABIAAgAAAAAAAAATABIAAgAAAAAAAAASABIAAgAAAAAAAAARABIAAgAAAAAAAAAQABIAAgAAAAAAAAAPABIAAgAAAAAAAAAOABIAAgAAAAAAAAANABIAAgAAAAAAAAAMABIAAgAAAAAAAAALABIAAgAAAAAAAAAKABIAAgAAAAAAAAAJABIAAgAAAAAAAAAIABIAAgAAAAAAAAAHABIAAgAAAAAAAAAGABIAAgAAAAAAAAAFABIAAgAAAAAAAAACABIAAgAAAAAAAAABABIAAgAAAAAAAAAAABIAAgAAAAAAAAAEABIAAgAAAAAAAAADABIAAgAAAAAAAAAAAA8AAgAAAAAAAAAAAA4AAgAAAAAAAAAAAA0AAgAAAAAAAAAAAAoAAgAAAAAAAAAAAAsAAgAAAAAAAAABAA0AAgAAAAAAAAACAA0AAgAAAAAAAAADAA0AAgAAAAAAAAAEAA0AAgAAAAAAAAAFAA0AAgAAAAAAAAAFAA4AAgAAAAAAAAAFAA8AAgAAAAAAAAAFABAAAgAAAAAAAAAFABEAAgAAAAAAAAAGAA0AAgAAAAAAAAAHAA0AAgAAAAAAAAAIAA0AAgAAAAAAAAAJAA0AAgAAAAAAAAAKAA0AAgAAAAAAAAAKAA4AAgAAAAAAAAAKAA8AAgAAAAAAAAAKABAAAgAAAAAAAAAKABEAAgAAAAAAAAALAA0AAgAAAAAAAAAMAA0AAgAAAAAAAAANAA0AAgAAAAAAAAAOAA0AAgAAAAAAAAAPAA0AAgAAAAAAAAAPAA4AAgAAAAAAAAAPAA8AAgAAAAAAAAAPABAAAgAAAAAAAAAPABEAAgAAAAAAAAAQAA0AAgAAAAAAAAARAA0AAgAAAAAAAAASAA0AAgAAAAAAAAATAA0AAgAAAAAAAAAUAA0AAgAAAAAAAAAVAA0AAgAAAAAAAAAWAA0AAgAAAAAAAAAXAA0AAgAAAAAAAAAUAA4AAgAAAAAAAAAUAA8AAgAAAAAAAAAUABAAAgAAAAAAAAAUABEAAgAAAAAAAAABAAgAAgAAAAAAAAACAAgAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAgAAgAAAAAAAAAFAAkAAgAAAAAAAAAFAAoAAgAAAAAAAAAFAAsAAgAAAAAAAAAFAAwAAgAAAAAAAAAGAAgAAgAAAAAAAAAHAAgAAgAAAAAAAAAIAAgAAgAAAAAAAAAJAAgAAgAAAAAAAAAKAAgAAgAAAAAAAAAKAAkAAgAAAAAAAAAKAAoAAgAAAAAAAAAKAAsAAgAAAAAAAAAKAAwAAgAAAAAAAAALAAgAAgAAAAAAAAAMAAgAAgAAAAAAAAANAAgAAgAAAAAAAAAOAAgAAgAAAAAAAAAPAAgAAgAAAAAAAAAPAAkAAgAAAAAAAAAPAAoAAgAAAAAAAAAPAAsAAgAAAAAAAAAPAAwAAgAAAAAAAAAQAAgAAgAAAAAAAAARAAgAAgAAAAAAAAASAAgAAgAAAAAAAAATAAgAAgAAAAAAAAAUAAgAAgAAAAAAAAAUAAkAAgAAAAAAAAAUAAoAAgAAAAAAAAAUAAsAAgAAAAAAAAAUAAwAAgAAAAAAAAAVAAgAAgAAAAAAAAAWAAgAAgAAAAAAAAAXAAgAAgAAAAAAAAAUAAcAAgAAAAAAAAAUAAYAAgAAAAAAAAAUAAUAAgAAAAAAAAAUAAQAAgAAAAAAAAAUAAMAAgAAAAAAAAAUAAIAAgAAAAAAAAAUAAEAAgAAAAAAAAAPAAcAAgAAAAAAAAAPAAYAAgAAAAAAAAAPAAUAAgAAAAAAAAAPAAIAAgAAAAAAAAAPAAEAAgAAAAAAAAAPAAMAAgAAAAAAAAAPAAQAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAUAAgAAAAAAAAAKAAQAAgAAAAAAAAAKAAMAAgAAAAAAAAAKAAIAAgAAAAAAAAAKAAEAAgAAAAAAAAAFAAcAAgAAAAAAAAAFAAYAAgAAAAAAAAAFAAUAAgAAAAAAAAAFAAQAAgAAAAAAAAAFAAMAAgAAAAAAAAAFAAIAAgAAAAAAAAAFAAEAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAA=")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=688338845]
+
+[node name="Portal_Entrance" parent="Node2D" unique_id=1077477323 instance=ExtResource("10_k0b8r")]
+position = Vector2(144, 464)
+sister_portal = NodePath("../Portal_Exit4")
+is_two_ways = false
+
+[node name="Portal_Entrance2" parent="Node2D" unique_id=184493381 instance=ExtResource("10_k0b8r")]
+position = Vector2(144, 560)
+sister_portal = NodePath("../Portal_Exit3")
+is_two_ways = false
+
+[node name="Portal_Exit" parent="Node2D" unique_id=962662833 instance=ExtResource("11_5p0pk")]
+position = Vector2(48, 464)
+
+[node name="Portal_Entrance3" parent="Node2D" unique_id=1439382265 instance=ExtResource("10_k0b8r")]
+position = Vector2(304, 400)
+sister_portal = NodePath("../Portal_Exit17")
+is_two_ways = false
+
+[node name="Portal_Entrance4" parent="Node2D" unique_id=1110293232 instance=ExtResource("10_k0b8r")]
+position = Vector2(208, 400)
+sister_portal = NodePath("../Portal_Exit14")
+is_two_ways = false
+
+[node name="Portal_Entrance5" parent="Node2D" unique_id=1303160624 instance=ExtResource("10_k0b8r")]
+position = Vector2(208, 560)
+sister_portal = NodePath("../Portal_Exit6")
+is_two_ways = false
+
+[node name="Portal_Entrance6" parent="Node2D" unique_id=924545215 instance=ExtResource("10_k0b8r")]
+position = Vector2(304, 560)
+sister_portal = NodePath("../Portal_Exit4")
+is_two_ways = false
+
+[node name="Portal_Exit3" parent="Node2D" unique_id=890682222 instance=ExtResource("11_5p0pk")]
+position = Vector2(256, 464)
+
+[node name="Portal_Exit4" parent="Node2D" unique_id=518752203 instance=ExtResource("11_5p0pk")]
+position = Vector2(464, 560)
+
+[node name="Portal_Entrance7" parent="Node2D" unique_id=1262278367 instance=ExtResource("10_k0b8r")]
+position = Vector2(368, 464)
+sister_portal = NodePath("../Portal_Exit3")
+is_two_ways = false
+
+[node name="Portal_Entrance8" parent="Node2D" unique_id=2030076010 instance=ExtResource("10_k0b8r")]
+position = Vector2(528, 560)
+sister_portal = NodePath("../Portal_Exit4")
+is_two_ways = false
+
+[node name="Portal_Exit5" parent="Node2D" unique_id=1237926926 instance=ExtResource("11_5p0pk")]
+position = Vector2(688, 528)
+
+[node name="Portal_Entrance9" parent="Node2D" unique_id=251578538 instance=ExtResource("10_k0b8r")]
+position = Vector2(752, 464)
+sister_portal = NodePath("../Portal_Exit")
+is_two_ways = false
+
+[node name="Portal_Exit6" parent="Node2D" unique_id=2001191607 instance=ExtResource("11_5p0pk")]
+position = Vector2(96, 304)
+
+[node name="Portal_Entrance10" parent="Node2D" unique_id=1152297573 instance=ExtResource("10_k0b8r")]
+position = Vector2(48, 400)
+sister_portal = NodePath("../Portal_Exit11")
+is_two_ways = false
+
+[node name="Portal_Entrance11" parent="Node2D" unique_id=1919637349 instance=ExtResource("10_k0b8r")]
+position = Vector2(144, 400)
+sister_portal = NodePath("../Portal_Exit16")
+is_two_ways = false
+
+[node name="Portal_Entrance12" parent="Node2D" unique_id=2074367300 instance=ExtResource("10_k0b8r")]
+position = Vector2(464, 400)
+sister_portal = NodePath("../Portal_Exit")
+is_two_ways = false
+
+[node name="Portal_Entrance13" parent="Node2D" unique_id=1083459328 instance=ExtResource("10_k0b8r")]
+position = Vector2(368, 400)
+sister_portal = NodePath("../Portal_Exit16")
+is_two_ways = false
+
+[node name="Portal_Entrance14" parent="Node2D" unique_id=206905996 instance=ExtResource("10_k0b8r")]
+position = Vector2(624, 304)
+sister_portal = NodePath("../Portal_Exit11")
+is_two_ways = false
+
+[node name="Portal_Entrance15" parent="Node2D" unique_id=754653876 instance=ExtResource("10_k0b8r")]
+position = Vector2(752, 400)
+sister_portal = NodePath("../Portal_Exit4")
+is_two_ways = false
+
+[node name="Portal_Entrance16" parent="Node2D" unique_id=680841014 instance=ExtResource("10_k0b8r")]
+position = Vector2(464, 464)
+sister_portal = NodePath("../Portal_Exit")
+is_two_ways = false
+
+[node name="Portal_Exit2" parent="Node2D" unique_id=1316822051 instance=ExtResource("11_5p0pk")]
+position = Vector2(416, 304)
+
+[node name="Portal_Exit7" parent="Node2D" unique_id=841301992 instance=ExtResource("11_5p0pk")]
+position = Vector2(576, 400)
+
+[node name="Portal_Exit8" parent="Node2D" unique_id=1557884229 instance=ExtResource("11_5p0pk")]
+position = Vector2(256, 304)
+
+[node name="Portal_Entrance17" parent="Node2D" unique_id=733069468 instance=ExtResource("10_k0b8r")]
+position = Vector2(48, 144)
+sister_portal = NodePath("../Portal_Exit17")
+is_two_ways = false
+
+[node name="Portal_Entrance18" parent="Node2D" unique_id=940929675 instance=ExtResource("10_k0b8r")]
+position = Vector2(144, 144)
+sister_portal = NodePath("../Portal_Exit16")
+is_two_ways = false
+
+[node name="Portal_Entrance19" parent="Node2D" unique_id=588319350 instance=ExtResource("10_k0b8r")]
+position = Vector2(208, 240)
+sister_portal = NodePath("../Portal_Exit10")
+is_two_ways = false
+
+[node name="Portal_Entrance20" parent="Node2D" unique_id=1236993584 instance=ExtResource("10_k0b8r")]
+position = Vector2(304, 240)
+sister_portal = NodePath("../Portal_Exit8")
+is_two_ways = false
+
+[node name="Portal_Entrance21" parent="Node2D" unique_id=904915960 instance=ExtResource("10_k0b8r")]
+position = Vector2(368, 144)
+sister_portal = NodePath("../Portal_Exit17")
+is_two_ways = false
+
+[node name="Portal_Entrance22" parent="Node2D" unique_id=204439116 instance=ExtResource("10_k0b8r")]
+position = Vector2(464, 144)
+sister_portal = NodePath("../Portal_Exit6")
+is_two_ways = false
+
+[node name="Portal_Entrance23" parent="Node2D" unique_id=171193051 instance=ExtResource("10_k0b8r")]
+position = Vector2(528, 240)
+sister_portal = NodePath("../Portal_Exit19")
+is_two_ways = false
+
+[node name="Portal_Entrance24" parent="Node2D" unique_id=112937893 instance=ExtResource("10_k0b8r")]
+position = Vector2(624, 240)
+sister_portal = NodePath("../Portal_Exit10")
+is_two_ways = false
+
+[node name="Portal_Entrance25" parent="Node2D" unique_id=426593789 instance=ExtResource("10_k0b8r")]
+position = Vector2(688, 144)
+sister_portal = NodePath("../Portal_Exit17")
+is_two_ways = false
+
+[node name="Portal_Entrance26" parent="Node2D" unique_id=1680793113 instance=ExtResource("10_k0b8r")]
+position = Vector2(752, 144)
+sister_portal = NodePath("../Portal_Exit19")
+is_two_ways = false
+
+[node name="Portal_Entrance27" parent="Node2D" unique_id=2039559428 instance=ExtResource("10_k0b8r")]
+position = Vector2(528, 48)
+sister_portal = NodePath("../Portal_Exit12")
+is_two_ways = false
+
+[node name="Portal_Entrance28" parent="Node2D" unique_id=1101767448 instance=ExtResource("10_k0b8r")]
+position = Vector2(624, 48)
+sister_portal = NodePath("../Portal_Exit2")
+is_two_ways = false
+
+[node name="Portal_Entrance29" parent="Node2D" unique_id=1201253611 instance=ExtResource("10_k0b8r")]
+position = Vector2(752, 80)
+sister_portal = NodePath("../Portal_Exit5")
+is_two_ways = false
+
+[node name="Portal_Entrance30" parent="Node2D" unique_id=1725513910 instance=ExtResource("10_k0b8r")]
+position = Vector2(208, 48)
+sister_portal = NodePath("../Portal_Exit15")
+is_two_ways = false
+
+[node name="Portal_Entrance31" parent="Node2D" unique_id=537241858 instance=ExtResource("10_k0b8r")]
+position = Vector2(304, 48)
+sister_portal = NodePath("../Portal_Exit18")
+is_two_ways = false
+
+[node name="Portal_Entrance32" parent="Node2D" unique_id=1721474645 instance=ExtResource("10_k0b8r")]
+position = Vector2(368, 48)
+sister_portal = NodePath("../Portal_Exit14")
+is_two_ways = false
+
+[node name="Portal_Entrance33" parent="Node2D" unique_id=2102331423 instance=ExtResource("10_k0b8r")]
+position = Vector2(464, 48)
+sister_portal = NodePath("../Portal_Exit3")
+is_two_ways = false
+
+[node name="Portal_Exit9" parent="Node2D" unique_id=607081840 instance=ExtResource("11_5p0pk")]
+position = Vector2(576, 464)
+
+[node name="Portal_Exit10" parent="Node2D" unique_id=1446466543 instance=ExtResource("11_5p0pk")]
+position = Vector2(688, 304)
+
+[node name="Portal_Exit11" parent="Node2D" unique_id=1769902816 instance=ExtResource("11_5p0pk")]
+position = Vector2(576, 144)
+
+[node name="Portal_Exit12" parent="Node2D" unique_id=2092366341 instance=ExtResource("11_5p0pk")]
+position = Vector2(720, 240)
+
+[node name="Portal_Exit13" parent="Node2D" unique_id=289652275 instance=ExtResource("11_5p0pk")]
+position = Vector2(416, 240)
+
+[node name="Portal_Exit14" parent="Node2D" unique_id=1000790241 instance=ExtResource("11_5p0pk")]
+position = Vector2(256, 144)
+
+[node name="Portal_Exit15" parent="Node2D" unique_id=745765325 instance=ExtResource("11_5p0pk")]
+position = Vector2(48, 240)
+
+[node name="Portal_Exit16" parent="Node2D" unique_id=85807951 instance=ExtResource("11_5p0pk")]
+position = Vector2(256, 80)
+
+[node name="Portal_Exit17" parent="Node2D" unique_id=1028669618 instance=ExtResource("11_5p0pk")]
+position = Vector2(416, 80)
+
+[node name="Portal_Exit18" parent="Node2D" unique_id=368283607 instance=ExtResource("11_5p0pk")]
+position = Vector2(576, 80)
+
+[node name="Portal_Exit19" parent="Node2D" unique_id=208207510 instance=ExtResource("11_5p0pk")]
+position = Vector2(688, 48)
+
+[node name="Portal_Entrance34" parent="Node2D" unique_id=411806688 instance=ExtResource("10_k0b8r")]
+position = Vector2(528, 304)
+sister_portal = NodePath("../Portal_Exit9")
+is_two_ways = false
+
+[node name="Portal_Entrance35" parent="Node2D" unique_id=66346793 instance=ExtResource("10_k0b8r")]
+position = Vector2(624, 560)
+sister_portal = NodePath("../Portal_Exit5")
+is_two_ways = false

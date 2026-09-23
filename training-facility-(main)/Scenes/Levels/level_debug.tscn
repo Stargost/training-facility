@@ -1,0 +1,157 @@
+[gd_scene format=4 uid="uid://o2q85fta4n7l"]
+
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="1_31gvd"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="2_p2uyn"]
+[ext_resource type="Texture2D" uid="uid://5k2p505cheqp" path="res://Sprites/block_tileset.png" id="3_t8fgv"]
+[ext_resource type="PackedScene" uid="uid://cr0hvxwqk7tgj" path="res://Scenes/animated_objects/platform.tscn" id="4_f4mfb"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="5_nqa7a"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="6_3okmd"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="7_faerd"]
+[ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="8_x6l61"]
+[ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="9_of8r3"]
+[ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="10_uwq1m"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="11_0fjdi"]
+[ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="12_p2uyn"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="13_t8fgv"]
+[ext_resource type="PackedScene" uid="uid://dw7qncunxhxdd" path="res://Scenes/animated_objects/locked_hatch.tscn" id="14_nqa7a"]
+[ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="15_3okmd"]
+[ext_resource type="PackedScene" uid="uid://jqos8wwkqqid" path="res://Scenes/static_objects/gravity_orb.tscn" id="16_3okmd"]
+[ext_resource type="PackedScene" uid="uid://dqvfhijfsljyr" path="res://Scenes/triggers/activate_trigger.tscn" id="17_faerd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_boue6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dmm2l"]
+texture = ExtResource("3_t8fgv")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.941887, -14.030267, 14.008173, -13.986076, 14.006054, 14.006054, -13.963982, 13.963982)
+1:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-14, -14, 14, -14, 14, 14, -14, 14)
+1:1/0 = 0
+1:1/0/physics_layer_2/polygon_0/points = PackedVector2Array(-14, -14, 14, -14, 14, 14, -14, 14)
+
+[sub_resource type="TileSet" id="TileSet_66j1p"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 9
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_boue6")
+physics_layer_1/collision_layer = 9
+physics_layer_2/collision_layer = 9
+sources/0 = SubResource("TileSetAtlasSource_dmm2l")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smvwu"]
+texture = ExtResource("3_t8fgv")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5.9886045, 8, 8, -6, 8, -5.976083, -5.9459004)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.9886045, 8, -8, 8, -8, -6, 5.9459004, -5.976083)
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.9886045, -8, 8, -8, 8, 6, -5.9459004, 5.976083)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 5.9886045, -8, -8, 6, -8, 5.976083, 5.9459004)
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7ovlh"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_smvwu")
+
+[node name="Node2D" type="Node2D" unique_id=903319247]
+
+[node name="Activate_Trigger" parent="." unique_id=1511367655 instance=ExtResource("17_faerd")]
+position = Vector2(312, 288)
+target_obj = NodePath("../Electrical_Barrier")
+actuation_mode = 4
+
+[node name="Player" parent="." unique_id=1241504632 instance=ExtResource("1_31gvd")]
+position = Vector2(400, 368)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1221696633]
+visible = false
+z_index = -10
+position = Vector2(400, 247.99998)
+scale = Vector2(0.78515625, 0.78515625)
+texture = ExtResource("2_p2uyn")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2076469528]
+position = Vector2(400, 304)
+
+[node name="FullTile" type="TileMapLayer" parent="." unique_id=1456387197]
+tile_map_data = PackedByteArray("AAAJAAwAAAAAAAAAAAAKAAwAAAAAAAAAAAALAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAANAAwAAAAAAAAAAAAOAAwAAAAAAAAAAAAPAAwAAAAAAAAAAAASAAwAAAAAAAAAAAASAA0AAAAAAAAAAAASAA4AAAAAAAAAAAASAA8AAAAAAAAAAAARAA8AAAAAAAAAAAAQAA8AAAAAAAAAAAAPAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAMAA8AAAAAAAAAAAALAA8AAAAAAAAAAAAKAA8AAAAAAAAAAAAJAA8AAAAAAAAAAAAIAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAGAA8AAAAAAAAAAAAGAA4AAAAAAAAAAAAGAA0AAAAAAAAAAAAGAAwAAAAAAAAAAAAVAAwAAAAAAAAAAAAVAA0AAAAAAAAAAAAVAA4AAAAAAAAAAAAVAA8AAAAAAAAAAAAVABAAAAAAAAAAAAAVABEAAAAAAAAAAAAVABIAAAAAAAAAAAAUABIAAAAAAAAAAAATABIAAAAAAAAAAAASABIAAAAAAAAAAAARABIAAAAAAAAAAAAQABIAAAAAAAAAAAAPABIAAAAAAAAAAAAOABIAAAAAAAAAAAANABIAAAAAAAAAAAAMABIAAAAAAAAAAAALABIAAAAAAAAAAAAKABIAAAAAAAAAAAAJABIAAAAAAAAAAAAIABIAAAAAAAAAAAAHABIAAAAAAAAAAAAGABIAAAAAAAAAAAAFABIAAAAAAAAAAAAEABIAAAAAAAAAAAADABIAAAAAAAAAAAADABEAAAAAAAAAAAADABAAAAAAAAAAAAADAA8AAAAAAAAAAAADAA4AAAAAAAAAAAADAA0AAAAAAAAAAAAEAA8AAAAAAAAAAAAUAA8AAAAAAAAAAAAYABIAAAAAAAAAAAAYABEAAAAAAAAAAAAYABAAAAAAAAAAAAAYAA8AAAAAAAAAAAAYAA4AAAAAAAAAAAAYAA0AAAAAAAAAAAAYAAwAAAAAAAAAAAAYAAkAAAAAAAAAAAAYAAgAAAAAAAAAAAAYAAcAAAAAAAAAAAAYAAYAAAAAAAAAAAAYAAUAAAAAAAAAAAAXAAwAAAABAAEAAAAWAAwAAAABAAEAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAAAABIAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAYAAEAAAAAAAAAAAAYAAIAAAAAAAAAAAAYAAMAAAAAAAAAAAAYAAQAAAAAAAAAAAAHAA4AAAAAAAAAAAARAA4AAAAAAAAAAAAFABEAAAAAAAAAAAAEABEAAAAAAAAAAAATABEAAAAAAAAAAAAUABEAAAAAAAAAAAAFAA0AAAAAAAAAAAATAA0AAAAAAAAAAAAAAAwAAAAAAAAAAAADAAwAAAAAAAAAAAABAAkAAAAAAAAAAAABAAYAAAAAAAAAAAABAAwAAAAAAAAAAAACAAwAAAAAAAAAAAAEAAYAAAAAAAEAAAAFAAYAAAAAAAEAAAAGAAYAAAAAAAEAAAAHAAYAAAAAAAEAAAAIAAYAAAAAAAEAAAAJAAYAAAAAAAEAAAAMAAUAAAABAAEAAAANAAUAAAABAAEAAAAOAAUAAAABAAEAAAAPAAUAAAABAAEAAAASAAgAAAABAAEAAAATAAgAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_66j1p")
+
+[node name="HalfTile" type="TileMapLayer" parent="." unique_id=1281971191]
+tile_set = SubResource("TileSet_7ovlh")
+
+[node name="Platform" parent="." unique_id=1055093209 instance=ExtResource("4_f4mfb")]
+position = Vector2(256, 320)
+
+[node name="Card" parent="." unique_id=332134717 instance=ExtResource("5_nqa7a")]
+position = Vector2(480, 304)
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("6_3okmd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Door" parent="." unique_id=681532467 instance=ExtResource("7_faerd")]
+position = Vector2(784, 352)
+
+[node name="Area2D2" parent="." unique_id=618880321 instance=ExtResource("8_x6l61")]
+position = Vector2(400, 464)
+
+[node name="Area2D3" parent="." unique_id=1905045532 instance=ExtResource("9_of8r3")]
+position = Vector2(432, 560)
+
+[node name="Area2D4" parent="." unique_id=855291963 instance=ExtResource("10_uwq1m")]
+position = Vector2(48, 336)
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("11_0fjdi")]
+position = Vector2(816, 352)
+scale = Vector2(1, 4)
+level_name = "1"
+
+[node name="Electrical_Barrier" parent="." unique_id=1843936951 instance=ExtResource("12_p2uyn")]
+position = Vector2(496, 384)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("13_t8fgv")]
+offset_left = 512.0
+offset_top = 40.0
+offset_right = 512.0
+offset_bottom = 40.0
+window_size = Vector2(256, 256)
+callable_text = "LEVEL_4_TXT"
+h_alignment = 1
+
+[node name="locked_hatch" parent="." unique_id=1288975389 instance=ExtResource("14_nqa7a")]
+position = Vector2(80, 432)
+start_open = true
+
+[node name="Animation_Player_Trigger" parent="." unique_id=551138947 instance=ExtResource("15_3okmd")]
+position = Vector2(48, 368)
+secondary_target_obj = NodePath("../locked_hatch")
+secondary_obj_animation = "default"
+is_single_use = true
+play_reversed = true
+
+[node name="gravity_orb" parent="." unique_id=1914003975 instance=ExtResource("16_3okmd")]
+position = Vector2(400, 280)
+
+[node name="gravity_orb2" parent="." unique_id=2092264177 instance=ExtResource("16_3okmd")]
+position = Vector2(304, 112)

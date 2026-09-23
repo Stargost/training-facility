@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dabkc6ymq58sp"]
+
+[ext_resource type="Script" uid="uid://vpmaxyr6ypx1" path="res://Scripts/triggers/rotate_around_trigger.gd" id="1_iimds"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+
+[node name="rotate_around_trigger" type="Area2D" unique_id=1452776380]
+script = ExtResource("1_iimds")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1172612807]
+shape = SubResource("RectangleShape2D_66j1p")

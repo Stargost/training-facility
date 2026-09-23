@@ -1,0 +1,250 @@
+[gd_scene format=4 uid="uid://du5gfcvb3267q"]
+
+[ext_resource type="Script" uid="uid://cwoluovm33wpe" path="res://Scripts/UI/level_init_logic.gd" id="1_rvkpk"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="2_ucg7y"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="3_w83t3"]
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_d47nw"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="5_mao4e"]
+[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="6_vag1l"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="7_0xanf"]
+[ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="8_x3pnh"]
+[ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="9_0a287"]
+[ext_resource type="PackedScene" uid="uid://cr0hvxwqk7tgj" path="res://Scenes/animated_objects/platform.tscn" id="10_3s324"]
+[ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="11_fbsk2"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="12_gkkhl"]
+[ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="13_w83t3"]
+[ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="14_d47nw"]
+
+[sub_resource type="Animation" id="Animation_2ergn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(464, 208)]
+}
+
+[sub_resource type="Animation" id="Animation_msvyy"]
+resource_name = "move_mfer"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(464, 208), Vector2(336, 208), Vector2(336, 144), Vector2(464, 144)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8louo"]
+_data = {
+&"RESET": SubResource("Animation_2ergn"),
+&"move_mfer": SubResource("Animation_msvyy")
+}
+
+[sub_resource type="Animation" id="Animation_8louo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(272, 184)]
+}
+
+[sub_resource type="Animation" id="Animation_h2ehd"]
+resource_name = "move mfer"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(272, 184), Vector2(272, 360)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dbso"]
+_data = {
+&"RESET": SubResource("Animation_8louo"),
+&"move mfer": SubResource("Animation_h2ehd")
+}
+
+[sub_resource type="Animation" id="Animation_rvkpk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(336, 144)]
+}
+
+[sub_resource type="Animation" id="Animation_ucg7y"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(336, 144), Vector2(464, 144), Vector2(464, 208), Vector2(336, 208)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w83t3"]
+_data = {
+&"RESET": SubResource("Animation_rvkpk"),
+&"new_animation": SubResource("Animation_ucg7y")
+}
+
+[node name="Node2D" type="Node2D" unique_id=806914523]
+script = ExtResource("1_rvkpk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=139145827]
+z_index = -10
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_gkkhl")
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("2_ucg7y")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("3_w83t3")]
+position = Vector2(528, 352)
+
+[node name="Player" parent="." unique_id=1162954615 instance=ExtResource("4_d47nw")]
+position = Vector2(48, 368)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994251467]
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("5_mao4e")]
+position = Vector2(560, 352)
+scale = Vector2(1, 4)
+level_name = "h10"
+
+[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("6_vag1l")]
+position = Vector2(16, 352)
+
+[node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("7_0xanf")]
+position = Vector2(400, 104)
+
+[node name="Full_Tile" parent="." unique_id=1054679840 instance=ExtResource("8_x3pnh")]
+tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAABAAwAAgAAAAAAAAACAAwAAgAAAAAAAAADAAwAAgAAAAAAAAAEAAwAAgAAAAAAAAAFAAwAAgAAAAAAAAAGAAwAAgAAAAAAAAAHAAwAAgAAAAAAAAAIAAwAAgAAAAAAAAAJAAwAAgAAAAAAAAAKAAwAAgAAAAAAAAALAAwAAgAAAAAAAAAMAAwAAgAAAAAAAAANAAwAAgAAAAAAAAAOAAwAAgAAAAAAAAAPAAwAAgAAAAAAAAAQAAwAAgAAAAAAAAAQAAkAAgAAAAAAAAAQAAgAAgAAAAAAAAAQAAcAAgAAAAAAAAAQAAYAAgAAAAAAAAAQAAUAAgAAAAAAAAAQAAQAAgAAAAAAAAAQAAMAAgAAAAAAAAAQAAIAAgAAAAAAAAAQAAEAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAALAAUAAgAAAAAAAAAMAAUAAgAAAAAAAAANAAUAAgAAAAAAAAAFAAIAAgAAAAAAAAAFAAEAAgAAAAAAAAABAAgAAgAAAAAAAAACAAgAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAgAAgAAAAAAAAAFAAUAAgAAAAAAAAAFAAQAAgAAAAAAAAAFAAMAAgAAAAAAAAAEAAUAAgAAAAAAAAADAAUAAgAAAAAAAAANAAsAAgAAAAAAAAANAAoAAgAAAAAAAAANAAkAAgAAAAAAAAANAAgAAgAAAAAAAAA=")
+
+[node name="Orb_Kill" parent="." unique_id=855291963 instance=ExtResource("9_0a287")]
+position = Vector2(464, 208)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Orb_Kill" unique_id=450008843]
+libraries/ = SubResource("AnimationLibrary_8louo")
+autoplay = &"move_mfer"
+
+[node name="Platform" parent="." unique_id=1055093209 instance=ExtResource("10_3s324")]
+position = Vector2(272, 184)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform" unique_id=160017427]
+libraries/ = SubResource("AnimationLibrary_7dbso")
+autoplay = &"move mfer"
+
+[node name="card_pickup2" parent="." unique_id=1630016344 instance=ExtResource("7_0xanf")]
+position = Vector2(96, 80)
+
+[node name="Animation_Player_Trigger" parent="." unique_id=551138947 instance=ExtResource("11_fbsk2")]
+position = Vector2(400, 104)
+scale = Vector2(2, 1.5)
+secondary_target_obj = NodePath("../Locked_Door2")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="Locked_Door2" parent="." unique_id=789365186 instance=ExtResource("6_vag1l")]
+position = Vector2(176, 224)
+
+[node name="Orb_Kill2" parent="." unique_id=1506664041 instance=ExtResource("9_0a287")]
+position = Vector2(336, 144)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Orb_Kill2" unique_id=363582123]
+libraries/ = SubResource("AnimationLibrary_w83t3")
+autoplay = &"new_animation"
+
+[node name="Spike3" parent="." unique_id=1905045532 instance=ExtResource("13_w83t3")]
+position = Vector2(400, 368)
+metadata/_scene_painted = true
+
+[node name="Spike9" parent="." unique_id=929256532 instance=ExtResource("13_w83t3")]
+position = Vector2(432, 240)
+metadata/_scene_painted = true
+
+[node name="Spike4" parent="." unique_id=778459829 instance=ExtResource("13_w83t3")]
+position = Vector2(368, 368)
+metadata/_scene_painted = true
+
+[node name="Spike5" parent="." unique_id=1336200256 instance=ExtResource("13_w83t3")]
+position = Vector2(336, 368)
+metadata/_scene_painted = true
+
+[node name="Spike6" parent="." unique_id=1710245092 instance=ExtResource("13_w83t3")]
+position = Vector2(304, 368)
+metadata/_scene_painted = true
+
+[node name="Spike7" parent="." unique_id=987262116 instance=ExtResource("13_w83t3")]
+position = Vector2(272, 368)
+metadata/_scene_painted = true
+
+[node name="Spike8" parent="." unique_id=1412941469 instance=ExtResource("13_w83t3")]
+position = Vector2(240, 368)
+metadata/_scene_painted = true
+
+[node name="Spike" parent="." unique_id=865087121 instance=ExtResource("13_w83t3")]
+position = Vector2(48, 240)
+
+[node name="Spike2" parent="." unique_id=1452425594 instance=ExtResource("13_w83t3")]
+position = Vector2(144, 144)
+
+[node name="Slate" parent="." unique_id=618880321 instance=ExtResource("14_d47nw")]
+position = Vector2(496, 176)
+rotation = -1.5707964
+
+[node name="Slate2" parent="." unique_id=984023161 instance=ExtResource("14_d47nw")]
+position = Vector2(80, 176)
+rotation = -1.5707964
+
+[node name="Slate3" parent="." unique_id=1434881093 instance=ExtResource("14_d47nw")]
+position = Vector2(208, 368)
+
+[node name="Slate4" parent="." unique_id=1080324979 instance=ExtResource("14_d47nw")]
+position = Vector2(464, 368)
+rotation = 1.5707964

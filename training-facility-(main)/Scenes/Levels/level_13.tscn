@@ -1,0 +1,166 @@
+[gd_scene format=4 uid="uid://bkrgocbx3tlqb"]
+
+[ext_resource type="Script" uid="uid://cwoluovm33wpe" path="res://Scripts/UI/level_init_logic.gd" id="1_2ykwf"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="2_p7cy0"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="3_stmky"]
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_3hkhy"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="5_7h0bj"]
+[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="6_l8ao4"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="7_f23aw"]
+[ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="8_dhnwi"]
+[ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="9_37u8e"]
+[ext_resource type="PackedScene" uid="uid://cr0hvxwqk7tgj" path="res://Scenes/animated_objects/platform.tscn" id="10_p7cy0"]
+[ext_resource type="PackedScene" uid="uid://862572ntvimn" path="res://Scenes/animated_objects/button.tscn" id="11_stmky"]
+[ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="12_3hkhy"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="13_7h0bj"]
+
+[sub_resource type="Animation" id="Animation_stmky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(272, 320)]
+}
+
+[sub_resource type="Animation" id="Animation_3hkhy"]
+resource_name = "new_animation"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(272, 320), Vector2(272, 96)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7h0bj"]
+_data = {
+&"RESET": SubResource("Animation_stmky"),
+&"new_animation": SubResource("Animation_3hkhy")
+}
+
+[node name="Node2D" type="Node2D" unique_id=806914523]
+script = ExtResource("1_2ykwf")
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("2_p7cy0")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("3_stmky")]
+position = Vector2(528, 352)
+
+[node name="Player" parent="." unique_id=1162954615 instance=ExtResource("4_3hkhy")]
+position = Vector2(48, 368)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994251467]
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("5_7h0bj")]
+position = Vector2(560, 352)
+scale = Vector2(1, 4)
+level_name = "14"
+
+[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("6_l8ao4")]
+position = Vector2(16, 352)
+
+[node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("7_f23aw")]
+position = Vector2(480, 144)
+
+[node name="card_pickup2" parent="." unique_id=969733087 instance=ExtResource("7_f23aw")]
+position = Vector2(80, 64)
+
+[node name="Full_Tile" parent="." unique_id=1054679840 instance=ExtResource("8_dhnwi")]
+tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAABAAwAAgAAAAAAAAACAAwAAgAAAAAAAAADAAwAAgAAAAAAAAAEAAwAAgAAAAAAAAAFAAwAAgAAAAAAAAAGAAwAAgAAAAAAAAAHAAwAAgAAAAAAAAAIAAwAAgAAAAAAAAAJAAwAAgAAAAAAAAAKAAwAAgAAAAAAAAALAAwAAgAAAAAAAAAMAAwAAgAAAAAAAAANAAwAAgAAAAAAAAAOAAwAAgAAAAAAAAAPAAwAAgAAAAAAAAAQAAwAAgAAAAAAAAAQAAkAAgAAAAAAAAAQAAgAAgAAAAAAAAAQAAcAAgAAAAAAAAAQAAYAAgAAAAAAAAAQAAUAAgAAAAAAAAAQAAQAAgAAAAAAAAAQAAMAAgAAAAAAAAAQAAIAAgAAAAAAAAAQAAEAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAADAAkAAgAAAAAAAAAEAAkAAgAAAAAAAAAFAAkAAgAAAAAAAAALAAkAAgAAAAAAAAAMAAkAAgAAAAAAAAANAAkAAgAAAAAAAAAOAAkAAgAAAAAAAAAOAAYAAgAAAAAAAAAPAAYAAgAAAAAAAAANAAYAAgAAAAAAAAAMAAYAAgAAAAAAAAALAAYAAgAAAAAAAAAFAAYAAgAAAAAAAAAEAAYAAgAAAAAAAAADAAYAAgAAAAAAAAACAAYAAgAAAAAAAAABAAYAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAFAAoAAgAAAAAAAAAFAAsAAgAAAAAAAAAPAAkAAgAAAAAAAAA=")
+
+[node name="Electrical_Barrier2" parent="." unique_id=661448551 instance=ExtResource("9_37u8e")]
+position = Vector2(272, 384)
+recharge_time = 1.0
+
+[node name="Platform" parent="." unique_id=1055093209 instance=ExtResource("10_p7cy0")]
+position = Vector2(272, 320)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform" unique_id=2083605606]
+libraries/ = SubResource("AnimationLibrary_7h0bj")
+autoplay = &"new_animation"
+
+[node name="Button" parent="." unique_id=558707054 instance=ExtResource("11_stmky")]
+position = Vector2(464, 272)
+is_permanent = true
+
+[node name="Button2" parent="." unique_id=1772618448 instance=ExtResource("11_stmky")]
+position = Vector2(48, 176)
+is_permanent = true
+
+[node name="Button3" parent="." unique_id=937217524 instance=ExtResource("11_stmky")]
+position = Vector2(496, 80)
+is_permanent = true
+
+[node name="Animation_Player_Trigger" parent="." unique_id=551138947 instance=ExtResource("12_3hkhy")]
+position = Vector2(464, 272)
+scale = Vector2(1.6, 1)
+secondary_target_obj = NodePath("../Locked_Door2")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="Animation_Player_Trigger4" parent="." unique_id=751694741 instance=ExtResource("12_3hkhy")]
+position = Vector2(464, 272)
+scale = Vector2(1.6, 1)
+secondary_target_obj = NodePath("../Locked_Door4")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="Animation_Player_Trigger2" parent="." unique_id=908025600 instance=ExtResource("12_3hkhy")]
+position = Vector2(48, 176)
+scale = Vector2(1.6, 1)
+secondary_target_obj = NodePath("../Locked_Door3")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="Animation_Player_Trigger5" parent="." unique_id=1403501245 instance=ExtResource("12_3hkhy")]
+position = Vector2(48, 176)
+scale = Vector2(1.6, 1)
+secondary_target_obj = NodePath("../Locked_Door5")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="Animation_Player_Trigger3" parent="." unique_id=1813940105 instance=ExtResource("12_3hkhy")]
+position = Vector2(496, 80)
+scale = Vector2(1.6, 1)
+secondary_target_obj = NodePath("../Locked_Door6")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="Locked_Door2" parent="." unique_id=789365186 instance=ExtResource("6_l8ao4")]
+position = Vector2(176, 160)
+
+[node name="Locked_Door3" parent="." unique_id=148357719 instance=ExtResource("6_l8ao4")]
+position = Vector2(176, 64)
+
+[node name="Locked_Door4" parent="." unique_id=1014175535 instance=ExtResource("6_l8ao4")]
+position = Vector2(368, 160)
+
+[node name="Locked_Door5" parent="." unique_id=1475233229 instance=ExtResource("6_l8ao4")]
+position = Vector2(368, 64)
+
+[node name="Locked_Door6" parent="." unique_id=1350273956 instance=ExtResource("6_l8ao4")]
+position = Vector2(368, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1631918413]
+z_index = -100
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("13_7h0bj")

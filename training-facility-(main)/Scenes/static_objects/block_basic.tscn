@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://x4jvf58hr04l"]
+
+[ext_resource type="Texture2D" uid="uid://bxn1ychlqtw5j" path="res://Sprites/block_Basic.png" id="1_o1nnu"]
+[ext_resource type="Script" uid="uid://tbghb78gbisd" path="res://Scripts/Gameplay/block_basic.gd" id="1_thhfa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(28, 28)
+
+[node name="basic_block" type="StaticBody2D" unique_id=1529829761]
+script = ExtResource("1_thhfa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1881240302]
+texture = ExtResource("1_o1nnu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=146187622]
+shape = SubResource("RectangleShape2D_66j1p")

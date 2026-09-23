@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dchkj2iryhwc2"]
+
+[ext_resource type="Script" uid="uid://dyo50epdrklnr" path="res://Scripts/Gameplay/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://c4ar4d2a8oep1" path="res://Sprites/Nife but animated.png" id="1_v0iea"]
+[ext_resource type="Shader" uid="uid://cpd415jeuoln1" path="res://misc/b_and_w.tres" id="3_1lwia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0iea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66j1p"]
+shader = ExtResource("3_1lwia")
+shader_parameter/saturation = 1.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1162954615 groups=["player"]]
+collision_layer = 129
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1340236947]
+shape = SubResource("RectangleShape2D_66j1p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1065787229]
+sprite_frames = SubResource("SpriteFrames_v0iea")
+
+[node name="Timer" type="Timer" parent="." unique_id=1369256028]
+wait_time = 2.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1479846365]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2123310902]
+material = SubResource("ShaderMaterial_66j1p")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

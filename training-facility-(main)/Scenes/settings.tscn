@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://b5tedp7x2a7sn"]
+
+[ext_resource type="Script" uid="uid://c54jec8nnqm1" path="res://Scripts/misc/settings.gd" id="1_4geyq"]
+[ext_resource type="Material" uid="uid://ciylb51xi3ehl" path="res://misc/shader_hologram_preset.tres" id="1_lhmql"]
+[ext_resource type="Theme" uid="uid://cg11vqkqgh7yv" path="res://misc/settings_theme.tres" id="2_i44u3"]
+
+[node name="Settings" type="Control" unique_id=1254992528]
+material = ExtResource("1_lhmql")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4geyq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=984762832]
+use_parent_material = true
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 576.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1485367985]
+use_parent_material = true
+layout_mode = 2
+theme = ExtResource("2_i44u3")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=846555403]
+layout_mode = 2
+tooltip_text = "SOUND_TIP_TXT"
+mouse_filter = 0
+text = "SET_VOL_TXT"
+
+[node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=637102665]
+layout_mode = 2
+tooltip_text = "SOUND_TIP_TXT"
+max_value = 1.2
+step = 0.0
+value = 1.0
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1815364930]
+layout_mode = 2
+tooltip_text = "BRIGHTNESS_TIP_TXT"
+mouse_filter = 0
+text = "SET_BRG_TXT"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1729980168]
+layout_mode = 2
+tooltip_text = "BRIGHTNESS_TIP_TXT"
+
+[node name="Silly_Mode" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=1528031834]
+use_parent_material = true
+layout_mode = 2
+tooltip_text = "SILLY_MODE_TIP_TXT"
+text = "SET_SIL_TXT"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1064654040]
+layout_mode = 2
+tooltip_text = "RESPAWN_TIME_TIP_TXT"
+mouse_filter = 0
+text = "SET_DRT_TXT"
+
+[node name="Respawn_Time" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=817654091]
+layout_mode = 2
+tooltip_text = "RESPAWN_TIME_TIP_TXT"
+selected = 0
+item_count = 3
+popup/item_0/text = "Normal"
+popup/item_0/id = 0
+popup/item_1/text = "SET_DRT_F_TXT"
+popup/item_1/id = 1
+popup/item_2/text = "SET_DRT_I_TXT"
+popup/item_2/id = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1074705996]
+layout_mode = 2
+text = "SET_LNG_TXT"
+
+[node name="Translation" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=492018725]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Español"
+popup/item_1/id = 1
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Silly_Mode" to="." method="_on_silly_mode_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Respawn_Time" to="." method="_on_respawn_time_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Translation" to="." method="_on_option_button_item_selected"]

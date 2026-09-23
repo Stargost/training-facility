@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://bbumm80dxqh11"]
+
+[ext_resource type="Script" uid="uid://bk4rslqjea3x4" path="res://Scripts/Gameplay/electrical_barrier.gd" id="1_a5lnx"]
+[ext_resource type="Texture2D" uid="uid://dh1lcqhovq8f8" path="res://Sprites/electrical_barrier.png" id="1_sq7dm"]
+[ext_resource type="Script" uid="uid://cuialbacs873q" path="res://Scripts/Gameplay/electrical_arc.gd" id="3_8ef0x"]
+[ext_resource type="Shader" uid="uid://cygj0g40slr2t" path="res://Scenes/electrical_barrier.gdshader" id="4_5wrnr"]
+[ext_resource type="Texture2D" uid="uid://dkvui41od42x5" path="res://Sprites/electrical_arc.png" id="4_bpwqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5lnx"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ef0x"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpwqh"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wrnr"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iagip"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sk48"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdv2u"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mliw"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfp4v"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap7b2"]
+atlas = ExtResource("1_sq7dm")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66j1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5lnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ef0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpwqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wrnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iagip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sk48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdv2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mliw")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfp4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap7b2")
+}],
+"loop": 1,
+"name": &"firing",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ovlh"]
+size = Vector2(32, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpwqh"]
+shader = ExtResource("4_5wrnr")
+shader_parameter/current_frame = 0
+shader_parameter/total_frames = 4
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p2uyn"]
+resource_local_to_scene = true
+
+[node name="Electrical_Barrier" type="AnimatableBody2D" unique_id=1843936951]
+script = ExtResource("1_a5lnx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1244216686]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_66j1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1401369607]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_7ovlh")
+
+[node name="Timer" type="Timer" parent="." unique_id=1931947827]
+
+[node name="ElectricalArc" type="Node2D" parent="." unique_id=354281568]
+script = ExtResource("3_8ef0x")
+
+[node name="RayCast2D" type="RayCast2D" parent="ElectricalArc" unique_id=1331852983]
+collision_mask = 136
+collide_with_areas = true
+
+[node name="Line2D" type="Line2D" parent="ElectricalArc" unique_id=1191838361]
+z_index = -20
+texture_repeat = 2
+material = SubResource("ShaderMaterial_bpwqh")
+width = 32.0
+texture = ExtResource("4_bpwqh")
+texture_mode = 1
+
+[node name="Area2D" type="Area2D" parent="ElectricalArc" unique_id=1129273840]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElectricalArc/Area2D" unique_id=1655976224]
+shape = SubResource("SegmentShape2D_p2uyn")

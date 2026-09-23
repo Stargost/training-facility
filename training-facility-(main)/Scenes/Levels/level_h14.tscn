@@ -1,0 +1,168 @@
+[gd_scene format=4 uid="uid://dn7ux65kbffjp"]
+
+[ext_resource type="Script" uid="uid://cwoluovm33wpe" path="res://Scripts/UI/level_init_logic.gd" id="1_36p77"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="2_k6dff"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="3_fj44u"]
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_y21sj"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="5_brjot"]
+[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="6_e17xm"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="7_me8tb"]
+[ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="8_txuik"]
+[ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="9_561aw"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="10_133fp"]
+[ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="11_k6dff"]
+
+[sub_resource type="Animation" id="Animation_1rs5u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, 280)]
+}
+
+[sub_resource type="Animation" id="Animation_4lcd7"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(512, 280), Vector2(512, 88)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_637ar"]
+_data = {
+&"RESET": SubResource("Animation_1rs5u"),
+&"new_animation": SubResource("Animation_4lcd7")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_66j1p"]
+normal = Vector2(1, 0)
+
+[sub_resource type="Animation" id="Animation_36p77"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_k6dff"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(512, 80), Vector2(512, 280)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fj44u"]
+_data = {
+&"RESET": SubResource("Animation_36p77"),
+&"new_animation": SubResource("Animation_k6dff")
+}
+
+[node name="Node2D" type="Node2D" unique_id=806914523]
+script = ExtResource("1_36p77")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978499487]
+z_index = -100
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("10_133fp")
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("2_k6dff")]
+offset_left = 440.0
+offset_top = 32.0
+offset_right = 440.0
+offset_bottom = 32.0
+
+[node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("3_fj44u")]
+position = Vector2(528, 352)
+
+[node name="Player" parent="." unique_id=1162954615 instance=ExtResource("4_y21sj")]
+position = Vector2(48, 368)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994251467]
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("5_brjot")]
+position = Vector2(560, 352)
+scale = Vector2(1, 4)
+level_name = "h15"
+
+[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("6_e17xm")]
+position = Vector2(16, 352)
+
+[node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("7_me8tb")]
+position = Vector2(56, 64)
+
+[node name="Full_Tile" parent="." unique_id=1054679840 instance=ExtResource("8_txuik")]
+tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAABAAwAAgAAAAAAAAACAAwAAgAAAAAAAAADAAwAAgAAAAAAAAAEAAwAAgAAAAAAAAAFAAwAAgAAAAAAAAAGAAwAAgAAAAAAAAAHAAwAAgAAAAAAAAAIAAwAAgAAAAAAAAAJAAwAAgAAAAAAAAAKAAwAAgAAAAAAAAALAAwAAgAAAAAAAAAMAAwAAgAAAAAAAAANAAwAAgAAAAAAAAAOAAwAAgAAAAAAAAAPAAwAAgAAAAAAAAAQAAwAAgAAAAAAAAAQAAkAAgAAAAAAAAAQAAgAAgAAAAAAAAAQAAcAAgAAAAAAAAAQAAYAAgAAAAAAAAAQAAUAAgAAAAAAAAAQAAQAAgAAAAAAAAAQAAMAAgAAAAAAAAAQAAIAAgAAAAAAAAAQAAEAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAALAAsAAgAAAAAAAAALAAoAAgAAAAAAAAALAAkAAgAAAAAAAAALAAcAAgACAAAAAAALAAYAAgAAAAAAAAALAAMAAgAAAAAAAAALAAQAAgACAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAJAAYAAgAAAAAAAAAKAAYAAgAAAAAAAAAIAAYAAgAAAAAAAAAHAAYAAgAAAAAAAAAGAAYAAgAAAAAAAAAFAAYAAgAAAAAAAAAEAAYAAgAAAAAAAAADAAYAAgAAAAAAAAACAAYAAgAAAAAAAAAFAAkAAgAAAAAAAAAGAAkAAgAAAAAAAAAHAAkAAgAAAAAAAAAIAAkAAgAAAAAAAAAEAAkAAgAAAAAAAAADAAkAAgAAAAAAAAACAAkAAgAAAAAAAAABAAkAAgAAAAAAAAA=")
+
+[node name="Electrical_Barrier" parent="." unique_id=1843936951 instance=ExtResource("9_561aw")]
+position = Vector2(512, 280)
+rotation = 4.712389
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Electrical_Barrier" unique_id=184632194]
+libraries/ = SubResource("AnimationLibrary_637ar")
+autoplay = &"new_animation"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1226392178]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=990205804]
+shape = SubResource("WorldBoundaryShape2D_66j1p")
+
+[node name="Electrical_Barrier2" parent="." unique_id=119453091 instance=ExtResource("9_561aw")]
+position = Vector2(336, 32)
+rotation = 3.1415927
+is_not_continuous = true
+firing_time = 1.0
+recharge_time = 3.0
+
+[node name="Electrical_Barrier3" parent="." unique_id=1021009868 instance=ExtResource("9_561aw")]
+position = Vector2(512, 80)
+rotation = -1.5707964
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Electrical_Barrier3" unique_id=218869125]
+libraries/ = SubResource("AnimationLibrary_fj44u")
+autoplay = &"new_animation"
+
+[node name="Spike" parent="." unique_id=1905045532 instance=ExtResource("11_k6dff")]
+position = Vector2(400, 368)
+
+[node name="Spike2" parent="." unique_id=382172871 instance=ExtResource("11_k6dff")]
+position = Vector2(336, 368)
+
+[node name="Spike3" parent="." unique_id=284074494 instance=ExtResource("11_k6dff")]
+position = Vector2(432, 368)

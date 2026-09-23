@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://lewl06pui522"
+
+[deps]
+
+files=["res://misc/Localization.en.translation", "res://misc/Localization.es.translation"]
+
+source_file="res://misc/Localization.csv"
+dest_files=["res://misc/Localization.en.translation", "res://misc/Localization.es.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

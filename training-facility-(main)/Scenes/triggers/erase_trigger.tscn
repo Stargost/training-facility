@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bwojbwqqgxi1d"]
+
+[ext_resource type="Script" uid="uid://b6u5exryf7jlb" path="res://Scripts/triggers/erase_trigger.gd" id="1_7bka1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(16, 16)
+
+[node name="Erase_Trigger" type="Area2D" unique_id=2056073456]
+script = ExtResource("1_7bka1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1356195993]
+shape = SubResource("RectangleShape2D_66j1p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

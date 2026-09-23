@@ -1,0 +1,93 @@
+[gd_scene format=4 uid="uid://ckauujur1tq6"]
+
+[ext_resource type="Script" uid="uid://cwoluovm33wpe" path="res://Scripts/UI/level_init_logic.gd" id="1_keyqw"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="2_gsxik"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="3_3asqb"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="4_slbhm"]
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="5_i5g5g"]
+[ext_resource type="Texture2D" uid="uid://5k2p505cheqp" path="res://Sprites/block_tileset.png" id="6_3osng"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="7_eb4ip"]
+[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="8_ecora"]
+[ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="8_gsxik"]
+[ext_resource type="PackedScene" uid="uid://cr0hvxwqk7tgj" path="res://Scenes/animated_objects/platform.tscn" id="9_3asqb"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="11_3asqb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dpyx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3mqfk"]
+texture = ExtResource("6_3osng")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.941887, -14.030267, 14.008173, -13.986076, 14.006054, 14.006054, -13.963982, 13.963982)
+1:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-14, -14, 14, -14, 14, 14, -14, 14)
+1:1/0 = 0
+1:1/0/physics_layer_2/polygon_0/points = PackedVector2Array(-14, -14, 14, -14, 14, 14, -14, 14)
+
+[sub_resource type="TileSet" id="TileSet_iixi8"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_4dpyx")
+physics_layer_1/collision_layer = 1
+physics_layer_2/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3mqfk")
+
+[node name="Node2D" type="Node2D" unique_id=806914523]
+script = ExtResource("1_keyqw")
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("2_gsxik")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("4_slbhm")]
+position = Vector2(528, 352)
+
+[node name="Player" parent="." unique_id=1162954615 instance=ExtResource("5_i5g5g")]
+position = Vector2(48, 368)
+
+[node name="FullTile" type="TileMapLayer" parent="." unique_id=273119729]
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAABAAwAAAAAAAAAAAACAAwAAAAAAAAAAAADAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAFAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAHAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAJAAwAAAAAAAAAAAAKAAwAAAAAAAAAAAALAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAANAAwAAAAAAAAAAAAOAAwAAAAAAAAAAAAPAAwAAAAAAAAAAAAQAAwAAAAAAAAAAAAQAAkAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_iixi8")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994251467]
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("7_eb4ip")]
+position = Vector2(560, 352)
+scale = Vector2(1, 4)
+level_name = "5"
+
+[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("8_ecora")]
+position = Vector2(16, 352)
+
+[node name="Area2D" parent="." unique_id=618880321 instance=ExtResource("8_gsxik")]
+position = Vector2(208, 368)
+
+[node name="Area2D2" parent="." unique_id=1167259188 instance=ExtResource("8_gsxik")]
+position = Vector2(240, 368)
+
+[node name="Area2D3" parent="." unique_id=1984866317 instance=ExtResource("8_gsxik")]
+position = Vector2(272, 368)
+
+[node name="Area2D4" parent="." unique_id=769555805 instance=ExtResource("8_gsxik")]
+position = Vector2(304, 368)
+
+[node name="Area2D5" parent="." unique_id=450983588 instance=ExtResource("8_gsxik")]
+position = Vector2(176, 368)
+
+[node name="Area2D6" parent="." unique_id=350151964 instance=ExtResource("8_gsxik")]
+position = Vector2(336, 368)
+
+[node name="AnimatableBody2D2" parent="." unique_id=1055093209 instance=ExtResource("9_3asqb")]
+position = Vector2(256, 320)
+
+[node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("3_3asqb")]
+position = Vector2(392, 248)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1989832512]
+z_index = -10
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_3asqb")

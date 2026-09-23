@@ -1,0 +1,64 @@
+extends Control
+
+@onready var nine_slicy = $NinePatchRect
+@onready var button_new_game = $HBoxContainer/new_game
+@onready var button_load_game = $HBoxContainer/load_game
+@onready var button_difficulty_select = $OptionButton
+
+var shaderino = preload("res://misc/shader_hologram_preset_c.tres")
+var difficulty_selected: int
+var level_list: Dictionary
+var is_saved_level: bool
+
+func _ready() -> void:
+	var popup: PopupMenu = button_difficulty_select.get_popup()
+	popup.about_to_popup.connect(boutta_pop)
+
+func load_game(which_one: String):
+	var temp = which_one.find("_")
+	var pointer
+	if temp != -1:
+		pointer = which_one.substr(temp + 1)
+		pointer = level_list[pointer]
+	else:
+		pointer = which_one
+	get_tree().change_scene_to_file(pointer)
+
+func _on_visibility_changed() -> void:
+	var temp = GlobalBus.was_game_saved
+	
+	if GlobalBus.level_list.is_empty():
+		GlobalBus.scan_levels()
+	level_list = GlobalBus.level_list
+	
+	if temp == false:
+		load_game("Level_1")
+
+func _on_new_game_pressed() -> void:
+	match difficulty_selected:
+		null:
+			printerr("No difficulty?")
+		0:
+			SfxHandler.play_song("song_1.ogg")
+			load_game("Level_1")
+		1:
+			SfxHandler.play_song("song_1.ogg")
+			load_game("Level_h1")
+
+func _on_option_button_item_selected(index: int) -> void:
+	difficulty_selected = index
+
+func _on_load_game_pressed() -> void:
+	get_tree().change_scene_to_file(GlobalBus.last_level)
+
+func boutta_pop():
+	var popup: PopupMenu = button_difficulty_select.get_popup()
+	
+	for child in popup.get_children(true):
+		print(child)
+		if child is PanelContainer:
+			for grandchildren in child.find_children("*", "", true, false):
+				if "PopupMenuItems" in grandchildren.name:
+					grandchildren.material = shaderino
+			
+			child.material = shaderino

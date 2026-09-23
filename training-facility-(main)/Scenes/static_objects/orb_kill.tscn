@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://fxy1n3ivklfi"]
+
+[ext_resource type="Script" uid="uid://bn64qni3ot6h7" path="res://Scripts/Gameplay/obstacle_logic.gd" id="1_2rhjm"]
+[ext_resource type="Texture2D" uid="uid://y4tmaxognjrc" path="res://Sprites/kill_orb.png" id="1_npowx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66j1p"]
+radius = 12.0
+
+[node name="Orb_Kill" type="Area2D" unique_id=855291963 groups=["kill_obstacle"]]
+script = ExtResource("1_2rhjm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1144171787]
+texture = ExtResource("1_npowx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263950462]
+shape = SubResource("CircleShape2D_66j1p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

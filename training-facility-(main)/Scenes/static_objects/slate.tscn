@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cnli1n62egkvs"]
+
+[ext_resource type="Texture2D" uid="uid://cxaa1bf0dh0q6" path="res://Sprites/kill_slate.png" id="1_gnt26"]
+[ext_resource type="Script" uid="uid://bn64qni3ot6h7" path="res://Scripts/Gameplay/obstacle_logic.gd" id="1_i7gm8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(24, 8)
+
+[node name="Slate" type="Area2D" unique_id=618880321 groups=["kill_obstacle"]]
+script = ExtResource("1_i7gm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=833754862]
+texture = ExtResource("1_gnt26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365691158]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_66j1p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

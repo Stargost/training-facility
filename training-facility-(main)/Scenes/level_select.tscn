@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cw1yedrxmrkk6"]
+
+[ext_resource type="Texture2D" uid="uid://dyt8mxutsmhfu" path="res://Sprites/menu_9s_b.png" id="1_1fiak"]
+[ext_resource type="Script" uid="uid://citqq2yfwlxxf" path="res://Scripts/UI/level_select.gd" id="1_nkys2"]
+[ext_resource type="Material" uid="uid://ciylb51xi3ehl" path="res://misc/shader_hologram_preset.tres" id="2_2sqnl"]
+[ext_resource type="Theme" uid="uid://cg11vqkqgh7yv" path="res://misc/settings_theme.tres" id="3_lx4vd"]
+
+[node name="level_select" type="Control" unique_id=158348836]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nkys2")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2134008583]
+material = ExtResource("2_2sqnl")
+layout_mode = 0
+offset_right = 264.0
+offset_bottom = 152.0
+texture = ExtResource("1_1fiak")
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 14
+patch_margin_bottom = 14
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2106635661]
+material = ExtResource("2_2sqnl")
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 103.0
+offset_bottom = 51.000023
+offset_transform_enabled = true
+
+[node name="new_game" type="Button" parent="HBoxContainer" unique_id=836063215]
+layout_mode = 2
+theme = ExtResource("3_lx4vd")
+theme_override_font_sizes/font_size = 20
+text = "New Game"
+
+[node name="load_game" type="Button" parent="HBoxContainer" unique_id=2005463674]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(10, 0)
+offset_transform_visual_only = false
+theme = ExtResource("3_lx4vd")
+theme_override_font_sizes/font_size = 20
+text = "Load Game"
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=1690250505]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 104.0
+offset_right = 179.0
+offset_bottom = 135.0
+theme = ExtResource("3_lx4vd")
+selected = 0
+item_count = 2
+popup/item_0/text = "Normal"
+popup/item_0/id = 0
+popup/item_1/text = "Hard"
+popup/item_1/id = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="HBoxContainer/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="HBoxContainer/load_game" to="." method="_on_load_game_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

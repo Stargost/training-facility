@@ -1,0 +1,107 @@
+[gd_scene format=4 uid="uid://dp0i2df3l4pbq"]
+
+[ext_resource type="Script" uid="uid://cwoluovm33wpe" path="res://Scripts/UI/level_init_logic.gd" id="1_x4mkb"]
+[ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="2_6i1a6"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="3_eprqq"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="4_ufe5k"]
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="5_31ikm"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_13yla"]
+[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_j7c7t"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_5d8re"]
+[ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="9_1jf5t"]
+[ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="10_m3wbr"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="11_w0axs"]
+
+[node name="Node2D" type="Node2D" unique_id=806914523]
+script = ExtResource("1_x4mkb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1649788365]
+z_index = -10
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_w0axs")
+
+[node name="Full_Tile" parent="." unique_id=1054679840 instance=ExtResource("2_6i1a6")]
+tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAABAAwAAgAAAAAAAAACAAwAAgAAAAAAAAADAAwAAgAAAAAAAAAEAAwAAgAAAAAAAAAFAAwAAgAAAAAAAAAGAAwAAgAAAAAAAAAHAAwAAgAAAAAAAAAIAAwAAgAAAAAAAAAJAAwAAgAAAAAAAAAKAAwAAgAAAAAAAAALAAwAAgAAAAAAAAAMAAwAAgAAAAAAAAANAAwAAgAAAAAAAAAOAAwAAgAAAAAAAAAPAAwAAgAAAAAAAAAQAAwAAgAAAAAAAAAQAAkAAgAAAAAAAAAQAAgAAgAAAAAAAAAQAAcAAgAAAAAAAAAQAAYAAgAAAAAAAAAQAAUAAgAAAAAAAAAQAAQAAgAAAAAAAAAQAAMAAgAAAAAAAAAQAAIAAgAAAAAAAAAQAAEAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAAEAAkAAgAAAAAAAAAFAAkAAgAAAAAAAAAGAAkAAgAAAAAAAAAHAAkAAgAAAAAAAAAIAAkAAgAAAAAAAAAJAAkAAgAAAAAAAAAKAAkAAgAAAAAAAAALAAkAAgAAAAAAAAAMAAkAAgAAAAAAAAAMAAgAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAcAAgAAAAAAAAAOAAcAAgAAAAAAAAAPAAcAAgAAAAAAAAAMAAYAAgAAAAAAAAAMAAUAAgAAAAAAAAAMAAQAAgAAAAAAAAALAAMAAgAAAAAAAAAKAAIAAgAAAAAAAAAJAAIAAgAAAAAAAAAIAAIAAgAAAAAAAAAHAAIAAgAAAAAAAAAGAAIAAgAAAAAAAAAFAAIAAgAAAAAAAAAEAAIAAgAAAAAAAAADAAIAAgAAAAAAAAABAAUAAgAAAAAAAAACAAUAAgAAAAAAAAADAAUAAgAAAAAAAAAEAAUAAgAAAAAAAAAFAAUAAgAAAAAAAAAGAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAAIAAUAAgAAAAAAAAAJAAUAAgAAAAAAAAAKAAYAAgAAAAAAAAA=")
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("3_eprqq")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("4_ufe5k")]
+position = Vector2(528, 352)
+
+[node name="Player" parent="." unique_id=1162954615 instance=ExtResource("5_31ikm")]
+position = Vector2(48, 368)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994251467]
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("6_13yla")]
+position = Vector2(560, 352)
+scale = Vector2(1, 4)
+level_name = "h7"
+
+[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_j7c7t")]
+position = Vector2(16, 352)
+
+[node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_5d8re")]
+position = Vector2(464, 208)
+
+[node name="Spike" parent="." unique_id=1905045532 instance=ExtResource("9_1jf5t")]
+position = Vector2(208, 272)
+
+[node name="Spike3" parent="." unique_id=1681614329 instance=ExtResource("9_1jf5t")]
+position = Vector2(96, 368)
+
+[node name="Spike5" parent="." unique_id=717883358 instance=ExtResource("9_1jf5t")]
+position = Vector2(464, 368)
+
+[node name="Spike2" parent="." unique_id=681939825 instance=ExtResource("9_1jf5t")]
+position = Vector2(240, 272)
+
+[node name="Slate2" parent="." unique_id=1054638534 instance=ExtResource("10_m3wbr")]
+position = Vector2(48, 144)
+
+[node name="Slate11" parent="." unique_id=618880321 instance=ExtResource("10_m3wbr")]
+position = Vector2(176, 144)
+
+[node name="Slate12" parent="." unique_id=1876850089 instance=ExtResource("10_m3wbr")]
+position = Vector2(48, 80)
+rotation = 1.5707964
+
+[node name="Slate13" parent="." unique_id=1657519152 instance=ExtResource("10_m3wbr")]
+position = Vector2(272, 368)
+
+[node name="Slate10" parent="." unique_id=1074201761 instance=ExtResource("10_m3wbr")]
+position = Vector2(496, 112)
+rotation = -1.5707964
+
+[node name="Slate3" parent="." unique_id=1783629284 instance=ExtResource("10_m3wbr")]
+position = Vector2(496, 176)
+rotation = 4.712389
+
+[node name="Slate4" parent="." unique_id=973194381 instance=ExtResource("10_m3wbr")]
+position = Vector2(496, 144)
+rotation = 4.712389
+
+[node name="Slate5" parent="." unique_id=1852925580 instance=ExtResource("10_m3wbr")]
+position = Vector2(432, 176)
+rotation = 7.853982
+
+[node name="Slate8" parent="." unique_id=59936923 instance=ExtResource("10_m3wbr")]
+position = Vector2(432, 144)
+rotation = 7.853982
+
+[node name="Slate9" parent="." unique_id=1580014251 instance=ExtResource("10_m3wbr")]
+position = Vector2(368, 80)
+rotation = 7.853982
+
+[node name="Slate6" parent="." unique_id=512018354 instance=ExtResource("10_m3wbr")]
+position = Vector2(432, 208)
+rotation = 6.2831855
+
+[node name="Slate7" parent="." unique_id=1387597901 instance=ExtResource("10_m3wbr")]
+position = Vector2(496, 208)
+rotation = 6.2831855

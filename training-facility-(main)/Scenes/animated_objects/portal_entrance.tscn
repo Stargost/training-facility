@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://musacneqt1st"]
+
+[ext_resource type="Script" uid="uid://bxhecatmgpa7o" path="res://Scripts/Gameplay/portal.gd" id="1_2i1gt"]
+[ext_resource type="Texture2D" uid="uid://vfkfhhds0re6" path="res://Sprites/portal.png" id="2_2i1gt"]
+
+[sub_resource type="Animation" id="Animation_2i1gt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.1415927]
+}
+
+[sub_resource type="Animation" id="Animation_pn0j0"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.1415927, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dvuxf"]
+_data = {
+&"RESET": SubResource("Animation_2i1gt"),
+&"spin": SubResource("Animation_pn0j0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ovlh"]
+size = Vector2(32, 32)
+
+[node name="Portal_Entrance" type="Area2D" unique_id=1077477323]
+script = ExtResource("1_2i1gt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1589173257]
+z_index = -1
+rotation = 3.1415927
+texture = ExtResource("2_2i1gt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=320823597]
+libraries/ = SubResource("AnimationLibrary_dvuxf")
+autoplay = &"spin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030449469]
+shape = SubResource("RectangleShape2D_7ovlh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

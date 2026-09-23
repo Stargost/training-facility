@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dw7qncunxhxdd"]
+
+[ext_resource type="Script" uid="uid://dj3suyqerlenj" path="res://Scripts/Gameplay/locked_hatch.gd" id="1_xxe7a"]
+[ext_resource type="Texture2D" uid="uid://dlb6nr6ik86cg" path="res://Sprites/hatch.png" id="2_7ildy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n3di"]
+atlas = ExtResource("2_7ildy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds7cv"]
+atlas = ExtResource("2_7ildy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwwey"]
+atlas = ExtResource("2_7ildy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr0d7"]
+atlas = ExtResource("2_7ildy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odtxb"]
+atlas = ExtResource("2_7ildy")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7x1g"]
+atlas = ExtResource("2_7ildy")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr331"]
+atlas = ExtResource("2_7ildy")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glwvf"]
+atlas = ExtResource("2_7ildy")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66j1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n3di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds7cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwwey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr0d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odtxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7x1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr331")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glwvf")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ovlh"]
+size = Vector2(28, 28)
+
+[node name="locked_hatch" type="StaticBody2D" unique_id=1288975389]
+collision_layer = 9
+script = ExtResource("1_xxe7a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1085439130]
+sprite_frames = SubResource("SpriteFrames_66j1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1956154312]
+shape = SubResource("RectangleShape2D_7ovlh")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

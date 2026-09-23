@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bw6wkt83kshht"]
+
+[ext_resource type="Script" uid="uid://bn64qni3ot6h7" path="res://Scripts/Gameplay/obstacle_logic.gd" id="1_1hotg"]
+[ext_resource type="Texture2D" uid="uid://bqi7x47targl" path="res://Sprites/spike.png" id="1_cdj5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(14, 19)
+
+[node name="Spike" type="Area2D" unique_id=1905045532]
+script = ExtResource("1_1hotg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=744096257]
+texture = ExtResource("1_cdj5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2132655819]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_66j1p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

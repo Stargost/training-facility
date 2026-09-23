@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://br82f42bs8lge"]
+
+[ext_resource type="Texture2D" uid="uid://h5ljqshn6dhn" path="res://Sprites/anim_cutscene/bg_a_closed.png" id="1_7sdav"]
+[ext_resource type="Texture2D" uid="uid://kj4fpb60i2pb" path="res://Sprites/anim_cutscene/nife_big_body.png" id="1_vl1b8"]
+[ext_resource type="Script" uid="uid://botopjpiw7y2m" path="res://Scripts/misc/anim_director.gd" id="1_we86d"]
+[ext_resource type="Texture2D" uid="uid://beou2h2ry82wj" path="res://Sprites/anim_cutscene/bg_a_open.png" id="2_812s3"]
+[ext_resource type="Texture2D" uid="uid://ccw0lucwqjxsw" path="res://Sprites/anim_cutscene/nife_big_face_a.png" id="2_we86d"]
+[ext_resource type="Texture2D" uid="uid://b87ve6v0p2l2q" path="res://Sprites/anim_cutscene/nife_big_face_b.png" id="3_ipmvj"]
+[ext_resource type="Texture2D" uid="uid://boi8cmhxldg3d" path="res://Sprites/anim_cutscene/bg_b.png" id="3_tsh28"]
+[ext_resource type="Texture2D" uid="uid://bdeqvhvvaof6c" path="res://Sprites/anim_cutscene/base_left.png" id="4_7bec0"]
+[ext_resource type="Texture2D" uid="uid://dfeqhycqb1hdc" path="res://Sprites/anim_cutscene/base_right.png" id="5_o8fu8"]
+[ext_resource type="Texture2D" uid="uid://d3qog20d8dc07" path="res://Sprites/anim_cutscene/hand_cutscene_a.png" id="6_b8msx"]
+[ext_resource type="Texture2D" uid="uid://16vcocrm0ocf" path="res://Sprites/anim_cutscene/lever.png" id="7_qlabx"]
+[ext_resource type="Texture2D" uid="uid://i735nosgmkg2" path="res://Sprites/anim_cutscene/hand_cutscene_b.png" id="8_gtuaw"]
+[ext_resource type="Texture2D" uid="uid://dd17d1tjvubuk" path="res://Sprites/anim_cutscene/eye_full.svg" id="9_vymm4"]
+[ext_resource type="Texture2D" uid="uid://dvpladae8wxxr" path="res://Sprites/anim_cutscene/body.png" id="10_lltyd"]
+[ext_resource type="Texture2D" uid="uid://kcdjpb6vjkte" path="res://Sprites/anim_cutscene/eye_half.svg" id="11_w335c"]
+[ext_resource type="Texture2D" uid="uid://dwabqiivhih0u" path="res://Sprites/anim_cutscene/body_b.png" id="12_vpjxc"]
+[ext_resource type="Texture2D" uid="uid://fqvim3x2woir" path="res://Sprites/anim_cutscene/bg_c.png" id="15_k46r8"]
+
+[sub_resource type="Animation" id="Animation_we86d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ipmvj"]
+resource_name = "fade"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.19607843)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7bec0"]
+_data = {
+&"RESET": SubResource("Animation_we86d"),
+&"fade": SubResource("Animation_ipmvj")
+}
+
+[node name="anim_director" type="Node2D" unique_id=2071360597]
+script = ExtResource("1_we86d")
+
+[node name="nife" type="Node2D" parent="." unique_id=491810590]
+visible = false
+
+[node name="nife_body" type="Sprite2D" parent="nife" unique_id=1001787283]
+texture = ExtResource("1_vl1b8")
+
+[node name="nife_eyes_1" type="Sprite2D" parent="nife" unique_id=1232182156]
+texture = ExtResource("2_we86d")
+
+[node name="nife_eyes_2" type="Sprite2D" parent="nife" unique_id=730285513]
+texture = ExtResource("3_ipmvj")
+
+[node name="lever" type="Node2D" parent="." unique_id=195914703]
+visible = false
+
+[node name="base_left" type="Sprite2D" parent="lever" unique_id=1255401198]
+texture = ExtResource("4_7bec0")
+
+[node name="base_right" type="Sprite2D" parent="lever" unique_id=1111572898]
+texture = ExtResource("5_o8fu8")
+
+[node name="hand_a" type="Sprite2D" parent="lever" unique_id=447329316]
+texture = ExtResource("6_b8msx")
+
+[node name="lever_pivot" type="Node2D" parent="lever" unique_id=835948102]
+
+[node name="lever_handle" type="Sprite2D" parent="lever/lever_pivot" unique_id=135966261]
+texture = ExtResource("7_qlabx")
+
+[node name="hand_b" type="Sprite2D" parent="lever/lever_pivot" unique_id=1455093290]
+texture = ExtResource("8_gtuaw")
+
+[node name="scientist_a" type="Node2D" parent="." unique_id=1235558331]
+
+[node name="head" type="Sprite2D" parent="scientist_a" unique_id=1969712070]
+self_modulate = Color(0.023529412, 0, 0, 1)
+z_index = 3
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(214, 232)
+scale = Vector2(3.317073, 3.317073)
+texture = ExtResource("9_vymm4")
+
+[node name="body" type="Sprite2D" parent="scientist_a" unique_id=1870368364]
+z_index = 2
+position = Vector2(262, 452)
+texture = ExtResource("10_lltyd")
+
+[node name="eye_left" type="Sprite2D" parent="scientist_a" unique_id=578488913]
+z_index = 3
+position = Vector2(190, 231.99998)
+scale = Vector2(0.58536583, 0.58536583)
+texture = ExtResource("9_vymm4")
+
+[node name="eye_right" type="Sprite2D" parent="scientist_a" unique_id=1236830089]
+z_index = 4
+position = Vector2(278, 231.99998)
+scale = Vector2(0.58536583, 0.58536583)
+texture = ExtResource("9_vymm4")
+
+[node name="eye_confused" type="Sprite2D" parent="scientist_a" unique_id=710997182]
+visible = false
+z_index = 3
+position = Vector2(280, 176.00002)
+scale = Vector2(1.1445575, 1.1445575)
+texture = ExtResource("11_w335c")
+
+[node name="scientist_b" type="Node2D" parent="." unique_id=757600018]
+
+[node name="head" type="Sprite2D" parent="scientist_b" unique_id=1024111982]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 2
+position = Vector2(585, 232.80005)
+scale = Vector2(3.1219506, 3.1414647)
+texture = ExtResource("9_vymm4")
+
+[node name="body" type="Sprite2D" parent="scientist_b" unique_id=1324819744]
+z_index = 1
+position = Vector2(609, 452.80005)
+texture = ExtResource("12_vpjxc")
+
+[node name="eye_left" type="Sprite2D" parent="scientist_b" unique_id=663035632]
+z_index = 3
+position = Vector2(521, 224.80005)
+texture = ExtResource("11_w335c")
+
+[node name="eye_right" type="Sprite2D" parent="scientist_b" unique_id=2108443145]
+z_index = 3
+position = Vector2(601, 224.80005)
+texture = ExtResource("11_w335c")
+
+[node name="backgrounds" type="Node2D" parent="." unique_id=77901270]
+
+[node name="bg_nife_1" type="Sprite2D" parent="backgrounds" unique_id=1419827361]
+visible = false
+position = Vector2(400, 304)
+texture = ExtResource("1_7sdav")
+
+[node name="bg_nife_2" type="Sprite2D" parent="backgrounds" unique_id=858584163]
+visible = false
+position = Vector2(400, 304)
+texture = ExtResource("2_812s3")
+
+[node name="bg_scientists" type="Sprite2D" parent="backgrounds" unique_id=1841460433]
+position = Vector2(400, 304)
+texture = ExtResource("15_k46r8")
+
+[node name="bg_lever" type="Sprite2D" parent="backgrounds" unique_id=630405346]
+visible = false
+position = Vector2(400, 304)
+texture = ExtResource("3_tsh28")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=79224737]
+z_index = 999
+offset_right = 800.0
+offset_bottom = 608.0
+color = Color(0, 0, 0, 1)
+
+[node name="fade_anim" type="AnimationPlayer" parent="ColorRect" unique_id=241281739]
+libraries/ = SubResource("AnimationLibrary_7bec0")
+autoplay = &"fade"

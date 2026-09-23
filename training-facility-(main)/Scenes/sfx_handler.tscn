@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dkb10b7qlkxav"]
+
+[ext_resource type="Script" uid="uid://bavc6galy6krn" path="res://Scripts/misc/sfx_handler.gd" id="1_ifajo"]
+[ext_resource type="AudioStream" uid="uid://c0wghc8l73mxj" path="res://Music/menu.ogg" id="2_fo5oc"]
+
+[node name="SFX_HANDLER" type="Node" unique_id=601330257]
+script = ExtResource("1_ifajo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2041424281]
+max_polyphony = 10
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1364640851]
+max_polyphony = 10
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." unique_id=458841885]
+stream = ExtResource("2_fo5oc")
+
+[node name="special_channel" type="AudioStreamPlayer" parent="." unique_id=1105997297]
+
+[connection signal="finished" from="AudioStreamPlayer3" to="." method="_on_audio_stream_player_3_finished"]

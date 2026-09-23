@@ -1,0 +1,151 @@
+[gd_scene format=4 uid="uid://beil0b0p04ye0"]
+
+[ext_resource type="Script" uid="uid://cwoluovm33wpe" path="res://Scripts/UI/level_init_logic.gd" id="1_brw0d"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="2_x374x"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="3_rw1qq"]
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_xds37"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="5_tpubd"]
+[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="6_itj3h"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="7_xa4ja"]
+[ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="8_44lj4"]
+[ext_resource type="PackedScene" uid="uid://regeh7d22uga" path="res://Scenes/animated_objects/spinning_barrier.tscn" id="9_aq4nc"]
+[ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="10_wmk2a"]
+[ext_resource type="PackedScene" uid="uid://862572ntvimn" path="res://Scenes/animated_objects/button.tscn" id="11_gkr60"]
+[ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="12_2h3y6"]
+[ext_resource type="PackedScene" uid="uid://dw7qncunxhxdd" path="res://Scenes/animated_objects/locked_hatch.tscn" id="13_6s40n"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="14_8ykwk"]
+
+[node name="Node2D" type="Node2D" unique_id=806914523]
+script = ExtResource("1_brw0d")
+target_res = Vector2(800, 608)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=439982477]
+z_index = -100
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("14_8ykwk")
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("2_x374x")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("3_rw1qq")]
+position = Vector2(784, 544)
+
+[node name="Player" parent="." unique_id=1162954615 instance=ExtResource("4_xds37")]
+position = Vector2(48, 560)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994251467]
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("5_tpubd")]
+position = Vector2(816, 544)
+scale = Vector2(1, 4)
+level_name = "h16"
+
+[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("6_itj3h")]
+position = Vector2(16, 544)
+
+[node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("7_xa4ja")]
+position = Vector2(48, 368)
+
+[node name="Full_Tile" parent="." unique_id=1054679840 instance=ExtResource("8_44lj4")]
+tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAAAAA0AAgAAAAAAAAAAAA4AAgAAAAAAAAAAAA8AAgAAAAAAAAAAABIAAgAAAAAAAAABABIAAgAAAAAAAAACABIAAgAAAAAAAAADABIAAgAAAAAAAAAEABIAAgAAAAAAAAAFABIAAgAAAAAAAAAGABIAAgAAAAAAAAAHABIAAgAAAAAAAAAIABIAAgAAAAAAAAAJABIAAgAAAAAAAAAKABIAAgAAAAAAAAALABIAAgAAAAAAAAAMABIAAgAAAAAAAAANABIAAgAAAAAAAAAOABIAAgAAAAAAAAAPABIAAgAAAAAAAAAQABIAAgAAAAAAAAARABIAAgAAAAAAAAASABIAAgAAAAAAAAATABIAAgAAAAAAAAAUABIAAgAAAAAAAAAVABIAAgAAAAAAAAAWABIAAgAAAAAAAAAXABIAAgAAAAAAAAAYABIAAgAAAAAAAAAYAA8AAgAAAAAAAAAYAA4AAgAAAAAAAAAYAA0AAgAAAAAAAAAYAAwAAgAAAAAAAAAYAAsAAgAAAAAAAAAYAAoAAgAAAAAAAAAYAAkAAgAAAAAAAAAYAAgAAgAAAAAAAAAYAAcAAgAAAAAAAAAYAAYAAgAAAAAAAAAYAAUAAgAAAAAAAAAYAAQAAgAAAAAAAAAYAAMAAgAAAAAAAAAYAAIAAgAAAAAAAAAXAAAAAgAAAAAAAAAYAAAAAgAAAAAAAAAYAAEAAgAAAAAAAAAWAAAAAgAAAAAAAAAVAAAAAgAAAAAAAAAUAAAAAgAAAAAAAAATAAAAAgAAAAAAAAASAAAAAgAAAAAAAAARAAAAAgAAAAAAAAAAAAoAAgAAAAAAAAAAAAsAAgAAAAAAAAACAAkAAgACAAAAAAACAAMAAgACAAAAAAACAAoAAgACAAAAAAACAAQAAgACAAAAAAACAAUAAgACAAAAAAACAAYAAgACAAAAAAACAAcAAgACAAAAAAACAAgAAgACAAAAAAAFAA8AAgACAAAAAAAGAA8AAgACAAAAAAAHAA8AAgACAAAAAAAIAA8AAgACAAAAAAAJAA8AAgACAAAAAAAKAA8AAgACAAAAAAALAA8AAgACAAAAAAAMAA8AAgACAAAAAAANAA8AAgACAAAAAAAOAA8AAgACAAAAAAAPAA8AAgACAAAAAAAQAA8AAgACAAAAAAARAA8AAgACAAAAAAASAA8AAgACAAAAAAATAA8AAgACAAAAAAAUAA8AAgACAAAAAAAVAA8AAgACAAAAAAAVAA4AAgACAAAAAAAVAA0AAgACAAAAAAAVAAwAAgACAAAAAAAVAAsAAgACAAAAAAAVAAoAAgACAAAAAAAVAAkAAgACAAAAAAAVAAgAAgACAAAAAAAVAAcAAgACAAAAAAAVAAYAAgACAAAAAAAVAAUAAgACAAAAAAAVAAQAAgACAAAAAAAFAAQAAgACAAAAAAAFAAMAAgACAAAAAAAFAAIAAgACAAAAAAAFAAEAAgACAAAAAAAUAAkAAgACAAAAAAATAAkAAgACAAAAAAASAAkAAgACAAAAAAASAAgAAgACAAAAAAARAAkAAgACAAAAAAAQAAkAAgACAAAAAAANAAoAAgACAAAAAAAMAAoAAgACAAAAAAALAAoAAgACAAAAAAALAAkAAgACAAAAAAALAAgAAgACAAAAAAANAAgAAgACAAAAAAANAAkAAgACAAAAAAALAAwAAgACAAAAAAANAAwAAgACAAAAAAAOAAwAAgACAAAAAAAPAAwAAgACAAAAAAAQAAwAAgACAAAAAAARAAwAAgACAAAAAAASAAwAAgACAAAAAAATAAwAAgACAAAAAAAPAA4AAgACAAAAAAAKAA4AAgACAAAAAAADAAcAAgACAAAAAAAEAAQAAgACAAAAAAAWAA8AAgACAAAAAAAXAAwAAgACAAAAAAAWAAkAAgACAAAAAAAXAAYAAgACAAAAAAAUAAQAAgACAAAAAAATAAQAAgACAAAAAAASAAQAAgACAAAAAAARAAQAAgACAAAAAAAQAAQAAgACAAAAAAAPAAQAAgACAAAAAAAOAAQAAgACAAAAAAANAAQAAgACAAAAAAAMAAQAAgACAAAAAAALAAQAAgACAAAAAAAKAAQAAgACAAAAAAAJAAQAAgACAAAAAAAIAAQAAgACAAAAAAAHAAQAAgACAAAAAAAEAA8AAgACAAAAAAADAA8AAgACAAAAAAACAA8AAgACAAAAAAACAA4AAgACAAAAAAACAA0AAgACAAAAAAACAAwAAgACAAAAAAACAAsAAgACAAAAAAAHAAcAAgACAAAAAAAFAAcAAgACAAAAAAAEAAcAAgACAAAAAAAHAAgAAgACAAAAAAAHAAkAAgACAAAAAAAEAAoAAgACAAAAAAAEAAsAAgACAAAAAAAEAAwAAgACAAAAAAAHAAwAAgACAAAAAAAHAAsAAgACAAAAAAAHAAoAAgACAAAAAAAFAAoAAgACAAAAAAAGAAoAAgACAAAAAAAEAAkAAgACAAAAAAAJAAwAAgACAAAAAAALAAcAAgACAAAAAAANAAcAAgACAAAAAAAIAAcAAgACAAAAAAAOAAcAAgACAAAAAAAQAAYAAgACAAAAAAARAAYAAgACAAAAAAASAAYAAgACAAAAAAATAAYAAgACAAAAAAAPAAYAAgACAAAAAAAOAAYAAgACAAAAAAAMAAcAAgACAAAAAAAMAAgAAgACAAAAAAAIAAwAAgACAAAAAAAKAAwAAgACAAAAAAAMAAwAAgACAAAAAAAKAAcAAgACAAAAAAA=")
+
+[node name="spinning_barrier" parent="." unique_id=62996160 instance=ExtResource("9_aq4nc")]
+position = Vector2(400, 304)
+spinning = -0.5
+
+[node name="spinning_barrier2" parent="." unique_id=1303275377 instance=ExtResource("9_aq4nc")]
+position = Vector2(400, 304)
+rotation = 3.1415927
+spinning = -0.5
+
+[node name="spinning_barrier3" parent="." unique_id=1524592917 instance=ExtResource("9_aq4nc")]
+position = Vector2(400, 304)
+rotation = 1.5707964
+spinning = -0.5
+
+[node name="spinning_barrier4" parent="." unique_id=387212138 instance=ExtResource("9_aq4nc")]
+position = Vector2(400, 304)
+rotation = 4.712389
+spinning = -0.5
+
+[node name="Slate" parent="." unique_id=618880321 instance=ExtResource("10_wmk2a")]
+position = Vector2(496, 112)
+
+[node name="Slate8" parent="." unique_id=979368009 instance=ExtResource("10_wmk2a")]
+position = Vector2(656, 112)
+
+[node name="Slate2" parent="." unique_id=1184195977 instance=ExtResource("10_wmk2a")]
+position = Vector2(624, 112)
+
+[node name="Slate3" parent="." unique_id=870409194 instance=ExtResource("10_wmk2a")]
+position = Vector2(240, 112)
+
+[node name="Slate9" parent="." unique_id=905112811 instance=ExtResource("10_wmk2a")]
+position = Vector2(272, 112)
+
+[node name="Slate11" parent="." unique_id=2026607395 instance=ExtResource("10_wmk2a")]
+position = Vector2(464, 112)
+
+[node name="Button" parent="." unique_id=558707054 instance=ExtResource("11_gkr60")]
+position = Vector2(304, 368)
+is_permanent = true
+
+[node name="Locked_Door2" parent="." unique_id=789365186 instance=ExtResource("6_itj3h")]
+position = Vector2(176, 192)
+
+[node name="Locked_Door3" parent="." unique_id=1639037841 instance=ExtResource("6_itj3h")]
+position = Vector2(240, 192)
+
+[node name="Animation_Player_Trigger" parent="." unique_id=551138947 instance=ExtResource("12_2h3y6")]
+position = Vector2(304, 367)
+scale = Vector2(1.7, 1)
+secondary_target_obj = NodePath("../locked_hatch")
+secondary_obj_animation = "default"
+is_single_use = true
+play_reversed = true
+
+[node name="Animation_Player_Trigger2" parent="." unique_id=1121732644 instance=ExtResource("12_2h3y6")]
+position = Vector2(304, 367)
+scale = Vector2(1.7, 1)
+secondary_target_obj = NodePath("../locked_hatch2")
+secondary_obj_animation = "default"
+is_single_use = true
+play_reversed = true
+
+[node name="Animation_Player_Trigger3" parent="." unique_id=1440921084 instance=ExtResource("12_2h3y6")]
+position = Vector2(304, 367)
+scale = Vector2(1.7, 1)
+secondary_target_obj = NodePath("../Locked_Door3")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="Animation_Player_Trigger4" parent="." unique_id=690356570 instance=ExtResource("12_2h3y6")]
+position = Vector2(304, 367)
+scale = Vector2(1.7, 1)
+secondary_target_obj = NodePath("../Locked_Door2")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="locked_hatch" parent="." unique_id=1288975389 instance=ExtResource("13_6s40n")]
+position = Vector2(304, 240)
+start_open = true
+
+[node name="locked_hatch2" parent="." unique_id=616031230 instance=ExtResource("13_6s40n")]
+position = Vector2(208, 240)
+start_open = true
+
+[node name="Slate4" parent="." unique_id=1874689181 instance=ExtResource("10_wmk2a")]
+position = Vector2(464, 336)
+rotation = 1.5707964
+
+[node name="Slate5" parent="." unique_id=530840756 instance=ExtResource("10_wmk2a")]
+position = Vector2(464, 304)
+rotation = 1.5707964
+
+[node name="Slate6" parent="." unique_id=1043711883 instance=ExtResource("10_wmk2a")]
+position = Vector2(464, 272)
+rotation = 1.5707964

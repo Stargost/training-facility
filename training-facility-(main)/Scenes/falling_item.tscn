@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://drhtq2q1w7el4"]
+
+[ext_resource type="Script" uid="uid://bwjp7vudipcle" path="res://Scripts/UI/falling_item.gd" id="1_ddqyc"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=594292729]
+z_index = -2
+region_rect = Rect2(0, 0, 32, 32)
+script = ExtResource("1_ddqyc")

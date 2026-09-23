@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://862572ntvimn"]
+
+[ext_resource type="Script" uid="uid://cxon5i2jj1tcp" path="res://Scripts/Gameplay/button.gd" id="1_bvjlm"]
+[ext_resource type="Texture2D" uid="uid://cxhs1ea10ki35" path="res://Sprites/button.png" id="2_0xy43"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06j5f"]
+atlas = ExtResource("2_0xy43")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1yi8"]
+atlas = ExtResource("2_0xy43")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66j1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06j5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1yi8")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ovlh"]
+size = Vector2(26, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(32, 14)
+
+[node name="Button" type="Area2D" unique_id=558707054]
+script = ExtResource("1_bvjlm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638681324]
+sprite_frames = SubResource("SpriteFrames_66j1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1454780432]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_7ovlh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=477429041]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2140461613]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_66j1p")
+
+[node name="Timer" type="Timer" parent="." unique_id=1454325559]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

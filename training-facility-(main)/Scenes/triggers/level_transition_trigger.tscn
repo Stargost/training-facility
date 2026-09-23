@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://q500wm80fwrf"]
+
+[ext_resource type="Script" uid="uid://cyulr1c8imlit" path="res://Scripts/triggers/level_transition_trigger.gd" id="1_pwabs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(16, 16)
+
+[node name="level_transition_trigger" type="Area2D" unique_id=1840140373]
+script = ExtResource("1_pwabs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326481566]
+shape = SubResource("RectangleShape2D_66j1p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

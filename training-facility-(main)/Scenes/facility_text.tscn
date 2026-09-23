@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dk8wmjqm1pxbd"]
+
+[ext_resource type="Script" uid="uid://bfqoda5i2g82v" path="res://Scripts/UI/facility_text.gd" id="1_sjry0"]
+[ext_resource type="Texture2D" uid="uid://c47jp3nii3ggj" path="res://Sprites/menu_9s.png" id="2_7a3en"]
+[ext_resource type="FontFile" uid="uid://c5fg0ady1rbd" path="res://misc/VCR_OSD_MONO_1.001.ttf" id="3_o46f1"]
+
+[node name="facility_text" type="Control" unique_id=1431093245]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjry0")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1675565825]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_7a3en")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect" unique_id=1354210103]
+texture_filter = 1
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_fonts/normal_font = ExtResource("3_o46f1")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

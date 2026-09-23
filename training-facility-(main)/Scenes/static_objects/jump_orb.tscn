@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cnflv8i7tlhtc"]
+
+[ext_resource type="Script" uid="uid://cljyexnneeuol" path="res://Scripts/Gameplay/jump_orb.gd" id="1_w1qc6"]
+[ext_resource type="Texture2D" uid="uid://c51qhojarser8" path="res://Sprites/jump_orb.png" id="2_sofbd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(32, 32)
+
+[node name="jump_orb" type="Area2D" unique_id=36542895 groups=["orber"]]
+z_index = -1
+script = ExtResource("1_w1qc6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=332852442]
+texture = ExtResource("2_sofbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1136664211]
+shape = SubResource("RectangleShape2D_66j1p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
