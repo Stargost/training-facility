@@ -57,7 +57,7 @@ text = "SET_SIL_TXT"
 [node name="Cutscene_Toggle" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=23255539]
 use_parent_material = true
 layout_mode = 2
-tooltip_text = "START_CUTSENE_TIP_TXT"
+tooltip_text = "START_CUTSCENE_TIP_TXT"
 text = "SET_STC_TXT"
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1064654040]

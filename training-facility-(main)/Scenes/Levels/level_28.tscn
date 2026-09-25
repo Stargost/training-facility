@@ -94,6 +94,9 @@ _data = {
 &"new_animation": SubResource("Animation_c2h30")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(64, 16)
+
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_g3ey2")
 target_res = Vector2(800, 608)
@@ -199,3 +202,10 @@ start_off = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Electrical_Barrier" unique_id=677421161]
 libraries/ = SubResource("AnimationLibrary_46lh1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1293885658]
+collision_layer = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1834738894]
+position = Vector2(752, 496)
+shape = SubResource("RectangleShape2D_66j1p")
