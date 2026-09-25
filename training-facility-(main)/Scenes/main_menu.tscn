@@ -94,7 +94,6 @@ offset_right = 88.0
 offset_bottom = 608.0
 
 [node name="level_select" parent="." unique_id=158348836 instance=ExtResource("10_16hvj")]
-visible = false
 material = ExtResource("3_vr1f0")
 offset_left = 264.0
 offset_top = 136.0

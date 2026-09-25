@@ -54,6 +54,12 @@ layout_mode = 2
 tooltip_text = "SILLY_MODE_TIP_TXT"
 text = "SET_SIL_TXT"
 
+[node name="Cutscene_Toggle" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=23255539]
+use_parent_material = true
+layout_mode = 2
+tooltip_text = "START_CUTSENE_TIP_TXT"
+text = "SET_STC_TXT"
+
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1064654040]
 layout_mode = 2
 tooltip_text = "RESPAWN_TIME_TIP_TXT"
@@ -88,5 +94,6 @@ popup/item_1/id = 1
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Silly_Mode" to="." method="_on_silly_mode_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Cutscene_Toggle" to="." method="_on_cutscene_toggle_toggled"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Respawn_Time" to="." method="_on_respawn_time_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Translation" to="." method="_on_option_button_item_selected"]

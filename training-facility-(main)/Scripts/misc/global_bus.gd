@@ -17,12 +17,14 @@ var volume_level: float = 1
 var brightness: float = 100
 # Miscellaneous
 var language_selected: String = "en"
+var enable_start_cutscene: bool = true
 
 # SAVE FILE VARIABLES
 # General
+var difficulty: String = "normal"
 var last_level: String 
 var game_won: bool = false
-var secret_ending: bool = false
+var game_won_on_hard: bool = false
 # Stats
 var post_reset_deaths: int = 0
 var total_deaths: int = 0
@@ -108,6 +110,7 @@ func save_configfile():
 	configuration.set_value("screen", "brightness", brightness)
 	# MISCELLANEOUS
 	configuration.set_value("miscellaneous", "language", language_selected)
+	configuration.set_value("miscellaneous", "enable_start_cutscene", enable_start_cutscene)
 	
 	configuration.save(save_path)
 
@@ -119,7 +122,7 @@ func save_savefile():
 	# GENERAL
 	save_file.set_value("general", "last_level", last_level)
 	save_file.set_value("general", "game_won", game_won)
-	save_file.set_value("general", "secret_ending", secret_ending)
+	save_file.set_value("general", "game_won_on_hard", game_won_on_hard)
 	# STATS
 	save_file.set_value("stats", "post_reset_deaths", post_reset_deaths)
 	save_file.set_value("stats", "total_deaths", total_deaths)
@@ -135,11 +138,17 @@ func load_configfile():
 	if err != OK:
 		return
 	
-	silly_mode = configuration.get_value("gameplay", "silly_mode")
-	respawn_speed = configuration.get_value("gameplay", "respawn_speed")
-	volume_level = configuration.get_value("audio", "volume_level")
-	brightness = configuration.get_value("screen", "brightness")
-	language_selected = configuration.get_value("miscellaneous", "language")
+	# GAMEPLAY
+	silly_mode = configuration.get_value("gameplay", "silly_mode", false)
+	respawn_speed = configuration.get_value("gameplay", "respawn_speed", 0)
+	# AUDIO
+	volume_level = configuration.get_value("audio", "volume_level", 1)
+	# SCREEN
+	brightness = configuration.get_value("screen", "brightness", 100)
+	# MISCELLANEOUS
+	language_selected = configuration.get_value("miscellaneous", "language", "en")
+	enable_start_cutscene = configuration.get_value("miscellaneous", "enable_start_cutscene", true)
+	
 	TranslationServer.set_locale(language_selected)
 
 func load_savefile():
@@ -151,14 +160,14 @@ func load_savefile():
 		return
 	
 	# General
-	last_level = save_file.get_value("general", "last_level")
-	game_won = save_file.get_value("general", "game_won")
-	secret_ending = save_file.get_value("general", "secret_ending")
+	last_level = save_file.get_value("general", "last_level", "null")
+	game_won = save_file.get_value("general", "game_won", false)
+	game_won_on_hard = save_file.get_value("general", "game_won_on_hard", false)
 	
 	# Stats
-	post_reset_deaths = save_file.get_value("stats", "post_reset_deaths")
-	total_deaths = save_file.get_value("stats", "total_deaths")
-	was_game_saved = save_file.get_value("stats", "was_game_saved")
+	post_reset_deaths = save_file.get_value("stats", "post_reset_deaths", 0)
+	total_deaths = save_file.get_value("stats", "total_deaths", 0)
+	was_game_saved = save_file.get_value("stats", "was_game_saved", false)
 
 func wipe_config_data(confirm: bool = false):
 	if confirm == true:
@@ -170,6 +179,7 @@ func wipe_config_data(confirm: bool = false):
 			return
 		
 		configuration.clear()
+		configuration.save("user://config.cfg")
 		print("Config data successfully cleared.")
 
 func wipe_save_data(confirm: bool = false):
@@ -182,4 +192,5 @@ func wipe_save_data(confirm: bool = false):
 			return
 		
 		savefile.clear()
+		savefile.save("user://save_file.cfg")
 		print("Save data successfully cleared.")

@@ -31,24 +31,36 @@ func _on_visibility_changed() -> void:
 		GlobalBus.scan_levels()
 	level_list = GlobalBus.level_list
 	
-	if temp == false:
-		load_game("Level_1")
+	if str(temp) == "false":
+		button_load_game.disabled = true
 
 func _on_new_game_pressed() -> void:
-	match difficulty_selected:
-		null:
-			printerr("No difficulty?")
-		0:
-			SfxHandler.play_song("song_1.ogg")
-			load_game("Level_1")
-		1:
-			SfxHandler.play_song("song_1.ogg")
-			load_game("Level_h1")
+	if GlobalBus.enable_start_cutscene == true:
+		SfxHandler.play_song("song_1.ogg", 0.0)
+		get_tree().change_scene_to_file("res://Scenes/start_cutscene.tscn")
+	else:
+		SfxHandler.play_song("song_1.ogg")
+		match GlobalBus.difficulty:
+			"normal":
+				get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
+			"hard":
+				get_tree().change_scene_to_file("res://Scenes/Levels/level_h1.tscn")
+			"null":
+				printerr("No difficulty?")
+				get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
 
 func _on_option_button_item_selected(index: int) -> void:
 	difficulty_selected = index
+	match index:
+		null:
+			printerr("No difficulty?")
+		0:
+			GlobalBus.difficulty = "normal"
+		1:
+			GlobalBus.difficulty = "hard"
 
 func _on_load_game_pressed() -> void:
+	SfxHandler.play_song("song_1.ogg")
 	get_tree().change_scene_to_file(GlobalBus.last_level)
 
 func boutta_pop():

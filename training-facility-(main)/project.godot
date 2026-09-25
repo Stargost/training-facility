@@ -86,7 +86,12 @@ move_down={
 
 [internationalization]
 
+locale/translation_remaps={
+"res://Sprites/anim_cutscene/clipboard_eng.png": PackedStringArray("res://Sprites/anim_cutscene/clipboard_esp.png:es"),
+"res://Sprites/anim_cutscene/clipboard_h_en.png": PackedStringArray("res://Sprites/anim_cutscene/clipboard_es_h.png:es")
+}
 locale/translations=PackedStringArray("res://misc/Localization.en.translation", "res://misc/Localization.es.translation")
+locale/locale_filter_mode=0
 
 [rendering]
 

@@ -30,8 +30,6 @@ func _ready() -> void:
 	GlobalBus.load_configfile()
 	GlobalBus.load_savefile()
 
-
-
 func _on_play_button_pressed() -> void:
 	level_submenu.visible = true
 	for i in buttons:

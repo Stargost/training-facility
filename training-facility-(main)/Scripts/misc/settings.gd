@@ -1,10 +1,11 @@
 extends Control
 
-@onready var volume_slider = $MarginContainer/VBoxContainer/Volume
-@onready var brightness_slider = $MarginContainer/VBoxContainer/HSlider
-@onready var silly_button = $MarginContainer/VBoxContainer/Silly_Mode
-@onready var respawn_options = $MarginContainer/VBoxContainer/Respawn_Time
-@onready var trans_options = $MarginContainer/VBoxContainer/Translation
+@onready var volume_slider := $MarginContainer/VBoxContainer/Volume
+@onready var brightness_slider := $MarginContainer/VBoxContainer/HSlider
+@onready var silly_button := $MarginContainer/VBoxContainer/Silly_Mode
+@onready var cutscene_toggle := $MarginContainer/VBoxContainer/Cutscene_Toggle
+@onready var respawn_options := $MarginContainer/VBoxContainer/Respawn_Time
+@onready var trans_options := $MarginContainer/VBoxContainer/Translation
 
 var shaderino := preload("res://misc/shader_hologram_preset_b.tres")
 
@@ -12,6 +13,7 @@ func _ready() -> void:
 	volume_slider.set_value_no_signal(GlobalBus.volume_level)
 	brightness_slider.set_value_no_signal(GlobalBus.brightness - 20)
 	silly_button.button_pressed = GlobalBus.silly_mode
+	cutscene_toggle.button_pressed = !GlobalBus.enable_start_cutscene
 	respawn_options.selected = GlobalBus.respawn_speed
 	if GlobalBus.language_selected == "en":
 		trans_options.selected = 0
@@ -73,3 +75,9 @@ func boutta_pop_b():
 					grandchildren.material = shaderino
 			
 			child.material = shaderino
+
+func _on_cutscene_toggle_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		GlobalBus.enable_start_cutscene = false
+	else:
+		GlobalBus.enable_start_cutscene = true
