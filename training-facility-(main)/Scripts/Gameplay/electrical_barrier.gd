@@ -9,32 +9,28 @@ extends AnimatableBody2D
 @export var recharge_time: float = 1.5
 ## Check TRUE for it to start OFF.
 @export var start_off: bool = false
+## How long it will take for it to activate for the first time. Does not work with the parameter
+## "Start Off"
+@export var activation_delay: float = 0.0
 
 @onready var timer: Timer = $Timer
 @onready var arc: Node2D = $ElectricalArc
 @onready var machinima: AnimatedSprite2D = $AnimatedSprite2D
+@onready var delaying_timer: Timer = $Timer2
 var is_active: bool = true
 var associated_trigger
 
 func _ready() -> void:
-	if not is_not_continuous and start_off == false:
-		# If continuous, just turn it on and leave it on.
-		machinima.play("default")
-		await machinima.animation_finished
-		arc.set_active(true)
-		machinima.play("firing")
-	elif start_off == false:
-		# Start the pulsing cycle.
-		timer.timeout.connect(_on_timer_timeout)
-		machinima.play("default")
-		await machinima.animation_finished
-		start_firing()
-	if start_off:
-		is_active = false
+	if activation_delay <= 0.0:
+		set_start()
+	else:
+		delaying_timer.start(activation_delay)
+		delaying_timer.timeout.connect(delay_timer)
 	if associated_trigger:
 		var trigerino = get_node(associated_trigger)
 		if "check_actuation" in trigerino:
 			trigerino.connect("check_actuation", checkers)
+
 
 func start_firing() -> void:
 	arc.set_active(true)
@@ -71,3 +67,22 @@ func checkers():
 	else:
 		_on_timer_timeout()
 		timer.paused = false
+
+func delay_timer():
+	set_start()
+
+func set_start():
+	if not is_not_continuous and start_off == false:
+		# If continuous, just turn it on and leave it on.
+		machinima.play("default")
+		await machinima.animation_finished
+		arc.set_active(true)
+		machinima.play("firing")
+	elif start_off == false:
+		# Start the pulsing cycle.
+		timer.timeout.connect(_on_timer_timeout)
+		machinima.play("default")
+		await machinima.animation_finished
+		start_firing()
+	if start_off:
+		is_active = false

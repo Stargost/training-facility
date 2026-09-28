@@ -113,6 +113,9 @@ shape = SubResource("RectangleShape2D_7ovlh")
 
 [node name="Timer" type="Timer" parent="." unique_id=1931947827]
 
+[node name="Timer2" type="Timer" parent="." unique_id=1613196184]
+one_shot = true
+
 [node name="ElectricalArc" type="Node2D" parent="." unique_id=354281568]
 script = ExtResource("3_8ef0x")
 
