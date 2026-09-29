@@ -14,16 +14,6 @@ func _ready() -> void:
 	var popup: PopupMenu = button_difficulty_select.get_popup()
 	popup.about_to_popup.connect(boutta_pop)
 
-func load_game(which_one: String):
-	var temp = which_one.find("_")
-	var pointer
-	if temp != -1:
-		pointer = which_one.substr(temp + 1)
-		pointer = level_list[pointer]
-	else:
-		pointer = which_one
-	get_tree().change_scene_to_file(pointer)
-
 func _on_visibility_changed() -> void:
 	var temp = GlobalBus.was_game_saved
 	
@@ -40,6 +30,7 @@ func _on_new_game_pressed() -> void:
 		get_tree().change_scene_to_file("res://Scenes/start_cutscene.tscn")
 	else:
 		SfxHandler.play_song("song_1.ogg")
+		GlobalBus.begin_up_timer = true
 		match GlobalBus.difficulty:
 			"normal":
 				get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
@@ -61,6 +52,7 @@ func _on_option_button_item_selected(index: int) -> void:
 
 func _on_load_game_pressed() -> void:
 	SfxHandler.play_song("song_1.ogg")
+	GlobalBus.begin_up_timer = true
 	get_tree().change_scene_to_file(GlobalBus.last_level)
 
 func boutta_pop():

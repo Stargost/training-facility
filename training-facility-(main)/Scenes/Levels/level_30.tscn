@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_1582r"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_g06a5"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="10_iu17c"]
+[ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="11_6dyo3"]
+[ext_resource type="PackedScene" uid="uid://cnflv8i7tlhtc" path="res://Scenes/static_objects/jump_orb.tscn" id="12_fxggu"]
+[ext_resource type="PackedScene" uid="uid://jqos8wwkqqid" path="res://Scenes/static_objects/gravity_orb.tscn" id="13_l333o"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_j4d2r")
@@ -25,9 +28,9 @@ texture = ExtResource("2_iu17c")
 position = Vector2(48, 496)
 
 [node name="Counter" parent="." unique_id=180774142 instance=ExtResource("4_sj2q1")]
-offset_left = 32.0
+offset_left = 696.0
 offset_top = 32.0
-offset_right = 32.0
+offset_right = 696.0
 offset_bottom = 32.0
 
 [node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("5_fxggu")]
@@ -38,22 +41,165 @@ position = Vector2(784, 480)
 [node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("6_l333o")]
 position = Vector2(816, 480)
 scale = Vector2(1, 4)
-level_name = "12"
+level_name = "congrats"
 
 [node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_3gi51")]
 position = Vector2(16, 480)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_1582r")]
-position = Vector2(400, 392)
+position = Vector2(72, 48)
+
+[node name="card_pickup2" parent="." unique_id=1635747418 instance=ExtResource("8_1582r")]
+position = Vector2(752, 336)
 
 [node name="Full_Tile" parent="." unique_id=1054679840 instance=ExtResource("9_g06a5")]
-tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAARAAAAAgAAAAAAAAASAAAAAgAAAAAAAAATAAAAAgAAAAAAAAAUAAAAAgAAAAAAAAAVAAAAAgAAAAAAAAAWAAAAAgAAAAAAAAAXAAAAAgAAAAAAAAAYAAAAAgAAAAAAAAAYAAEAAgAAAAAAAAAYAAIAAgAAAAAAAAAYAAMAAgAAAAAAAAAYAAQAAgAAAAAAAAAYAAUAAgAAAAAAAAAYAAYAAgAAAAAAAAAYAAcAAgAAAAAAAAAYAAgAAgAAAAAAAAAYAAkAAgAAAAAAAAAYAAoAAgAAAAAAAAAYAAsAAgAAAAAAAAAYAAwAAgAAAAAAAAAYAA0AAgAAAAAAAAAYABIAAgAAAAAAAAAXABIAAgAAAAAAAAAWABIAAgAAAAAAAAAVABIAAgAAAAAAAAAUABIAAgAAAAAAAAATABIAAgAAAAAAAAASABIAAgAAAAAAAAARABIAAgAAAAAAAAAQABIAAgAAAAAAAAAPABIAAgAAAAAAAAAOABIAAgAAAAAAAAANABIAAgAAAAAAAAAMABIAAgAAAAAAAAALABIAAgAAAAAAAAAKABIAAgAAAAAAAAAJABIAAgAAAAAAAAAIABIAAgAAAAAAAAAHABIAAgAAAAAAAAAGABIAAgAAAAAAAAAFABIAAgAAAAAAAAACABIAAgAAAAAAAAABABIAAgAAAAAAAAAAABIAAgAAAAAAAAAEABIAAgAAAAAAAAADABIAAgAAAAAAAAAAAA0AAgAAAAAAAAAAAAoAAgAAAAAAAAAAAAsAAgAAAAAAAAABABAAAgACAAAAAAACABAAAgACAAAAAAADABAAAgACAAAAAAAEABAAAgACAAAAAAAFABAAAgACAAAAAAAGABAAAgACAAAAAAAHABAAAgACAAAAAAAIABAAAgACAAAAAAAJABAAAgACAAAAAAAKABAAAgACAAAAAAALABAAAgACAAAAAAAMABAAAgACAAAAAAANABAAAgACAAAAAAAOABAAAgACAAAAAAAPABAAAgACAAAAAAAQABAAAgACAAAAAAARABAAAgACAAAAAAASABAAAgACAAAAAAATABAAAgACAAAAAAAUABAAAgACAAAAAAAVABAAAgACAAAAAAAWABAAAgACAAAAAAAXABAAAgACAAAAAAAAABAAAgAAAAAAAAAAABEAAgAAAAAAAAAYABAAAgAAAAAAAAAYABEAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAARAAAAAgAAAAAAAAASAAAAAgAAAAAAAAATAAAAAgAAAAAAAAAUAAAAAgAAAAAAAAAVAAAAAgAAAAAAAAAWAAAAAgAAAAAAAAAXAAAAAgAAAAAAAAAYAAAAAgAAAAAAAAAYAAEAAgAAAAAAAAAYAAIAAgAAAAAAAAAYAAMAAgAAAAAAAAAYAAQAAgAAAAAAAAAYAAUAAgAAAAAAAAAYAAYAAgAAAAAAAAAYAAcAAgAAAAAAAAAYAAgAAgAAAAAAAAAYAAkAAgAAAAAAAAAYAAoAAgAAAAAAAAAYAAsAAgAAAAAAAAAYAAwAAgAAAAAAAAAYAA0AAgAAAAAAAAAYABIAAgAAAAAAAAAXABIAAgAAAAAAAAAWABIAAgAAAAAAAAAVABIAAgAAAAAAAAAUABIAAgAAAAAAAAATABIAAgAAAAAAAAASABIAAgAAAAAAAAARABIAAgAAAAAAAAAQABIAAgAAAAAAAAAPABIAAgAAAAAAAAAOABIAAgAAAAAAAAANABIAAgAAAAAAAAAMABIAAgAAAAAAAAALABIAAgAAAAAAAAAKABIAAgAAAAAAAAAJABIAAgAAAAAAAAAIABIAAgAAAAAAAAAHABIAAgAAAAAAAAAGABIAAgAAAAAAAAAFABIAAgAAAAAAAAACABIAAgAAAAAAAAABABIAAgAAAAAAAAAAABIAAgAAAAAAAAAEABIAAgAAAAAAAAADABIAAgAAAAAAAAAAAA0AAgAAAAAAAAAAAAoAAgAAAAAAAAAAAAsAAgAAAAAAAAABABAAAgACAAAAAAACABAAAgACAAAAAAADABAAAgACAAAAAAAEABAAAgACAAAAAAAFABAAAgACAAAAAAAGABAAAgACAAAAAAAHABAAAgACAAAAAAAIABAAAgACAAAAAAAJABAAAgACAAAAAAAKABAAAgACAAAAAAALABAAAgACAAAAAAAMABAAAgACAAAAAAANABAAAgACAAAAAAAOABAAAgACAAAAAAAPABAAAgACAAAAAAAQABAAAgACAAAAAAARABAAAgACAAAAAAASABAAAgACAAAAAAATABAAAgACAAAAAAAUABAAAgACAAAAAAAVABAAAgACAAAAAAAWABAAAgACAAAAAAAXABAAAgACAAAAAAAAABAAAgAAAAAAAAAAABEAAgAAAAAAAAAYABAAAgAAAAAAAAAYABEAAgAAAAAAAAADAAIAAgACAAAAAAAEAAIAAgACAAAAAAAFAAIAAgACAAAAAAAGAAIAAgACAAAAAAAHAAIAAgACAAAAAAAIAAIAAgACAAAAAAAJAAIAAgACAAAAAAAKAAIAAgACAAAAAAALAAIAAgACAAAAAAAMAAIAAgACAAAAAAANAAIAAgACAAAAAAAOAAIAAgACAAAAAAAPAAIAAgACAAAAAAAQAAIAAgACAAAAAAARAAIAAgACAAAAAAASAAIAAgACAAAAAAATAAIAAgACAAAAAAAUAAIAAgACAAAAAAAVAAIAAgACAAAAAAAHAA8AAgACAAAAAAAHAA4AAgACAAAAAAAHAA0AAgACAAAAAAAGAA0AAgACAAAAAAAIAA0AAgACAAAAAAAMAAwAAgAAAAAAAAARAAkAAgACAAAAAAAMAAgAAgAAAAAAAAAHAAgAAgAAAAAAAAADAAgAAgAAAAAAAAAXAAQAAgACAAAAAAARAAoAAgACAAAAAAARAAsAAgACAAAAAAARAAwAAgACAAAAAAATAAkAAgACAAAAAAASAAkAAgACAAAAAAAUAAkAAgACAAAAAAAVAAkAAgACAAAAAAAWAAkAAgACAAAAAAAXAAkAAgACAAAAAAARAA0AAgACAAAAAAAQAAQAAgACAAAAAAALAAQAAgACAAAAAAAGAAQAAgACAAAAAAAEAAYAAgACAAAAAAAPAAoAAgACAAAAAAACAAIAAgAAAAAAAAABAAIAAgAAAAAAAAA=")
 
 [node name="Electrical_Barrier" parent="." unique_id=1843936951 instance=ExtResource("10_iu17c")]
 position = Vector2(80, 576)
 is_not_continuous = true
+recharge_time = 6.0
 
 [node name="Electrical_Barrier2" parent="." unique_id=552697282 instance=ExtResource("10_iu17c")]
 position = Vector2(112, 576)
 is_not_continuous = true
+recharge_time = 6.0
 activation_delay = 0.2
+
+[node name="Electrical_Barrier3" parent="." unique_id=575253252 instance=ExtResource("10_iu17c")]
+position = Vector2(144, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 0.4
+
+[node name="Electrical_Barrier4" parent="." unique_id=423794335 instance=ExtResource("10_iu17c")]
+position = Vector2(176, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 0.6
+
+[node name="Electrical_Barrier5" parent="." unique_id=273726479 instance=ExtResource("10_iu17c")]
+position = Vector2(208, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 0.8
+
+[node name="Electrical_Barrier6" parent="." unique_id=1586750126 instance=ExtResource("10_iu17c")]
+position = Vector2(240, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 1.0
+
+[node name="Electrical_Barrier7" parent="." unique_id=1616235020 instance=ExtResource("10_iu17c")]
+position = Vector2(272, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 1.2
+
+[node name="Electrical_Barrier8" parent="." unique_id=1781127075 instance=ExtResource("10_iu17c")]
+position = Vector2(304, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 1.4
+
+[node name="Electrical_Barrier9" parent="." unique_id=509007652 instance=ExtResource("10_iu17c")]
+position = Vector2(336, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 1.6
+
+[node name="Electrical_Barrier10" parent="." unique_id=1048496408 instance=ExtResource("10_iu17c")]
+position = Vector2(368, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 1.8
+
+[node name="Electrical_Barrier11" parent="." unique_id=532283570 instance=ExtResource("10_iu17c")]
+position = Vector2(400, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 2.0
+
+[node name="Electrical_Barrier12" parent="." unique_id=1239851862 instance=ExtResource("10_iu17c")]
+position = Vector2(432.00003, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 2.2
+
+[node name="Electrical_Barrier13" parent="." unique_id=1215465278 instance=ExtResource("10_iu17c")]
+position = Vector2(464, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 2.4
+
+[node name="Electrical_Barrier14" parent="." unique_id=556460678 instance=ExtResource("10_iu17c")]
+position = Vector2(496, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 2.6
+
+[node name="Electrical_Barrier15" parent="." unique_id=684927376 instance=ExtResource("10_iu17c")]
+position = Vector2(528, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 2.8
+
+[node name="Electrical_Barrier16" parent="." unique_id=1339181331 instance=ExtResource("10_iu17c")]
+position = Vector2(560, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 3.0
+
+[node name="Electrical_Barrier17" parent="." unique_id=396759723 instance=ExtResource("10_iu17c")]
+position = Vector2(592, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 3.2
+
+[node name="Electrical_Barrier18" parent="." unique_id=330671497 instance=ExtResource("10_iu17c")]
+position = Vector2(624, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 3.4
+
+[node name="Electrical_Barrier19" parent="." unique_id=1570202503 instance=ExtResource("10_iu17c")]
+position = Vector2(656, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 3.6
+
+[node name="Electrical_Barrier20" parent="." unique_id=438261243 instance=ExtResource("10_iu17c")]
+position = Vector2(688, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 3.8
+
+[node name="Electrical_Barrier21" parent="." unique_id=1767621581 instance=ExtResource("10_iu17c")]
+position = Vector2(720, 576)
+is_not_continuous = true
+recharge_time = 6.0
+activation_delay = 4.0
+
+[node name="Slate" parent="." unique_id=618880321 instance=ExtResource("11_6dyo3")]
+position = Vector2(304, 496)
+
+[node name="Slate2" parent="." unique_id=489231472 instance=ExtResource("11_6dyo3")]
+position = Vector2(336, 496)
+
+[node name="Slate3" parent="." unique_id=412431028 instance=ExtResource("11_6dyo3")]
+position = Vector2(368, 496)
+
+[node name="Slate4" parent="." unique_id=1105667926 instance=ExtResource("11_6dyo3")]
+position = Vector2(400, 496)
+
+[node name="Slate5" parent="." unique_id=1466052387 instance=ExtResource("11_6dyo3")]
+position = Vector2(432, 496)
+
+[node name="Slate6" parent="." unique_id=312740761 instance=ExtResource("11_6dyo3")]
+position = Vector2(272, 496)
+
+[node name="jump_orb" parent="." unique_id=36542895 instance=ExtResource("12_fxggu")]
+position = Vector2(592, 400)
+
+[node name="gravity_orb" parent="." unique_id=1914003975 instance=ExtResource("13_l333o")]
+position = Vector2(464, 432)

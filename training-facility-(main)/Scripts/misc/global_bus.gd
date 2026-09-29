@@ -32,9 +32,16 @@ var was_game_saved: bool = false
 
 
 var level_list: Dictionary = {}
+var begin_up_timer: bool = false
+# Only counts current playthrough.
+var total_time: float = 0.0
 
 func _ready() -> void:
 	scan_levels()
+
+func _process(delta: float) -> void:
+	if begin_up_timer == true:
+		total_time += delta
 
 func scan_levels():
 	var path = "res://Scenes/Levels/"

@@ -27,7 +27,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_active:
 		return
-
+	
 	# Handle Frame Animation via Shader parameter
 	animation_timer += delta
 	var time_per_frame = 1.0 / animation_fps
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		current_frame = (current_frame + 1) % TOTAL_FRAMES
 		# Send the active frame index straight to the shader
 		line_2d.material.set_shader_parameter("current_frame", current_frame)
-
+	
 	# Calculate Arc Length & Collisions
 	raycast.force_raycast_update()
 	
@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		end_point = line_2d.to_local(raycast.get_collision_point())
 	else:
 		end_point = forward_direction * max_length
-
+	
 	# Update the Line2D visual path
 	line_2d.points = [Vector2.ZERO, end_point]
 	

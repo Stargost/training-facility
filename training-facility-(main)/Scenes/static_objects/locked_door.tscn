@@ -71,6 +71,7 @@ animations = [{
 size = Vector2(28, 64)
 
 [node name="Locked_Door" type="StaticBody2D" unique_id=789365186]
+collision_layer = 9
 script = ExtResource("1_rw1gd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1508994916]

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c3kxqpgbm5qmv"]
+
+[ext_resource type="Texture2D" uid="uid://dyt8mxutsmhfu" path="res://Sprites/menu_9s_b.png" id="1_wiffl"]
+[ext_resource type="Script" uid="uid://ba1t441miat56" path="res://Scripts/UI/congrats_dialogue.gd" id="1_xrfd7"]
+
+[node name="congrats_dialogue" type="Control" unique_id=256962364]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xrfd7")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=440740380]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("1_wiffl")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1458870865]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 192.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=975525849]
+layout_mode = 2
+offset_transform_position = Vector2(8, 4)
+offset_transform_visual_only = false
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
