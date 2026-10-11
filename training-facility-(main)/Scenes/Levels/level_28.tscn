@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="15_t0kug"]
 [ext_resource type="PackedScene" uid="uid://dqvfhijfsljyr" path="res://Scenes/triggers/activate_trigger.tscn" id="15_ymnt4"]
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="16_c2h30"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="18_c2h30"]
 
 [sub_resource type="Animation" id="Animation_2yycy"]
 length = 0.001
@@ -126,9 +127,6 @@ position = Vector2(816, 544)
 scale = Vector2(1, 4)
 level_name = "29"
 
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_t0kug")]
-position = Vector2(16, 544)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_8wwqp")]
 position = Vector2(752, 272)
 
@@ -209,3 +207,6 @@ collision_layer = 129
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1834738894]
 position = Vector2(752, 496)
 shape = SubResource("RectangleShape2D_66j1p")
+
+[node name="entrance_door" parent="." unique_id=97596163 instance=ExtResource("18_c2h30")]
+position = Vector2(16, 544)

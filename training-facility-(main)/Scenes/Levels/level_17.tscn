@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="3_ohdgb"]
 [ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_pymeh"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="5_g1jyw"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="6_d4a2f"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="7_lg048"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="8_1bges"]
 [ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="9_ipajc"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="10_3jnqw"]
 [ext_resource type="PackedScene" uid="uid://jqos8wwkqqid" path="res://Scenes/static_objects/gravity_orb.tscn" id="11_wmkoa"]
 [ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="12_ohdgb"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="12_pymeh"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_wu2d4")
@@ -40,9 +40,6 @@ position = Vector2(48, 368)
 position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "18"
-
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("6_d4a2f")]
-position = Vector2(16, 352)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("7_lg048")]
 position = Vector2(56, 80)
@@ -84,3 +81,6 @@ rotation = 1.5707964
 
 [node name="Slate7" parent="." unique_id=1342437275 instance=ExtResource("9_ipajc")]
 position = Vector2(112, 80)
+
+[node name="entrance_door" parent="." unique_id=1854420855 instance=ExtResource("12_pymeh")]
+position = Vector2(16, 352)

@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-
+var force_movement: int = 0
 const SPEED: float = 200.0
 var JUMP_VELOCITY: float = -450.0
 const LOW_FRICTION: int = 100
 var GRAVITY = Vector2(0, 980)
 var MAX_SPEED: int = 1200
-@onready var maplayer_fulltile: TileMapLayer = $"../Full_Tile"
+@onready var maplayer_fulltile: TileMapLayer = $"../Full_Tile" # This throws an error on the debugger but works anyways so who cares
 @onready var animation_ballingo = $AnimatedSprite2D
 @onready var collision_shapey = $CollisionShape2D
 @onready var timerino = $Timer
@@ -28,6 +28,10 @@ func _ready() -> void:
 			instant_spawn = true
 
 func _physics_process(delta: float) -> void:
+	if force_movement != 0:
+		velocity.x = SPEED * force_movement
+		move_and_slide()
+		return
 	var previous_velocity = velocity
 	# Add the gravity.
 	if not is_on_floor():
@@ -86,9 +90,7 @@ func tile_map_collision(starting_velocity, pre_move_velocity):
 				for layer_index in range(physics_layers_count):
 					# Check if this specific tile has a collision polygon on this physics layer
 					if tile_data.get_collision_polygons_count(layer_index) > 0:
-						
-						# Trigger different logic based on the layer index
-						match layer_index:
+						match layer_index: # Match logic to collision index
 							0: 
 								new_speed = SPEED # Normal block, restore speed to normal
 							1: 

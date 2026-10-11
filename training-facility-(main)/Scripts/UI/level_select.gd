@@ -21,7 +21,7 @@ func _on_visibility_changed() -> void:
 		GlobalBus.scan_levels()
 	level_list = GlobalBus.level_list
 	
-	if str(temp) == "false":
+	if str(temp) == "false" or GlobalBus.last_level == "null":
 		button_load_game.disabled = true
 
 func _on_new_game_pressed() -> void:
@@ -59,7 +59,7 @@ func boutta_pop():
 	var popup: PopupMenu = button_difficulty_select.get_popup()
 	
 	for child in popup.get_children(true):
-		print(child)
+		#print(child)
 		if child is PanelContainer:
 			for grandchildren in child.find_children("*", "", true, false):
 				if "PopupMenuItems" in grandchildren.name:

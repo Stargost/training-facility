@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://musacneqt1st" path="res://Scenes/animated_objects/portal_entrance.tscn" id="13_1u8pf"]
 [ext_resource type="PackedScene" uid="uid://jqos8wwkqqid" path="res://Scenes/static_objects/gravity_orb.tscn" id="14_1u8pf"]
 [ext_resource type="PackedScene" uid="uid://cnflv8i7tlhtc" path="res://Scenes/static_objects/jump_orb.tscn" id="16_dsjtw"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="17_dsjtw"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_apl5n")
@@ -44,9 +45,6 @@ position = Vector2(528, 352)
 position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "23"
-
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_1u8pf")]
-position = Vector2(16, 352)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_dsjtw")]
 position = Vector2(480, 368)
@@ -130,3 +128,6 @@ position = Vector2(496, 96)
 
 [node name="jump_orb6" parent="." unique_id=39009753 instance=ExtResource("16_dsjtw")]
 position = Vector2(240, 208)
+
+[node name="entrance_door" parent="." unique_id=130181517 instance=ExtResource("17_dsjtw")]
+position = Vector2(16, 352)

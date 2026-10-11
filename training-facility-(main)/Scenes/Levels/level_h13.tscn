@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="12_m3te0"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="13_nbq1u"]
 [ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="15_qj6tm"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="16_2lrcl"]
 
 [sub_resource type="Animation" id="Animation_stmky"]
 length = 0.001
@@ -81,9 +82,6 @@ position = Vector2(48, 368)
 position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "h14"
-
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("6_dkf7c")]
-position = Vector2(16, 352)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("7_7airg")]
 position = Vector2(496, 144)
@@ -199,3 +197,6 @@ position = Vector2(496, 176)
 
 [node name="Spike2" parent="." unique_id=989301849 instance=ExtResource("15_qj6tm")]
 position = Vector2(48, 80)
+
+[node name="entrance_door" parent="." unique_id=1686400375 instance=ExtResource("16_2lrcl")]
+position = Vector2(16, 352)

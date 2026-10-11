@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="4_lkwl4"]
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="5_jes61"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_yb6gy"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_6opp8"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_67es6"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_y0ra2"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="10_cobja"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="10_s4wn7"]
+[ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="11_s4wn7"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_00pgx")
@@ -40,9 +41,6 @@ position = Vector2(816, 544)
 scale = Vector2(1, 4)
 level_name = "30"
 
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_6opp8")]
-position = Vector2(16, 544)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_67es6")]
 position = Vector2(400, 48)
 
@@ -53,8 +51,20 @@ tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAA
 position = Vector2(768, 80)
 rotation = -1.5707964
 is_not_continuous = true
+recharge_time = 1.7
 
 [node name="Electrical_Barrier2" parent="." unique_id=1986430187 instance=ExtResource("10_cobja")]
 position = Vector2(32, 432)
 rotation = -4.712389
 is_not_continuous = true
+recharge_time = 1.7
+
+[node name="entrance_door" parent="." unique_id=1013358310 instance=ExtResource("10_s4wn7")]
+position = Vector2(16, 544)
+
+[node name="Orb_Kill" parent="." unique_id=855291963 node_paths=PackedStringArray("target") instance=ExtResource("11_s4wn7")]
+position = Vector2(752, 560)
+make_more_evil = true
+evil_speed = 30.0
+speed_factor = 30.0
+target = NodePath("../Player")

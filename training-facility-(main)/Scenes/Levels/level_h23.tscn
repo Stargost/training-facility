@@ -1,0 +1,178 @@
+[gd_scene format=4 uid="uid://c3yc3w3mf04rb"]
+
+[ext_resource type="Script" uid="uid://cwoluovm33wpe" path="res://Scripts/UI/level_init_logic.gd" id="1_62jag"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="2_k7bq3"]
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="3_qny2t"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="4_mardx"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="5_yfw5o"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_n6fxb"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_chib8"]
+[ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_tj64y"]
+[ext_resource type="PackedScene" uid="uid://dw7qncunxhxdd" path="res://Scenes/animated_objects/locked_hatch.tscn" id="10_f3ccj"]
+[ext_resource type="PackedScene" uid="uid://musacneqt1st" path="res://Scenes/animated_objects/portal_entrance.tscn" id="11_w0x8v"]
+[ext_resource type="PackedScene" uid="uid://y2m3a4rhd2qt" path="res://Scenes/animated_objects/portal_exit.tscn" id="12_nabt6"]
+[ext_resource type="PackedScene" uid="uid://862572ntvimn" path="res://Scenes/animated_objects/button.tscn" id="13_7r2xv"]
+[ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="14_tc0ik"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="15_62jag"]
+[ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="15_rlbs1"]
+
+[sub_resource type="Animation" id="Animation_3us81"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, 272)]
+}
+
+[sub_resource type="Animation" id="Animation_xqi4w"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(512, 272), Vector2(512, 48)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e2gdi"]
+_data = {
+&"RESET": SubResource("Animation_3us81"),
+&"new_animation": SubResource("Animation_xqi4w")
+}
+
+[sub_resource type="Animation" id="Animation_62jag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, 48)]
+}
+
+[sub_resource type="Animation" id="Animation_k7bq3"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(512, 48), Vector2(512, 272)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qny2t"]
+_data = {
+&"RESET": SubResource("Animation_62jag"),
+&"new_animation": SubResource("Animation_k7bq3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(20, 44)
+
+[node name="Node2D" type="Node2D" unique_id=806914523]
+script = ExtResource("1_62jag")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1925520246]
+z_index = -100
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_k7bq3")
+
+[node name="Player" parent="." unique_id=1162954615 instance=ExtResource("3_qny2t")]
+position = Vector2(48, 368)
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("4_mardx")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("5_yfw5o")]
+position = Vector2(528, 352)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994251467]
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("6_n6fxb")]
+position = Vector2(560, 352)
+scale = Vector2(1, 4)
+level_name = "h24"
+
+[node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_chib8")]
+position = Vector2(144, 368)
+
+[node name="Full_Tile" parent="." unique_id=1054679840 instance=ExtResource("9_tj64y")]
+tile_map_data = PackedByteArray("AAAAAAwAAgAAAAEAAAABAAwAAgAAAAEAAAACAAwAAgAAAAEAAAADAAwAAgAAAAEAAAAEAAwAAgAAAAEAAAAFAAwAAgAAAAEAAAAGAAwAAgAAAAEAAAAHAAwAAgAAAAEAAAAIAAwAAgAAAAEAAAAJAAwAAgAAAAEAAAAKAAwAAgAAAAEAAAALAAwAAgAAAAEAAAAMAAwAAgAAAAEAAAANAAwAAgAAAAEAAAAOAAwAAgAAAAEAAAAPAAwAAgAAAAEAAAAQAAwAAgAAAAEAAAAQAAkAAgAAAAEAAAAQAAgAAgAAAAEAAAAQAAcAAgAAAAEAAAAQAAYAAgAAAAEAAAAQAAUAAgAAAAEAAAAQAAQAAgAAAAEAAAAQAAMAAgAAAAEAAAAQAAIAAgAAAAEAAAAQAAEAAgAAAAEAAAAQAAAAAgAAAAEAAAAPAAAAAgAAAAEAAAAOAAAAAgAAAAEAAAANAAAAAgAAAAEAAAAMAAAAAgAAAAEAAAALAAAAAgAAAAEAAAAKAAAAAgAAAAEAAAAJAAAAAgAAAAEAAAAIAAAAAgAAAAEAAAAHAAAAAgAAAAEAAAAGAAAAAgAAAAEAAAAFAAAAAgAAAAEAAAAEAAAAAgAAAAEAAAADAAAAAgAAAAEAAAACAAAAAgAAAAEAAAABAAAAAgAAAAEAAAAAAAAAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAYAAgAAAAEAAAAAAAcAAgAAAAEAAAAAAAgAAgAAAAEAAAAAAAkAAgAAAAEAAAAPAAkAAgAAAAEAAAAOAAkAAgAAAAEAAAANAAkAAgAAAAEAAAANAAoAAgAAAAEAAAANAAsAAgAAAAEAAAALAAkAAgAAAAEAAAALAAoAAgAAAAEAAAALAAsAAgAAAAEAAAAOAAgAAgAAAAEAAAAOAAcAAgACAAAAAAAOAAUAAgACAAAAAAAOAAQAAgACAAAAAAAOAAMAAgACAAAAAAAOAAIAAgAAAAEAAAAOAAEAAgAAAAEAAAAOAAYAAgACAAAAAAADAAkAAgAAAAEAAAAJAAcAAgAAAAEAAAADAAUAAgAAAAEAAAAHAAMAAgAAAAEAAAAMAAUAAgAAAAEAAAAJAAQAAgACAAAAAAALAAQAAgACAAAAAAAHAAoAAgAAAAEAAAAKAAkAAgAAAAEAAAABAAcAAgAAAAEAAAACAAMAAgAAAAEAAAAKAAIAAgAAAAEAAAAGAAcAAgAAAAEAAAANAAIAAgAAAAEAAAA=")
+
+[node name="locked_hatch" parent="." unique_id=1288975389 instance=ExtResource("10_f3ccj")]
+position = Vector2(400, 304)
+
+[node name="Portal_Entrance" parent="." unique_id=1077477323 instance=ExtResource("11_w0x8v")]
+position = Vector2(400, 368)
+sister_portal = NodePath("../Portal_Exit")
+
+[node name="Portal_Exit" parent="." unique_id=1084955184 instance=ExtResource("12_nabt6")]
+position = Vector2(464, 336)
+
+[node name="Button" parent="." unique_id=558707054 instance=ExtResource("13_7r2xv")]
+position = Vector2(432, 48)
+rotation = -1.5707964
+
+[node name="Animation_Player_Trigger" parent="." unique_id=551138947 instance=ExtResource("14_tc0ik")]
+position = Vector2(432, 48)
+rotation = -1.5707964
+scale = Vector2(1.625, 1)
+secondary_target_obj = NodePath("../locked_hatch")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="Electrical_Barrier" parent="." unique_id=1843936951 instance=ExtResource("15_rlbs1")]
+position = Vector2(512, 272)
+rotation = -1.5707964
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Electrical_Barrier" unique_id=387093542]
+libraries/ = SubResource("AnimationLibrary_e2gdi")
+autoplay = &"new_animation"
+
+[node name="Electrical_Barrier2" parent="." unique_id=1123235496 instance=ExtResource("15_rlbs1")]
+position = Vector2(512, 48)
+rotation = -1.5707964
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Electrical_Barrier2" unique_id=1419282467]
+libraries/ = SubResource("AnimationLibrary_qny2t")
+autoplay = &"new_animation"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=328654986]
+collision_layer = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1776219251]
+position = Vector2(464, 76)
+shape = SubResource("RectangleShape2D_66j1p")
+
+[node name="entrance_door" parent="." unique_id=361620331 instance=ExtResource("15_62jag")]
+position = Vector2(16, 352)

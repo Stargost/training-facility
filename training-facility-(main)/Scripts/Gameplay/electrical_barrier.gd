@@ -54,11 +54,11 @@ func _on_timer_timeout() -> void:
 		start_firing()
 
 func checkers():
-	print("test")
+	#print("test")
 	if start_off == true:
-		print("test_2")
+		#print("test_2")
 		if is_active == true:
-			print("test_3")
+			#print("test_3")
 			start_firing()
 			return
 	if is_active != true:

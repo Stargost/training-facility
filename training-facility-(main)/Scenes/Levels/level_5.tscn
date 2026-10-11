@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_3koi7"]
 [ext_resource type="Texture2D" uid="uid://5k2p505cheqp" path="res://Sprites/block_tileset.png" id="5_20kd1"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_gqyih"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_srugb"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="9_633d5"]
 [ext_resource type="PackedScene" uid="uid://cr0hvxwqk7tgj" path="res://Scenes/animated_objects/platform.tscn" id="10_0fyhm"]
 [ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="10_evokg"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="11_3koi7"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="11_evokg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dpyx"]
@@ -36,6 +36,12 @@ sources/0 = SubResource("TileSetAtlasSource_3mqfk")
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_doouk")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1372223494]
+z_index = -10
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_evokg")
+
 [node name="Counter" parent="." unique_id=180774142 instance=ExtResource("2_0fyhm")]
 offset_left = 32.0
 offset_top = 32.0
@@ -59,9 +65,6 @@ position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "6"
 
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_srugb")]
-position = Vector2(16, 352)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("9_633d5")]
 position = Vector2(128, 112)
 
@@ -77,8 +80,5 @@ position = Vector2(80, 112)
 [node name="Orb_Kill2" parent="." unique_id=1735966313 instance=ExtResource("10_evokg")]
 position = Vector2(176, 112)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1372223494]
-z_index = -10
-position = Vector2(400, 304)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("11_evokg")
+[node name="entrance_door" parent="." unique_id=1054352007 instance=ExtResource("11_3koi7")]
+position = Vector2(16, 352)

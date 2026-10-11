@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="3_637ar"]
 [ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_bouu0"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="5_aokn0"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="6_ykk4g"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="7_nmtjr"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="8_plykb"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="9_hg75l"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="10_4lcd7"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="10_637ar"]
 
 [sub_resource type="Animation" id="Animation_1rs5u"]
 length = 0.001
@@ -57,6 +57,12 @@ normal = Vector2(1, 0)
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_1rs5u")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978499487]
+z_index = -100
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("10_4lcd7")
+
 [node name="Counter" parent="." unique_id=180774142 instance=ExtResource("2_4lcd7")]
 offset_left = 32.0
 offset_top = 32.0
@@ -75,9 +81,6 @@ position = Vector2(48, 368)
 position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "15"
-
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("6_ykk4g")]
-position = Vector2(16, 352)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("7_nmtjr")]
 position = Vector2(80, 64)
@@ -115,8 +118,5 @@ collision_mask = 8
 position = Vector2(368, 224)
 shape = SubResource("RectangleShape2D_66j1p")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978499487]
-z_index = -100
-position = Vector2(400, 304)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("10_4lcd7")
+[node name="entrance_door" parent="." unique_id=62173638 instance=ExtResource("10_637ar")]
+position = Vector2(16, 352)

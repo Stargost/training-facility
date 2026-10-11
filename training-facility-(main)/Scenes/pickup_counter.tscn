@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://fo1rq7xolmup" path="res://Scripts/Gameplay/counter_cards.gd" id="1_nxvoo"]
 
 [node name="Counter" type="Control" unique_id=180774142]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="5_osqx1"]
 [ext_resource type="Texture2D" uid="uid://5k2p505cheqp" path="res://Sprites/block_tileset.png" id="6_sy7oa"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="7_md4x4"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_x1k1j"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="9_4ahh4"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="9_dl55b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dpyx"]
 
@@ -34,6 +34,12 @@ sources/0 = SubResource("TileSetAtlasSource_3mqfk")
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_167vu")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1428040081]
+z_index = -10
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_4ahh4")
+
 [node name="Counter" parent="." unique_id=180774142 instance=ExtResource("2_x1k1j")]
 offset_left = 32.0
 offset_top = 32.0
@@ -57,17 +63,11 @@ position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "4"
 
-[node name="StaticBody2D" parent="." unique_id=789365186 instance=ExtResource("7_x1k1j")]
-position = Vector2(16, 352)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("3_4ahh4")]
 position = Vector2(488, 120)
 
 [node name="card_pickup2" parent="." unique_id=768725363 instance=ExtResource("3_4ahh4")]
 position = Vector2(56, 120)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1428040081]
-z_index = -10
-position = Vector2(400, 304)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("9_4ahh4")
+[node name="entrance_door" parent="." unique_id=1201495112 instance=ExtResource("9_dl55b")]
+position = Vector2(16, 352)

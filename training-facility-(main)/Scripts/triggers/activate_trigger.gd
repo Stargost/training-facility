@@ -22,12 +22,14 @@ signal check_actuation
 func _ready() -> void:
 	new_target_obj = get_node(target_obj)
 	if "associated_trigger" not in new_target_obj:
+		# Value "associated_trigger" should be a blank var with that exact name
 		printerr("Object isn't set up properly. Lacks 'associated_trigger' value in script.")
 	else:
 		new_target_obj.associated_trigger = get_path()
-		print(get_path())
+		#print(get_path())
 	
 	if "is_active" not in new_target_obj:
+		# Value "is_active" should be a blank var of that exact name defined as a boolean
 		printerr("Object doesnt have the 'is_active' variable within it.")
 		is_object_valid = false
 

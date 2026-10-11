@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
 size = Vector2(28, 64)
 
-[node name="exit_door" type="AnimatableBody2D" unique_id=681532467]
+[node name="entrance_door" type="AnimatableBody2D" unique_id=681532467]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2049608359]
 z_index = -2

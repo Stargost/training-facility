@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="4_xk5tl"]
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="5_wk0iw"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_d0mxq"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_io0op"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_smp2o"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_tdxwg"]
 [ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="10_7mwmm"]
 [ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="10_p55sd"]
 [ext_resource type="PackedScene" uid="uid://musacneqt1st" path="res://Scenes/animated_objects/portal_entrance.tscn" id="11_xk5tl"]
 [ext_resource type="PackedScene" uid="uid://y2m3a4rhd2qt" path="res://Scenes/animated_objects/portal_exit.tscn" id="12_wk0iw"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="13_xk5tl"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_7mwmm")
@@ -42,9 +42,6 @@ position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "25"
 
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_io0op")]
-position = Vector2(16, 352)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_smp2o")]
 position = Vector2(272, 72)
 
@@ -65,3 +62,6 @@ position = Vector2(488, 104)
 
 [node name="Slate" parent="." unique_id=618880321 instance=ExtResource("10_7mwmm")]
 position = Vector2(336, 80)
+
+[node name="entrance_door" parent="." unique_id=1024668424 instance=ExtResource("13_xk5tl")]
+position = Vector2(16, 352)

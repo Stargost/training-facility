@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="3_ciht3"]
 [ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_0h68u"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="5_dps68"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="6_xjyfq"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="7_rjmkh"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="8_8dicm"]
 [ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="9_so3ya"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="10_ssmwh"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="11_ciht3"]
 [ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="11_f2yk4"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
@@ -39,9 +39,6 @@ position = Vector2(48, 368)
 position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "h9"
-
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("6_xjyfq")]
-position = Vector2(16, 352)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("7_rjmkh")]
 position = Vector2(288, 272)
@@ -100,3 +97,6 @@ rotation = 1.5707964
 
 [node name="Slate9" parent="." unique_id=1341547202 instance=ExtResource("9_so3ya")]
 position = Vector2(272, 368)
+
+[node name="entrance_door" parent="." unique_id=836838568 instance=ExtResource("11_ciht3")]
+position = Vector2(16, 352)

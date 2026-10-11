@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://y2m3a4rhd2qt" path="res://Scenes/animated_objects/portal_exit.tscn" id="18_4mmrk"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="19_rue58"]
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="20_c2slv"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="21_c2slv"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_kraag")
@@ -50,9 +51,6 @@ position = Vector2(816, 544)
 scale = Vector2(1, 4)
 level_name = "26"
 
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_38ig8")]
-position = Vector2(16, 544)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_3xxjp")]
 position = Vector2(752, 176)
 
@@ -70,6 +68,13 @@ position = Vector2(496, 544)
 
 [node name="Locked_Door3" parent="." unique_id=277297597 instance=ExtResource("7_38ig8")]
 position = Vector2(688, 544)
+
+[node name="Electrical_Barrier" parent="." unique_id=1843936951 instance=ExtResource("19_rue58")]
+position = Vector2(32, 240)
+rotation = 1.5707964
+is_not_continuous = true
+firing_time = 3.0
+recharge_time = 2.0
 
 [node name="Button" parent="." unique_id=558707054 instance=ExtResource("11_xb53o")]
 position = Vector2(592, 560)
@@ -157,14 +162,7 @@ sister_portal = NodePath("../Portal_Exit")
 is_two_ways = false
 
 [node name="Portal_Exit" parent="." unique_id=1034511065 instance=ExtResource("18_4mmrk")]
-position = Vector2(136, 536)
-
-[node name="Electrical_Barrier" parent="." unique_id=1843936951 instance=ExtResource("19_rue58")]
-position = Vector2(32, 240)
-rotation = 1.5707964
-is_not_continuous = true
-firing_time = 3.0
-recharge_time = 2.0
+position = Vector2(304, 536)
 
 [node name="Animation_Player_Trigger" parent="." unique_id=551138947 instance=ExtResource("20_c2slv")]
 position = Vector2(592, 560)
@@ -186,3 +184,6 @@ scale = Vector2(1.625, 1)
 secondary_target_obj = NodePath("../Locked_Door2")
 secondary_obj_animation = "default"
 is_single_use = true
+
+[node name="entrance_door" parent="." unique_id=1552223747 instance=ExtResource("21_c2slv")]
+position = Vector2(16, 544)

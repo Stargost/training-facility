@@ -16,13 +16,14 @@ var volume_level: float = 1
 # Screen
 var brightness: float = 100
 # Miscellaneous
-var language_selected: String = "en"
+var language_selected: String = "en" # Whatever is put here should follow ISO-3166-1 Alpha-2
 var enable_start_cutscene: bool = true
+var enable_prd_text: bool = false # PRD: Post Reset Deaths.
 
 # SAVE FILE VARIABLES
 # General
-var difficulty: String = "normal"
-var last_level: String 
+var difficulty: String = "normal" # Whatever is put here must be all lowercase
+var last_level: String = "null"
 var game_won: bool = false
 var game_won_on_hard: bool = false
 # Stats
@@ -118,6 +119,7 @@ func save_configfile():
 	# MISCELLANEOUS
 	configuration.set_value("miscellaneous", "language", language_selected)
 	configuration.set_value("miscellaneous", "enable_start_cutscene", enable_start_cutscene)
+	configuration.set_value("miscellaneous", "enable_prd_text", enable_prd_text)
 	
 	configuration.save(save_path)
 
@@ -155,6 +157,7 @@ func load_configfile():
 	# MISCELLANEOUS
 	language_selected = configuration.get_value("miscellaneous", "language", "en")
 	enable_start_cutscene = configuration.get_value("miscellaneous", "enable_start_cutscene", true)
+	enable_prd_text = configuration.get_value("miscellaneous", "enable_prd_text", false)
 	
 	TranslationServer.set_locale(language_selected)
 

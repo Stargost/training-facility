@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_1mk3p"]
 [ext_resource type="Texture2D" uid="uid://5k2p505cheqp" path="res://Sprites/block_tileset.png" id="5_u2y8v"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_gseyl"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_o5ojq"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_fig65"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="9_kdmmq"]
 [ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="10_dxj8e"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="10_veqy2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dpyx"]
 
@@ -63,9 +63,6 @@ tile_set = SubResource("TileSet_iixi8")
 position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "h4"
-
-[node name="StaticBody2D" parent="." unique_id=789365186 instance=ExtResource("7_o5ojq")]
-position = Vector2(16, 352)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_fig65")]
 position = Vector2(464, 112)
@@ -134,3 +131,6 @@ position = Vector2(176, 368)
 
 [node name="Spike9" parent="." unique_id=272102666 instance=ExtResource("10_dxj8e")]
 position = Vector2(144, 368)
+
+[node name="entrance_door" parent="." unique_id=1396840794 instance=ExtResource("10_veqy2")]
+position = Vector2(16, 352)

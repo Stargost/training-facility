@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://862572ntvimn" path="res://Scenes/animated_objects/button.tscn" id="15_3tl4h"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="16_mfmkk"]
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="17_3tl4h"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="18_6k3gy"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_vqi0p")
@@ -48,9 +49,6 @@ position = Vector2(816, 544)
 scale = Vector2(1, 4)
 level_name = "21"
 
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_mfmkk")]
-position = Vector2(16, 544)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_3tl4h")]
 position = Vector2(736, 48)
 
@@ -66,19 +64,15 @@ position = Vector2(752, 176)
 
 [node name="Locked_Door2" parent="." unique_id=789365186 instance=ExtResource("7_mfmkk")]
 position = Vector2(240, 416)
-collision_layer = 9
 
 [node name="Locked_Door3" parent="." unique_id=2101158384 instance=ExtResource("7_mfmkk")]
 position = Vector2(336, 416)
-collision_layer = 9
 
 [node name="Locked_Door4" parent="." unique_id=620626656 instance=ExtResource("7_mfmkk")]
 position = Vector2(240, 256)
-collision_layer = 9
 
 [node name="Locked_Door5" parent="." unique_id=1025448934 instance=ExtResource("7_mfmkk")]
 position = Vector2(336, 256)
-collision_layer = 9
 
 [node name="Locked_Door6" parent="." unique_id=127125624 instance=ExtResource("7_mfmkk")]
 position = Vector2(288, 144)
@@ -224,3 +218,6 @@ is_permanent = true
 [node name="Button5" parent="." unique_id=138252051 instance=ExtResource("15_3tl4h")]
 position = Vector2(48, 176)
 rotation = 1.5707964
+
+[node name="entrance_door" parent="." unique_id=434591517 instance=ExtResource("18_6k3gy")]
+position = Vector2(16, 544)

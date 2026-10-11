@@ -6,6 +6,7 @@ extends Control
 @onready var cutscene_toggle := $MarginContainer/VBoxContainer/Cutscene_Toggle
 @onready var respawn_options := $MarginContainer/VBoxContainer/Respawn_Time
 @onready var trans_options := $MarginContainer/VBoxContainer/Translation
+@onready var enable_prd := $MarginContainer/VBoxContainer/Enable_PRD # Post Reset Deaths
 
 var shaderino := preload("res://misc/shader_hologram_preset_b.tres")
 
@@ -37,6 +38,8 @@ func _on_silly_mode_toggled(toggled_on: bool) -> void:
 		GlobalBus.silly_mode = false
 
 func _on_h_slider_value_changed(value: float) -> void:
+	if value < 5.0:
+		value = 5.0
 	GlobalBus.brightness = value + 20.0
 	GlobalBus.check_brightness.emit()
 
@@ -81,3 +84,6 @@ func _on_cutscene_toggle_toggled(toggled_on: bool) -> void:
 		GlobalBus.enable_start_cutscene = false
 	else:
 		GlobalBus.enable_start_cutscene = true
+
+func _on_enable_prd_toggled(toggled_on: bool) -> void:
+	GlobalBus.enable_prd_text = toggled_on

@@ -50,9 +50,12 @@ func _ready() -> void:
 			dyn_clip_spr.texture = clp_h
 		"null":
 			printerr("No difficulty?")
+	SfxHandler.play_song("cutscene.ogg", 0.8)
 
 func _on_fade_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_depth > 3:
+		if GlobalBus.begin_up_timer != true:
+			GlobalBus.begin_up_timer = true
 		match GlobalBus.difficulty:
 			"normal":
 				SfxHandler.play_song("song_1.ogg", 1.0)

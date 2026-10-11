@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="4_ktpg5"]
 [ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="5_gr5a4"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_2iq5h"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_agjoh"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_4i7e0"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_1wrj7"]
 [ext_resource type="PackedScene" uid="uid://musacneqt1st" path="res://Scenes/animated_objects/portal_entrance.tscn" id="10_262lr"]
 [ext_resource type="PackedScene" uid="uid://y2m3a4rhd2qt" path="res://Scenes/animated_objects/portal_exit.tscn" id="11_63bw3"]
 [ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="12_63bw3"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="13_gr5a4"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="13_ktpg5"]
 
 [sub_resource type="Animation" id="Animation_ktpg5"]
@@ -118,9 +118,6 @@ position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "20"
 
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_agjoh")]
-position = Vector2(16, 352)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_4i7e0")]
 position = Vector2(272, 48)
 
@@ -176,3 +173,6 @@ rotation = 4.712389
 is_not_continuous = true
 firing_time = 1.0
 recharge_time = 1.0
+
+[node name="entrance_door" parent="." unique_id=62172172 instance=ExtResource("13_gr5a4")]
+position = Vector2(16, 352)

@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="4_bewyw"]
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="5_wjsaf"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_lm4ot"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_hs5ly"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_gwqtu"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_6raei"]
 [ext_resource type="PackedScene" uid="uid://dw7qncunxhxdd" path="res://Scenes/animated_objects/locked_hatch.tscn" id="10_hsrow"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cnflv8i7tlhtc" path="res://Scenes/static_objects/jump_orb.tscn" id="13_bewyw"]
 [ext_resource type="PackedScene" uid="uid://862572ntvimn" path="res://Scenes/animated_objects/button.tscn" id="14_wjsaf"]
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="15_lm4ot"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="16_gwqtu"]
 [ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="16_hs5ly"]
 
 [sub_resource type="Animation" id="Animation_gwqtu"]
@@ -82,9 +82,6 @@ position = Vector2(528, 352)
 position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "22"
-
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_hs5ly")]
-position = Vector2(16, 352)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_gwqtu")]
 position = Vector2(272, 368)
@@ -184,3 +181,6 @@ position = Vector2(304, 144)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Orb_Kill" unique_id=229728200]
 libraries/ = SubResource("AnimationLibrary_celfx")
 autoplay = &"new_animation"
+
+[node name="entrance_door" parent="." unique_id=184216883 instance=ExtResource("16_gwqtu")]
+position = Vector2(16, 352)

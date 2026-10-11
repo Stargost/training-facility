@@ -825,6 +825,11 @@ texture = ExtResource("18_ipmvj")
 [node name="clipboard_anim" type="AnimationPlayer" parent="clipboard" unique_id=497214673]
 libraries/ = SubResource("AnimationLibrary_lltyd")
 
+[node name="Label" type="Label" parent="." unique_id=983191279]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PLACEHOLDER CUTSCENE, CHANGE LATER"
+
 [connection signal="animation_finished" from="nife/nife_anim" to="." method="_on_nife_anim_animation_finished"]
 [connection signal="animation_finished" from="lever/lever_pivot/pivot_anim" to="." method="_on_pivot_anim_animation_finished"]
 [connection signal="animation_finished" from="scientist_a/scientist_a_anim" to="." method="_on_scientist_a_anim_animation_finished"]

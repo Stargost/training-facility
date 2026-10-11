@@ -1,0 +1,143 @@
+[gd_scene format=4 uid="uid://lrowicphuo67"]
+
+[ext_resource type="Script" uid="uid://cwoluovm33wpe" path="res://Scripts/UI/level_init_logic.gd" id="1_35ws7"]
+[ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="2_vbdn7"]
+[ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="3_ty1hr"]
+[ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="4_bf5iu"]
+[ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="5_sk7h1"]
+[ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_xb6qy"]
+[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_s1uan"]
+[ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_7xcf0"]
+[ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_kqryy"]
+[ext_resource type="PackedScene" uid="uid://862572ntvimn" path="res://Scenes/animated_objects/button.tscn" id="10_a0lsp"]
+[ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="11_louvn"]
+[ext_resource type="PackedScene" uid="uid://y2m3a4rhd2qt" path="res://Scenes/animated_objects/portal_exit.tscn" id="12_3746b"]
+[ext_resource type="PackedScene" uid="uid://musacneqt1st" path="res://Scenes/animated_objects/portal_entrance.tscn" id="13_vnx41"]
+[ext_resource type="PackedScene" uid="uid://jqos8wwkqqid" path="res://Scenes/static_objects/gravity_orb.tscn" id="14_7sn2k"]
+[ext_resource type="PackedScene" uid="uid://cnflv8i7tlhtc" path="res://Scenes/static_objects/jump_orb.tscn" id="16_q2m3p"]
+[ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="17_ty1hr"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="17_vbdn7"]
+[ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="18_ty1hr"]
+
+[node name="Node2D" type="Node2D" unique_id=806914523]
+script = ExtResource("1_35ws7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1925520246]
+z_index = -100
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_vbdn7")
+
+[node name="Player" parent="." unique_id=1162954615 instance=ExtResource("3_ty1hr")]
+position = Vector2(48, 368)
+
+[node name="Counter" parent="." unique_id=180774142 instance=ExtResource("4_bf5iu")]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="AnimatableBody2D" parent="." unique_id=681532467 instance=ExtResource("5_sk7h1")]
+position = Vector2(528, 352)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1994251467]
+
+[node name="level_transition_trigger" parent="." unique_id=1840140373 instance=ExtResource("6_xb6qy")]
+position = Vector2(560, 352)
+scale = Vector2(1, 4)
+level_name = "h23"
+
+[node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_7xcf0")]
+position = Vector2(480, 368)
+
+[node name="Full_Tile" parent="." unique_id=1054679840 instance=ExtResource("9_kqryy")]
+tile_map_data = PackedByteArray("AAAAAAwAAgAAAAEAAAABAAwAAgAAAAEAAAACAAwAAgAAAAEAAAADAAwAAgAAAAEAAAAEAAwAAgAAAAEAAAAFAAwAAgAAAAEAAAAGAAwAAgAAAAEAAAAHAAwAAgAAAAEAAAAIAAwAAgAAAAEAAAAJAAwAAgAAAAEAAAAKAAwAAgAAAAEAAAALAAwAAgAAAAEAAAAMAAwAAgAAAAEAAAANAAwAAgAAAAEAAAAOAAwAAgAAAAEAAAAPAAwAAgAAAAEAAAAQAAwAAgAAAAEAAAAQAAkAAgAAAAEAAAAQAAgAAgAAAAEAAAAQAAcAAgAAAAEAAAAQAAYAAgAAAAEAAAAQAAUAAgAAAAEAAAAQAAQAAgAAAAEAAAAQAAMAAgAAAAEAAAAQAAIAAgAAAAEAAAAQAAEAAgAAAAEAAAAQAAAAAgAAAAEAAAAPAAAAAgAAAAEAAAAOAAAAAgAAAAEAAAANAAAAAgAAAAEAAAAMAAAAAgAAAAEAAAALAAAAAgAAAAEAAAAKAAAAAgAAAAEAAAAJAAAAAgAAAAEAAAAIAAAAAgAAAAEAAAAHAAAAAgAAAAEAAAAGAAAAAgAAAAEAAAAFAAAAAgAAAAEAAAAEAAAAAgAAAAEAAAADAAAAAgAAAAEAAAACAAAAAgAAAAEAAAABAAAAAgAAAAEAAAAAAAAAAgAAAAEAAAAAAAEAAgAAAAEAAAAAAAIAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAYAAgAAAAEAAAAAAAcAAgAAAAEAAAAAAAgAAgAAAAEAAAAAAAkAAgAAAAEAAAAPAAkAAgAAAAEAAAAOAAkAAgAAAAEAAAANAAkAAgAAAAEAAAAOAAgAAgAAAAEAAAAOAAcAAgAAAAEAAAAOAAYAAgAAAAEAAAACAAIAAgAAAAEAAAADAAIAAgAAAAEAAAAEAAIAAgAAAAEAAAAGAAEAAgAAAAEAAAAGAAIAAgAAAAEAAAAGAAMAAgAAAAEAAAAGAAQAAgAAAAEAAAAFAAQAAgAAAAEAAAAEAAQAAgAAAAEAAAACAAQAAgAAAAEAAAACAAUAAgAAAAEAAAACAAYAAgAAAAEAAAADAAYAAgAAAAEAAAAEAAYAAgAAAAEAAAAGAAYAAgAAAAEAAAAGAAcAAgAAAAEAAAAGAAgAAgAAAAEAAAAFAAgAAgAAAAEAAAAEAAgAAgAAAAEAAAACAAgAAgAAAAEAAAA=")
+
+[node name="Locked_Door2" parent="." unique_id=789365186 instance=ExtResource("7_s1uan")]
+position = Vector2(432, 352)
+
+[node name="Button" parent="." unique_id=558707054 instance=ExtResource("10_a0lsp")]
+position = Vector2(496, 272)
+
+[node name="Animation_Player_Trigger" parent="." unique_id=551138947 instance=ExtResource("11_louvn")]
+position = Vector2(496, 272)
+scale = Vector2(1.625, 1)
+secondary_target_obj = NodePath("../Locked_Door2")
+secondary_obj_animation = "default"
+is_single_use = true
+
+[node name="Portal_Exit" parent="." unique_id=1077477323 instance=ExtResource("12_3746b")]
+position = Vector2(496, 232)
+
+[node name="Portal_Entrance" parent="." unique_id=2005485775 instance=ExtResource("13_vnx41")]
+position = Vector2(48, 88)
+sister_portal = NodePath("../Portal_Exit")
+
+[node name="gravity_orb" parent="." unique_id=1914003975 instance=ExtResource("14_7sn2k")]
+position = Vector2(336, 176)
+
+[node name="jump_orb" parent="." unique_id=36542895 instance=ExtResource("16_q2m3p")]
+position = Vector2(272, 80)
+
+[node name="jump_orb2" parent="." unique_id=1358759180 instance=ExtResource("16_q2m3p")]
+position = Vector2(368, 80)
+
+[node name="jump_orb4" parent="." unique_id=862598493 instance=ExtResource("16_q2m3p")]
+position = Vector2(464, 80)
+
+[node name="jump_orb6" parent="." unique_id=39009753 instance=ExtResource("16_q2m3p")]
+position = Vector2(240, 208)
+
+[node name="entrance_door" parent="." unique_id=257018715 instance=ExtResource("17_vbdn7")]
+position = Vector2(16, 352)
+
+[node name="Spike" parent="." unique_id=1905045532 instance=ExtResource("17_ty1hr")]
+position = Vector2(240, 48)
+rotation = -3.1415927
+
+[node name="Spike2" parent="." unique_id=725193435 instance=ExtResource("17_ty1hr")]
+position = Vector2(272, 48)
+rotation = -3.1415927
+
+[node name="Spike3" parent="." unique_id=608640429 instance=ExtResource("17_ty1hr")]
+position = Vector2(304, 48)
+rotation = -3.1415927
+
+[node name="Spike4" parent="." unique_id=1720306357 instance=ExtResource("17_ty1hr")]
+position = Vector2(336, 48)
+rotation = -3.1415927
+
+[node name="Spike5" parent="." unique_id=750107799 instance=ExtResource("17_ty1hr")]
+position = Vector2(368, 48)
+rotation = -3.1415927
+
+[node name="Spike6" parent="." unique_id=1647532652 instance=ExtResource("17_ty1hr")]
+position = Vector2(400, 48)
+rotation = -3.1415927
+
+[node name="Spike7" parent="." unique_id=1575218881 instance=ExtResource("17_ty1hr")]
+position = Vector2(432, 48)
+rotation = -3.1415927
+
+[node name="Spike8" parent="." unique_id=219384746 instance=ExtResource("17_ty1hr")]
+position = Vector2(464, 48)
+rotation = -3.1415927
+
+[node name="Spike9" parent="." unique_id=565770759 instance=ExtResource("17_ty1hr")]
+position = Vector2(496, 48)
+rotation = -3.1415927
+
+[node name="Electrical_Barrier" parent="." unique_id=1843936951 instance=ExtResource("18_ty1hr")]
+position = Vector2(64, 112)
+rotation = 1.5707964
+is_not_continuous = true
+
+[node name="Electrical_Barrier2" parent="." unique_id=31511711 instance=ExtResource("18_ty1hr")]
+position = Vector2(64, 240)
+rotation = 1.5707964
+is_not_continuous = true
+
+[node name="Electrical_Barrier3" parent="." unique_id=63560081 instance=ExtResource("18_ty1hr")]
+position = Vector2(224, 176)
+rotation = 4.712389
+is_not_continuous = true

@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="4_cmaqe"]
 [ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="5_7eemr"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_xhvyr"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_a5qd6"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_oflsm"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_7hthx"]
 [ext_resource type="PackedScene" uid="uid://cnflv8i7tlhtc" path="res://Scenes/static_objects/jump_orb.tscn" id="10_nnv7y"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://jqos8wwkqqid" path="res://Scenes/static_objects/gravity_orb.tscn" id="13_ndu6w"]
 [ext_resource type="PackedScene" uid="uid://dw7qncunxhxdd" path="res://Scenes/animated_objects/locked_hatch.tscn" id="14_gvedl"]
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="15_cmaqe"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="15_gvedl"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_4l8i8")
@@ -43,9 +43,6 @@ position = Vector2(48, 368)
 position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "h17"
-
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_a5qd6")]
-position = Vector2(16, 352)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_oflsm")]
 position = Vector2(496, 80)
@@ -155,3 +152,6 @@ secondary_target_obj = NodePath("../locked_hatch")
 secondary_obj_animation = "default"
 is_single_use = true
 play_reversed = true
+
+[node name="entrance_door" parent="." unique_id=133199939 instance=ExtResource("15_gvedl")]
+position = Vector2(16, 352)

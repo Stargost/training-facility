@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="4_sj2q1"]
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="5_fxggu"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_l333o"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_3gi51"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_1582r"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_g06a5"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="10_iu17c"]
 [ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="11_6dyo3"]
 [ext_resource type="PackedScene" uid="uid://cnflv8i7tlhtc" path="res://Scenes/static_objects/jump_orb.tscn" id="12_fxggu"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="13_fxggu"]
 [ext_resource type="PackedScene" uid="uid://jqos8wwkqqid" path="res://Scenes/static_objects/gravity_orb.tscn" id="13_l333o"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
@@ -42,9 +42,6 @@ position = Vector2(784, 480)
 position = Vector2(816, 480)
 scale = Vector2(1, 4)
 level_name = "congrats"
-
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_3gi51")]
-position = Vector2(16, 480)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_1582r")]
 position = Vector2(72, 48)
@@ -203,3 +200,6 @@ position = Vector2(592, 400)
 
 [node name="gravity_orb" parent="." unique_id=1914003975 instance=ExtResource("13_l333o")]
 position = Vector2(464, 432)
+
+[node name="entrance_door" parent="." unique_id=1020544549 instance=ExtResource("13_fxggu")]
+position = Vector2(16, 480)

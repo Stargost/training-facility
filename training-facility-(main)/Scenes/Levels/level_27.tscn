@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dw7qncunxhxdd" path="res://Scenes/animated_objects/locked_hatch.tscn" id="12_256q1"]
 [ext_resource type="PackedScene" uid="uid://862572ntvimn" path="res://Scenes/animated_objects/button.tscn" id="13_864uj"]
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="14_jcwta"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="15_jcwta"]
+[ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="16_o7lnn"]
 
 [sub_resource type="Animation" id="Animation_56xxt"]
 length = 0.001
@@ -85,9 +87,6 @@ position = Vector2(816, 544)
 scale = Vector2(1, 4)
 level_name = "28"
 
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_jcwta")]
-position = Vector2(16, 544)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_o7lnn")]
 position = Vector2(592, 152)
 
@@ -122,6 +121,10 @@ position = Vector2(208, 192)
 [node name="Electrical_Barrier2" parent="." unique_id=853047403 instance=ExtResource("11_q8s01")]
 position = Vector2(576, 448)
 rotation = -3.1415927
+
+[node name="Electrical_Barrier" parent="." unique_id=1843936951 instance=ExtResource("11_q8s01")]
+position = Vector2(256, 448)
+rotation = 3.1415925
 
 [node name="Area2D" type="Area2D" parent="." unique_id=389917575]
 position = Vector2(0, 8)
@@ -186,6 +189,12 @@ secondary_target_obj = NodePath("../locked_hatch")
 secondary_obj_animation = "default"
 is_single_use = true
 
-[node name="Electrical_Barrier" parent="." unique_id=1843936951 instance=ExtResource("11_q8s01")]
-position = Vector2(256, 448)
-rotation = -3.1415927
+[node name="entrance_door" parent="." unique_id=758110175 instance=ExtResource("15_jcwta")]
+position = Vector2(16, 544)
+
+[node name="Orb_Kill" parent="." unique_id=855291963 node_paths=PackedStringArray("target") instance=ExtResource("16_o7lnn")]
+position = Vector2(48, 368)
+make_more_evil = true
+evil_speed = 20.0
+speed_factor = 30.0
+target = NodePath("../Player")

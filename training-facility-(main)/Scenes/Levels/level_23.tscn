@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c371agi5y7r46" path="res://Scenes/pickup_counter.tscn" id="4_6fgxv"]
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="5_x01ra"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="6_st2iy"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="7_3w82s"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="8_g6y8l"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_0eypf"]
 [ext_resource type="PackedScene" uid="uid://dw7qncunxhxdd" path="res://Scenes/animated_objects/locked_hatch.tscn" id="10_st2iy"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://862572ntvimn" path="res://Scenes/animated_objects/button.tscn" id="13_0eypf"]
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="14_8njfx"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="15_827ht"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="15_st2iy"]
 
 [sub_resource type="Animation" id="Animation_3us81"]
 length = 0.001
@@ -82,9 +82,6 @@ position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "24"
 
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("7_3w82s")]
-position = Vector2(16, 352)
-
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("8_g6y8l")]
 position = Vector2(144, 368)
 
@@ -120,3 +117,6 @@ rotation = -1.5707964
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Electrical_Barrier" unique_id=387093542]
 libraries/ = SubResource("AnimationLibrary_e2gdi")
 autoplay = &"new_animation"
+
+[node name="entrance_door" parent="." unique_id=342321674 instance=ExtResource("15_st2iy")]
+position = Vector2(16, 352)

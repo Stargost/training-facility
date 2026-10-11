@@ -5,14 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://besb8i5wlqynp" path="res://Scenes/static_objects/door_exit.tscn" id="3_cramx"]
 [ext_resource type="PackedScene" uid="uid://dchkj2iryhwc2" path="res://Scenes/animated_objects/player.tscn" id="4_0a25i"]
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="5_r0v0c"]
-[ext_resource type="PackedScene" uid="uid://cm8yk0osriqpe" path="res://Scenes/static_objects/locked_door.tscn" id="6_u2s8n"]
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="7_ktaql"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="9_b1emg"]
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_s7d16"]
+[ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="10_cramx"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="10_e83tn"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_b1emg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=205679093]
+z_index = -100
+position = Vector2(400, 304)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("10_e83tn")
 
 [node name="Counter" parent="." unique_id=180774142 instance=ExtResource("2_e83tn")]
 offset_left = 32.0
@@ -32,9 +38,6 @@ position = Vector2(48, 368)
 position = Vector2(560, 352)
 scale = Vector2(1, 4)
 level_name = "13"
-
-[node name="Locked_Door" parent="." unique_id=326678790 instance=ExtResource("6_u2s8n")]
-position = Vector2(16, 352)
 
 [node name="card_pickup" parent="." unique_id=332134717 instance=ExtResource("7_ktaql")]
 position = Vector2(480, 144)
@@ -57,8 +60,5 @@ position = Vector2(400, 384)
 is_not_continuous = true
 recharge_time = 1.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=205679093]
-z_index = -100
-position = Vector2(400, 304)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("10_e83tn")
+[node name="entrance_door" parent="." unique_id=797463190 instance=ExtResource("10_cramx")]
+position = Vector2(16, 352)
