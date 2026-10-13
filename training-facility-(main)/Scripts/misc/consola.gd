@@ -13,6 +13,7 @@ func _ready() -> void:
 	Console.add_command("wipe_savedata", console_wipe_savefile, ["confirm"], 0, "Wipes the data in the save file")
 	Console.add_command("save_config", console_save_config, 0, 0, "Saves the current configuration file")
 	Console.add_command("save_savefile", console_save_savefile, 0, 0, "Saves the game")
+	#Console.add_command("show_hitboxes", console_enable_hitboxes, ["bool"], 1, "Displays hitboxes of all objects")
 
 func console_map(mapa):
 	if GlobalBus.level_list.is_empty():
@@ -58,3 +59,7 @@ func console_save_config():
 
 func console_save_savefile():
 	GlobalBus.save_savefile()
+
+func console_enable_hitboxes(arg: bool):
+	#TODO: Find a way to actually implement this. Preferably without iterating over every object in the scene
+	pass
