@@ -12,6 +12,7 @@ var ui_level_submenu: bool = false
 @onready var credits_button = $credits_button
 @onready var game_version = $version_text
 @onready var level_submenu = $level_select
+@onready var logo = $logo
 var buttons: Array
 
 
@@ -38,13 +39,14 @@ func _on_play_button_pressed() -> void:
 	return_button.disabled = false
 	return_button.visible = true
 	ui_level_submenu = true
+	logo.visible = false
 
 func _on_settings_button_pressed() -> void:
 	# Visibility and disabling stuff
 	for i in buttons:
 		i.disabled = true
 		i.visible = false
-	
+	logo.visible = false
 	ui_settings = settings.instantiate()
 	ui_settings.global_position = Vector2(200, 100)
 	add_child(ui_settings)
@@ -56,6 +58,7 @@ func _on_settings_button_pressed() -> void:
 	SfxHandler.play_sfx("misc_menu.wav")
 
 func _on_return_button_pressed() -> void:
+	logo.visible = true
 	if ui_settings != null:
 		ui_settings.queue_free()
 		for i in buttons:
@@ -89,7 +92,7 @@ func _on_credits_button_pressed() -> void:
 	for i in buttons:
 		i.disabled = true
 		i.visible = false
-	
+	logo.visible = false
 	bg.visible = true
 	return_button.visible = true
 	return_button.disabled = false
