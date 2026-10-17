@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://q65g0phv052d"]
+
+[ext_resource type="Material" uid="uid://ciylb51xi3ehl" path="res://misc/shader_hologram_preset.tres" id="1_1och7"]
+[ext_resource type="Texture2D" uid="uid://dyt8mxutsmhfu" path="res://Sprites/menu_9s_b.png" id="1_emv3i"]
+[ext_resource type="Script" uid="uid://6lnbb2piwb2a" path="res://Scripts/UI/pause_menu.gd" id="2_bpi0q"]
+[ext_resource type="Theme" uid="uid://cg11vqkqgh7yv" path="res://misc/settings_theme.tres" id="3_bpi0q"]
+
+[node name="pause_menu" type="Control" unique_id=101547718]
+process_mode = 3
+z_index = 10
+material = ExtResource("1_1och7")
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_bpi0q")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2143133343]
+z_index = 10
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -96.0
+offset_right = 128.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_emv3i")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="Label" type="Label" parent="NinePatchRect" unique_id=637338543]
+z_index = 10
+use_parent_material = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 240.0
+offset_bottom = 47.0
+theme = ExtResource("3_bpi0q")
+text = "TXT_PAUSED"
+horizontal_alignment = 1
+
+[node name="unpause" type="Button" parent="NinePatchRect" unique_id=1708981763]
+z_index = 10
+layout_mode = 0
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 126.0
+offset_bottom = 104.0
+theme = ExtResource("3_bpi0q")
+text = "TXT_UNPAUSE"
+
+[node name="quit_to_title" type="Button" parent="NinePatchRect" unique_id=1938291640]
+z_index = 10
+layout_mode = 0
+offset_left = 128.0
+offset_top = 72.0
+offset_right = 251.0
+offset_bottom = 104.0
+theme = ExtResource("3_bpi0q")
+text = "TXT_QUIT"
+
+[node name="restart" type="Button" parent="NinePatchRect" unique_id=186738419]
+z_index = 10
+layout_mode = 0
+offset_left = 40.0
+offset_top = 128.0
+offset_right = 216.0
+offset_bottom = 160.0
+theme = ExtResource("3_bpi0q")
+text = "TXT_RESTART"
+
+[connection signal="pressed" from="NinePatchRect/unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="NinePatchRect/quit_to_title" to="." method="_on_quit_to_title_pressed"]
+[connection signal="pressed" from="NinePatchRect/restart" to="." method="_on_restart_pressed"]

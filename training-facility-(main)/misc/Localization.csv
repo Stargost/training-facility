@@ -31,3 +31,7 @@
 "CONGRATS_TWO_TXT","You may now exit the testing grounds to receive further assessments from our team.[br]⠀[br]Congratulations on your work.","Ya puedes abandonar el área de prueba para así recibir asesoramiento de nuestro equipo.[br]⠀[br]Felicitaciones por el trabajo realizado."
 "CONGRATS_TD_TXT","Total deaths this run: ","Muertes totales en esta partida: "
 "CONGRATS_PRD_TXT","Total deaths overall: ","Todas las muertes totales: "
+"TXT_PAUSED","Game Paused","Juego Pausado"
+"TXT_UNPAUSE","Resume","Resumir"
+"TXT_QUIT","Quit","Salir"
+"TXT_RESTART","Restart","Reiniciar"
