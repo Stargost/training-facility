@@ -26,10 +26,10 @@ func _ready() -> void:
 	worlder.environment.adjustment_brightness = (GlobalBus.brightness / 100)
 	add_child(worlder)
 	buttons = [credits_button, settings_button, play_button]
-	SfxHandler.play_song("menu.ogg")
 	GlobalBus.connect("check_brightness", checking_shut_up)
 	GlobalBus.load_configfile()
 	GlobalBus.load_savefile()
+	SfxHandler.play_song("menu.ogg")
 
 func _on_play_button_pressed() -> void:
 	level_submenu.visible = true

@@ -17,11 +17,11 @@ var animation_timer: float = 0.0
 const TOTAL_FRAMES: int = 4
 
 var is_active: bool = false
+var is_player_dead: bool = false
 
 func _ready() -> void:
 	# Correct direction fix
 	raycast.target_position = forward_direction * max_length
-	damage_area.body_entered.connect(_on_player_entered)
 	set_active(is_active)
 
 func _physics_process(delta: float) -> void:
@@ -41,8 +41,13 @@ func _physics_process(delta: float) -> void:
 	raycast.force_raycast_update()
 	
 	var end_point: Vector2
+	var collider := raycast.get_collider()
 	if raycast.is_colliding():
 		end_point = line_2d.to_local(raycast.get_collision_point())
+		
+		# Band-aid fix for 2-4 pixel collision bug
+		if collider.is_in_group("player"):
+			kill_player()
 	else:
 		end_point = forward_direction * max_length
 	
@@ -51,6 +56,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Update the SegmentShape2D collision line
 	update_collision_shape(end_point)
+	
+	# 2nd part of band-aid fix for weird collision bug
+	for body in damage_area.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			kill_player()
+			break
 
 func set_active(active: bool) -> void:
 	is_active = active
@@ -63,6 +74,8 @@ func update_collision_shape(end_point: Vector2) -> void:
 	if segment:
 		segment.b = end_point
 
-func _on_player_entered(body: Node2D) -> void:
-	if body.is_in_group("Player") or body.name == "Player":
-		GlobalBus.player_killed.emit()
+func kill_player():
+	if is_player_dead:
+		return
+	is_player_dead = true
+	GlobalBus.player_killed.emit()

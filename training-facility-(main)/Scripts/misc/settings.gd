@@ -30,6 +30,7 @@ func _ready() -> void:
 func _on_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
 	GlobalBus.volume_level = value
+	SfxHandler.update_song_volume()
 
 func _on_silly_mode_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:

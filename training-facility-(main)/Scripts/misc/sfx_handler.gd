@@ -2,12 +2,12 @@ extends Node
 
 var sfx_list
 var music_list
-var folder_path = "res://SFX/"
-var music_folder_path = "res://Music/"
-@onready var sounding = $AudioStreamPlayer
-@onready var sounding0 = $AudioStreamPlayer2
-@onready var music_channel = $AudioStreamPlayer3
-@onready var special_channel = $special_channel
+var folder_path := "res://SFX/"
+var music_folder_path := "res://Music/"
+@onready var sounding := $AudioStreamPlayer
+@onready var sounding0 := $AudioStreamPlayer2
+@onready var music_channel := $AudioStreamPlayer3
+@onready var special_channel := $special_channel
 var last_song
 
 func _ready() -> void:
@@ -50,6 +50,7 @@ func play_sfx(pointer: String, volume: float = 1.0, force_channel: int = -1):
 			sounding0.stream = file
 			sounding0.play()
 
+## Pointer must be a string with the full filename. Volume controls apply AFTER the global volume level
 func play_song(pointer: String, volume: float = 1.0):
 	var destination = music_folder_path.path_join(pointer)
 	var file = ResourceLoader.load(destination)
@@ -65,6 +66,14 @@ func play_song(pointer: String, volume: float = 1.0):
 			last_song = 1
 		"song_3.ogg":
 			last_song = 2
+
+## Band-aid fix for the global volume setting not correctly updating volume level.
+## [br]
+## [br]
+## You can also use it if you need to update the value volume.
+func update_song_volume(volume: float = 1.0):
+	music_channel.volume_linear = volume
+	music_channel.volume_linear = GlobalBus.volume_level
 
 func _on_audio_stream_player_3_finished() -> void:
 	var ii = "res://Music/menu.ogg"
