@@ -7,6 +7,7 @@ extends Control
 @onready var respawn_options := $MarginContainer/VBoxContainer/Respawn_Time
 @onready var trans_options := $MarginContainer/VBoxContainer/Translation
 @onready var enable_prd := $MarginContainer/VBoxContainer/Enable_PRD # Post Reset Deaths
+@onready var old_cutscene_toggle := $MarginContainer/VBoxContainer/Old_Cutscene_Toggle
 
 var shaderino := preload("res://misc/shader_hologram_preset_b.tres")
 
@@ -88,3 +89,9 @@ func _on_cutscene_toggle_toggled(toggled_on: bool) -> void:
 
 func _on_enable_prd_toggled(toggled_on: bool) -> void:
 	GlobalBus.enable_prd_text = toggled_on
+
+func _on_old_cutscene_toggle_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		GlobalBus.enable_old_cutscene = true
+	else:
+		GlobalBus.enable_old_cutscene = false

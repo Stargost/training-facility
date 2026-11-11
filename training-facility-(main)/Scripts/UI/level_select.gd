@@ -27,7 +27,7 @@ func _on_visibility_changed() -> void:
 func _on_new_game_pressed() -> void:
 	if GlobalBus.enable_start_cutscene == true:
 		SfxHandler.play_song("song_1.ogg", 0.0)
-		get_tree().change_scene_to_file("res://Scenes/start_cutscene.tscn")
+		get_tree().change_scene_to_file("res://Scenes/misc/start_cutscene.tscn")
 	else:
 		SfxHandler.play_song("song_1.ogg")
 		GlobalBus.begin_up_timer = true

@@ -60,6 +60,12 @@ layout_mode = 2
 tooltip_text = "START_CUTSCENE_TIP_TXT"
 text = "SET_STC_TXT"
 
+[node name="Old_Cutscene_Toggle" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=601094792]
+use_parent_material = true
+layout_mode = 2
+tooltip_text = "OLD_CUTSCENE_TIP_TXT"
+text = "SET_OCT_TXT"
+
 [node name="Enable_PRD" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=914305500]
 use_parent_material = true
 layout_mode = 2
@@ -107,6 +113,7 @@ popup/item_1/id = 1
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Silly_Mode" to="." method="_on_silly_mode_toggled"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Cutscene_Toggle" to="." method="_on_cutscene_toggle_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Old_Cutscene_Toggle" to="." method="_on_old_cutscene_toggle_toggled"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Enable_PRD" to="." method="_on_enable_prd_toggled"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Respawn_Time" to="." method="_on_respawn_time_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Translation" to="." method="_on_option_button_item_selected"]
