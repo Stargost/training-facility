@@ -23,5 +23,5 @@ As seen elsewhere, this is the main repository for the aforementioned game.
 
 ### "Why are there 2 licenses?"
 > The code itself is licensed under CC-BY-NC 4.0, but I still reserve all rights for the assets, logo, and name of the game.
-> Some exceptions apply to some assets which are under other licenses, since I borrowed a few from OpenGameArt.
+> Exceptions apply to some assets which are under other licenses, since I borrowed a few from OpenGameArt. You may see the credits section of the game to know which ones I borrowed.
 > This may be unnecessary, but I am no lawyer and I don't have that much knowledge of copyright law, so better be safe than sorry.
