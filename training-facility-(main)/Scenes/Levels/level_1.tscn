@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://q500wm80fwrf" path="res://Scenes/triggers/level_transition_trigger.tscn" id="7_5f3p6"]
 [ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="8_jv26f"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="9_rb0md"]
-[ext_resource type="Script" uid="uid://tdh5y2mtelnx" path="res://Scenes/Levels/anim_manager.gd" id="10_hwvp3"]
+[ext_resource type="Script" uid="uid://tdh5y2mtelnx" path="res://Scripts/misc/anim_manager.gd" id="10_hwvp3"]
 [ext_resource type="Texture2D" uid="uid://xjdgv0djs5xv" path="res://Sprites/glyph_sheet.png" id="10_u5ghp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dpyx"]

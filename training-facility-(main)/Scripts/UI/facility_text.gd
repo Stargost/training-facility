@@ -4,10 +4,10 @@ extends Control
 # The size of the margin. It substract 10 to the size on both ends of the axis (so for example, 10 would
 # substract 20 in total.
 @export var margin_size: Vector2 = Vector2(10, 10)
-# The value to be called. Must match something in the CSV files.
+## The value to be called. Must match something in the CSV files.
 @export var callable_text: String
 @export var font_size: int = 12
-# Determine which horizontal allignment method to use. 0 = Left; 1 = Center; 2 = Right; 3 = Fill.
+## Determine which horizontal allignment method to use. 0 = Left; 1 = Center; 2 = Right; 3 = Fill.
 @export var h_alignment: int = 0
 
 @onready var nine_slicy = $NinePatchRect

@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="13_mucg7"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="14_tdopa"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="15_lwuu2"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="16_g0bjd"]
 
 [sub_resource type="Animation" id="Animation_mucg7"]
 length = 0.001
@@ -319,3 +320,13 @@ position = Vector2(496, 544)
 
 [node name="entrance_door" parent="." unique_id=711227490 instance=ExtResource("15_lwuu2")]
 position = Vector2(16, 544)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("16_g0bjd")]
+offset_left = 512.0
+offset_top = 40.0
+offset_right = 512.0
+offset_bottom = 40.0
+window_size = Vector2(156, 98)
+callable_text = "LEVEL_10_TXT"
+font_size = 14
+h_alignment = 1

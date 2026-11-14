@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dij1uvlddk5xe" path="res://Scenes/static_objects/full_tile.tscn" id="9_s7d16"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="10_cramx"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="10_e83tn"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="11_cramx"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_b1emg")
@@ -62,3 +63,13 @@ recharge_time = 1.0
 
 [node name="entrance_door" parent="." unique_id=797463190 instance=ExtResource("10_cramx")]
 position = Vector2(16, 352)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("11_cramx")]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
+window_size = Vector2(256, 86)
+callable_text = "LEVEL_12_TXT"
+font_size = 14
+h_alignment = 1

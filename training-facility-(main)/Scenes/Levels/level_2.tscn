@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="9_blpqv"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="10_1jlnc"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="10_u40f0"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="11_u40f0"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_fphuk")
@@ -53,3 +54,12 @@ tile_map_data = PackedByteArray("AAAAAAwAAgAAAAAAAAABAAwAAgAAAAAAAAACAAwAAgAAAAA
 
 [node name="entrance_door" parent="." unique_id=1276842665 instance=ExtResource("10_u40f0")]
 position = Vector2(16, 352)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("11_u40f0")]
+offset_left = 80.0
+offset_top = 64.0
+offset_right = 80.0
+offset_bottom = 64.0
+window_size = Vector2(256, 110)
+callable_text = "LEVEL_2_TXT"
+font_size = 16

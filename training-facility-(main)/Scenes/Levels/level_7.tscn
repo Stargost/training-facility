@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="10_gb6nk"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="11_7se1c"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="11_nlhb4"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="12_nlhb4"]
 
 [sub_resource type="Animation" id="Animation_gb6nk"]
 length = 0.001
@@ -229,3 +230,13 @@ autoplay = &"move"
 
 [node name="entrance_door" parent="." unique_id=852565784 instance=ExtResource("11_nlhb4")]
 position = Vector2(16, 352)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("12_nlhb4")]
+offset_left = 48.0
+offset_top = 40.0
+offset_right = 48.0
+offset_bottom = 40.0
+window_size = Vector2(256, 148)
+callable_text = "LEVEL_7_TXT"
+font_size = 14
+h_alignment = 1
