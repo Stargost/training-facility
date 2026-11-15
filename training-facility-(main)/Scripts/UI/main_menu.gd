@@ -53,7 +53,7 @@ func _on_settings_button_pressed() -> void:
 	return_button.disabled = false
 	return_button.visible = true
 	bg.global_position = Vector2(ui_settings.global_position.x - 50, ui_settings.global_position.y - 10)
-	bg.size = Vector2(484, 376)
+	bg.size = Vector2(484, 410)
 	bg.visible = true
 	SfxHandler.play_sfx("misc_menu.wav")
 

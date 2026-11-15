@@ -268,11 +268,12 @@ level_name = "2"
 
 [node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("8_jv26f")]
 texture_filter = 1
-offset_left = 112.0
+offset_left = 104.0
 offset_top = 32.0
-offset_right = 112.0
+offset_right = 104.0
 offset_bottom = 32.0
-window_size = Vector2(400, 250)
+extra_9s_size = Vector2(0, 130)
+size_limiter = Vector2(400, -1)
 callable_text = "TUT_TEXT"
 font_size = 16
 h_alignment = 1

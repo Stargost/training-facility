@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="14_nmwy7"]
 [ext_resource type="PackedScene" uid="uid://musacneqt1st" path="res://Scenes/animated_objects/portal_entrance.tscn" id="15_6li5s"]
 [ext_resource type="PackedScene" uid="uid://y2m3a4rhd2qt" path="res://Scenes/animated_objects/portal_exit.tscn" id="16_27k08"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="17_27k08"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_yovow")
@@ -265,3 +266,12 @@ is_two_ways = false
 
 [node name="Portal_Exit" parent="." unique_id=1594087265 instance=ExtResource("16_27k08")]
 position = Vector2(112, 112)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("17_27k08")]
+offset_left = 224.0
+offset_top = 160.0
+offset_right = 224.0
+offset_bottom = 160.0
+size_limiter = Vector2(256, -1)
+callable_text = "LEVEL_30_TXT"
+font_size = 16

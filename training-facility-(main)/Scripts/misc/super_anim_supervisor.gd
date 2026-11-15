@@ -39,8 +39,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				anim_player.play("section 10")
 			"fade 10":
 				if GlobalBus.difficulty == "normal":
+					SfxHandler.play_song("song_1.ogg", 1.0)
 					get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
 				else:
+					SfxHandler.play_song("song_1.ogg", 1.0)
 					get_tree().change_scene_to_file("res://Scenes/Levels/level_h1.tscn")
 
 func _input(event: InputEvent) -> void:

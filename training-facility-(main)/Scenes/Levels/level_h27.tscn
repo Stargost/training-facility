@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="14_cn6v8"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="15_jw2a3"]
 [ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="16_8v368"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="17_wehcm"]
 
 [sub_resource type="Animation" id="Animation_56xxt"]
 length = 0.001
@@ -198,3 +199,12 @@ make_more_evil = true
 evil_speed = 40.0
 speed_factor = 120.0
 target = NodePath("../Player")
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("17_wehcm")]
+offset_left = 288.0
+offset_top = 448.0
+offset_right = 288.0
+offset_bottom = 448.0
+size_limiter = Vector2(256, -1)
+callable_text = "LEVEL_27_TXT"
+font_size = 16

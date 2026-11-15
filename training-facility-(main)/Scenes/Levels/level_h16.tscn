@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dw7qncunxhxdd" path="res://Scenes/animated_objects/locked_hatch.tscn" id="14_gvedl"]
 [ext_resource type="PackedScene" uid="uid://dewx0kt75o8hv" path="res://Scenes/triggers/animation_player_trigger.tscn" id="15_cmaqe"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="15_gvedl"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="16_cmaqe"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_4l8i8")
@@ -155,3 +156,11 @@ play_reversed = true
 
 [node name="entrance_door" parent="." unique_id=133199939 instance=ExtResource("15_gvedl")]
 position = Vector2(16, 352)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("16_cmaqe")]
+offset_left = 344.0
+offset_top = 128.0
+offset_right = 344.0
+offset_bottom = 128.0
+size_limiter = Vector2(156, -1)
+callable_text = "LEVEL_16_TXT"

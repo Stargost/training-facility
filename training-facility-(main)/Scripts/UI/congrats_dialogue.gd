@@ -24,7 +24,7 @@ func _ready() -> void:
 	# Use placeholder string thingies to display the timer.
 	final_time = "%02d:%02d:%04d" % [minutes, seconds, milliseconds]
 	
-	# Blank space in-between line breaks is U+2800. A regular space doesn't work for some reason.
+	# We use "[color=#ffffff00]_[/color]" in between the double line breaks because Godot doesn't like double line breaks for some reason.
 	# PRD: Deaths Overall. - TD: Deaths on this run. 
 	var text_prd_n: String = ""
 	var text_td: String = tr("CONGRATS_TD_TXT")
@@ -48,7 +48,7 @@ func _ready() -> void:
 	#text_prd_n = str(GlobalBus.total_deaths) 
 	#text_prd = "[br]" + tr("CONGRATS_PRD_TXT")
 	
-	final_text.text = texto_diff + "[br]⠀[br]" + texto_1 + "[br]⠀[br]" + tttext + final_time + "[br]" + text_td + text_td_n + text_prd + text_prd_n + "[br]⠀[br]" + texto_2
+	final_text.text = texto_diff + "[br][color=#ffffff00]_[/color][br]" + texto_1 + "[br][color=#ffffff00]_[/color][br]" + tttext + final_time + "[br]" + text_td + text_td_n + text_prd + text_prd_n + "[br][color=#ffffff00]_[/color][br]" + texto_2
 	nine_slice_resize()
 	GlobalBus.save_savefile()
 

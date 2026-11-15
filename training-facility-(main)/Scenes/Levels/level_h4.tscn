@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://di1r1vyviw52o" path="res://Scenes/animated_objects/card_pickup.tscn" id="10_plhst"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="11_81os0"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="11_chgtc"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="12_7e2sh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dpyx"]
 
@@ -109,3 +110,13 @@ position = Vector2(392, 248)
 
 [node name="entrance_door" parent="." unique_id=481383800 instance=ExtResource("11_81os0")]
 position = Vector2(16, 352)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("12_7e2sh")]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_limiter = Vector2(256, -1)
+callable_text = "LEVEL_4_TXT"
+font_size = 14
+h_alignment = 1

@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://dk8wmjqm1pxbd"]
 
+[ext_resource type="Material" uid="uid://ciylb51xi3ehl" path="res://misc/shader_hologram_preset.tres" id="1_pkxqg"]
 [ext_resource type="Script" uid="uid://bfqoda5i2g82v" path="res://Scripts/UI/facility_text.gd" id="1_sjry0"]
 [ext_resource type="Texture2D" uid="uid://dyt8mxutsmhfu" path="res://Sprites/menu_9s_b.png" id="2_o46f1"]
 [ext_resource type="FontFile" uid="uid://c5fg0ady1rbd" path="res://misc/VCR_OSD_MONO_1.001.ttf" id="3_o46f1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66j1p"]
+size = Vector2(64, 64)
+
 [node name="facility_text" type="Control" unique_id=1431093245]
+material = ExtResource("1_pkxqg")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +20,7 @@ mouse_filter = 2
 script = ExtResource("1_sjry0")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1675565825]
+use_parent_material = true
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
@@ -26,6 +32,7 @@ patch_margin_bottom = 12
 
 [node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect" unique_id=1354210103]
 texture_filter = 1
+use_parent_material = true
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
@@ -34,3 +41,13 @@ theme_override_fonts/normal_font = ExtResource("3_o46f1")
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+fit_content = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=537988167]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1420375115]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_66j1p")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

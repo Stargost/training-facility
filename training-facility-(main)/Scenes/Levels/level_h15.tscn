@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dw7qncunxhxdd" path="res://Scenes/animated_objects/locked_hatch.tscn" id="13_6s40n"]
 [ext_resource type="Texture2D" uid="uid://b6wx0d4jw1s3n" path="res://Sprites/bg.png" id="14_8ykwk"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="15_x374x"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="16_rw1qq"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_brw0d")
@@ -150,3 +151,11 @@ rotation = 1.5707964
 
 [node name="entrance_door" parent="." unique_id=1942616557 instance=ExtResource("15_x374x")]
 position = Vector2(16, 544)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("16_rw1qq")]
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 40.0
+size_limiter = Vector2(420, -1)
+callable_text = "LEVEL_15_TXT"

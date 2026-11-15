@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://fxy1n3ivklfi" path="res://Scenes/static_objects/orb_kill.tscn" id="12_63bw3"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="13_gr5a4"]
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="13_ktpg5"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="14_gr5a4"]
 
 [sub_resource type="Animation" id="Animation_ktpg5"]
 length = 0.001
@@ -176,3 +177,11 @@ recharge_time = 1.0
 
 [node name="entrance_door" parent="." unique_id=62172172 instance=ExtResource("13_gr5a4")]
 position = Vector2(16, 352)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("14_gr5a4")]
+offset_left = 112.0
+offset_top = 104.0
+offset_right = 112.0
+offset_bottom = 104.0
+size_limiter = Vector2(256, -1)
+callable_text = "LEVEL_19_TXT"

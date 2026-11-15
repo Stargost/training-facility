@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cnli1n62egkvs" path="res://Scenes/static_objects/slate.tscn" id="11_atrgu"]
 [ext_resource type="PackedScene" uid="uid://bw6wkt83kshht" path="res://Scenes/static_objects/spike.tscn" id="12_nwyfu"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="12_rptes"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="13_rptes"]
 
 [node name="Node2D" type="Node2D" unique_id=806914523]
 script = ExtResource("1_yn6b0")
@@ -100,3 +101,13 @@ rotation = -3.1415927
 
 [node name="entrance_door" parent="." unique_id=525113982 instance=ExtResource("12_rptes")]
 position = Vector2(16, 352)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("13_rptes")]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
+size_limiter = Vector2(256, -1)
+callable_text = "LEVEL_12_TXT"
+font_size = 14
+h_alignment = 1

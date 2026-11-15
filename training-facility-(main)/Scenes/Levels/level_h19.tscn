@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bbumm80dxqh11" path="res://Scenes/animated_objects/electrical_barrier.tscn" id="13_5cw1c"]
 [ext_resource type="PackedScene" uid="uid://2scf3p14wsal" path="res://Scenes/static_objects/blocked_door.tscn" id="14_l47nh"]
 [ext_resource type="PackedScene" uid="uid://regeh7d22uga" path="res://Scenes/animated_objects/spinning_barrier.tscn" id="14_swkm2"]
+[ext_resource type="PackedScene" uid="uid://dk8wmjqm1pxbd" path="res://Scenes/facility_text.tscn" id="15_l47nh"]
 
 [sub_resource type="Animation" id="Animation_ktpg5"]
 length = 0.001
@@ -196,3 +197,11 @@ spinning = 0.2
 
 [node name="entrance_door" parent="." unique_id=915833558 instance=ExtResource("14_l47nh")]
 position = Vector2(16, 352)
+
+[node name="facility_text" parent="." unique_id=1431093245 instance=ExtResource("15_l47nh")]
+offset_left = 112.0
+offset_top = 104.0
+offset_right = 112.0
+offset_bottom = 104.0
+size_limiter = Vector2(256, -1)
+callable_text = "LEVEL_19_TXT"
