@@ -72,7 +72,7 @@ layout_mode = 2
 tooltip_text = "POST_RESET_DEATHS_TIP_TXT"
 text = "SET_PRD_TXT"
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=716291447]
+[node name="enable_DCC" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=716291447]
 use_parent_material = true
 layout_mode = 2
 tooltip_text = "DEBUG_CARD_COUNTER_TIP_TXT"
@@ -115,5 +115,6 @@ popup/item_1/id = 1
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Cutscene_Toggle" to="." method="_on_cutscene_toggle_toggled"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Old_Cutscene_Toggle" to="." method="_on_old_cutscene_toggle_toggled"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Enable_PRD" to="." method="_on_enable_prd_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/enable_DCC" to="." method="_on_check_box_toggled"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Respawn_Time" to="." method="_on_respawn_time_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Translation" to="." method="_on_option_button_item_selected"]

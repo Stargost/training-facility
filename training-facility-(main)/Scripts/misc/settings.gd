@@ -8,6 +8,7 @@ extends Control
 @onready var trans_options := $MarginContainer/VBoxContainer/Translation
 @onready var enable_prd := $MarginContainer/VBoxContainer/Enable_PRD # Post Reset Deaths
 @onready var old_cutscene_toggle := $MarginContainer/VBoxContainer/Old_Cutscene_Toggle
+@onready var enable_debug_card_counter := $MarginContainer/VBoxContainer/enable_DCC
 
 var shaderino := preload("res://misc/shader_hologram_preset_b.tres")
 
@@ -16,6 +17,9 @@ func _ready() -> void:
 	brightness_slider.set_value_no_signal(GlobalBus.brightness - 20)
 	silly_button.button_pressed = GlobalBus.silly_mode
 	cutscene_toggle.button_pressed = !GlobalBus.enable_start_cutscene
+	enable_prd.button_pressed = GlobalBus.enable_prd_text
+	enable_debug_card_counter.button_pressed = GlobalBus.enable_debug_card_counter
+	old_cutscene_toggle.button_pressed = GlobalBus.enable_old_cutscene
 	respawn_options.selected = GlobalBus.respawn_speed
 	if GlobalBus.language_selected == "en":
 		trans_options.selected = 0
@@ -95,3 +99,9 @@ func _on_old_cutscene_toggle_toggled(toggled_on: bool) -> void:
 		GlobalBus.enable_old_cutscene = true
 	else:
 		GlobalBus.enable_old_cutscene = false
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		GlobalBus.enable_debug_card_counter = true
+	else:
+		GlobalBus.enable_debug_card_counter = false

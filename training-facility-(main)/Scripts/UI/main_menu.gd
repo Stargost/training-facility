@@ -18,7 +18,9 @@ var buttons: Array
 
 
 func _ready() -> void:
-	game_version.text = ProjectSettings.get_setting("application/config/version")
+	var text := "Version: "
+	text += ProjectSettings.get_setting("application/config/version")
+	game_version.text = text
 	var worlder = WorldEnvironment.new()
 	worlder.environment = Environment.new()
 	worlder.environment.background_mode = Environment.BG_CANVAS

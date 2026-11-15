@@ -20,6 +20,7 @@ var language_selected: String = "en" # Whatever is put here should follow ISO-31
 var enable_start_cutscene: bool = true
 var enable_old_cutscene: bool = false
 var enable_prd_text: bool = false # PRD: Post Reset Deaths.
+var enable_debug_card_counter: bool = false
 
 # SAVE FILE VARIABLES
 # General
@@ -122,6 +123,7 @@ func save_configfile():
 	configuration.set_value("miscellaneous", "enable_start_cutscene", enable_start_cutscene)
 	configuration.set_value("miscellaneous", "enable_prd_text", enable_prd_text)
 	configuration.set_value("miscellaneous", "enable_old_cutscene", enable_old_cutscene)
+	configuration.set_value("miscellaneous", "enable_debug_card_counter", enable_debug_card_counter)
 	
 	configuration.save(save_path)
 
@@ -161,6 +163,7 @@ func load_configfile():
 	enable_start_cutscene = configuration.get_value("miscellaneous", "enable_start_cutscene", true)
 	enable_prd_text = configuration.get_value("miscellaneous", "enable_prd_text", false)
 	enable_old_cutscene = configuration.get_value("miscellaneous", "enable_old_cutscene", false)
+	enable_debug_card_counter = configuration.get_value("miscellaneous", "enable_debug_card_counter", false)
 	
 	TranslationServer.set_locale(language_selected)
 
