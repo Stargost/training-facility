@@ -9,7 +9,7 @@ As seen elsewhere, this is the main repository for the aforementioned game.
 > Yes. You are free to download the source code and play the game, or modify it and redistribute.
 
 ### "Where can I play this?"
-> You can either play it on itch.io or download the source and run it directly on your machine. Linked [here.](google.com)
+> You can either play it on itch.io or download the source and run it directly on your machine. Linked [here.](https://stargost.itch.io/training-facility)
 > If you find the game anywhere else, chances are they just grabbed my thingamabob and redistributed it.
 
 ### "Which engine is this made in?"
