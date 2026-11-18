@@ -101,7 +101,10 @@ func _on_credits_button_pressed() -> void:
 	credits.visible = true
 	bg.global_position = credits.global_position
 	bg.global_position.y = credits.global_position.y - 10
-	bg.size = Vector2(credits.size.x, 260.0)
+	if GlobalBus.language_selected == "en":
+		bg.size = Vector2(credits.size.x, 260.0)
+	elif GlobalBus.language_selected == "es":
+		bg.size = Vector2(credits.size.x, 280)
 	SfxHandler.play_sfx("misc_menu.wav")
 
 func checking_shut_up():
