@@ -22,6 +22,6 @@ func fade_work():
 		else:
 			curent_frame -= 1
 			await  get_tree().process_frame
-	GlobalBus.last_level = "null"
+	GlobalBus.last_level = "null" # Clear saved level data
 	GlobalBus.save_savefile()
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/misc/end_cutscene.tscn")

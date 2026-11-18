@@ -5,19 +5,27 @@ extends Node2D
 @onready var text_anim := $text_animation
 
 var inception_rate: int = 0
+var has_started: bool = false
+var can_play_anim: bool = true
 
 func _on_timer_timeout() -> void:
-	if inception_rate >= 1:
+	if inception_rate >= 1 and can_play_anim == true: # Prevents bug where fade animation plays where it shouldn't
+		can_play_anim = false
 		text_anim.play("fade")
-	else:
+	elif inception_rate == 0:
 		anim_player.play("section 1")
+		has_started = true
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if "fade" not in anim_name:
+		# Reuse timer from a buffer to a countdown for the text fade animation
 		timer_1.wait_time = 1.5
 		timer_1.start()
 		inception_rate += 1
+		can_play_anim = true
 	else:
+		can_play_anim = false
+		# Match statement of doom and despair
 		match anim_name: # Play animation after the fade animation finished
 			"fade 1":
 				anim_player.play("section 2")
@@ -38,6 +46,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			"fade 9":
 				anim_player.play("section 10")
 			"fade 10":
+				if GlobalBus.begin_up_timer != true:
+					GlobalBus.begin_up_timer = true
 				if GlobalBus.difficulty == "normal":
 					SfxHandler.play_song("song_1.ogg", 1.0)
 					get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
@@ -46,13 +56,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 					get_tree().change_scene_to_file("res://Scenes/Levels/level_h1.tscn")
 
 func _input(event: InputEvent) -> void:
-	var allow_skip: bool = true
-	if Input.is_action_just_pressed("move_jump"): # Check correct key
+	if Input.is_action_just_pressed("skip_cutscene"): # Check correct key
 		if anim_player.is_playing() == true: # Check if we are playing a regular animation
-			if allow_skip == true:
-				anim_player.advance(7.0)
-				return
-		# If we are not playing a regulaar animation, go to the next one.
+			anim_player.advance(7.0) # Shortcut to simulate going to the end of the animation
+			return
+		# If we are not playing a regular animation, go to the next one.
 		match inception_rate:
 			1:
 				anim_player.play("fade 1")
@@ -74,8 +82,6 @@ func _input(event: InputEvent) -> void:
 				anim_player.play("fade 9")
 			10:
 				anim_player.play("fade 10")
-		# Stop the player from being able to skip while the fade animation is playing
-		text_anim.play_backwards("fade")
-		allow_skip = false
-		await anim_player.animation_finished
-		allow_skip = true
+		if has_started == true: # Prevents bug where the player can force the skip animation from playing when no animations is playing
+			text_anim.play_backwards("fade")
+			can_play_anim = true

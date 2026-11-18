@@ -97,6 +97,7 @@ offset_left = 8.0
 offset_top = 584.0
 offset_right = 88.0
 offset_bottom = 608.0
+theme_override_fonts/font = ExtResource("6_yhxw7")
 
 [node name="level_select" parent="." unique_id=158348836 instance=ExtResource("10_16hvj")]
 material = ExtResource("3_vr1f0")

@@ -26,8 +26,11 @@ func _on_visibility_changed() -> void:
 
 func _on_new_game_pressed() -> void:
 	if GlobalBus.enable_start_cutscene == true:
-		if GlobalBus.enable_old_cutscene == true:
-			SfxHandler.play_song("song_1.ogg", 0.0)
+		if GlobalBus.silly_mode == true:
+			SfxHandler.stop_music()
+			get_tree().change_scene_to_file("res://Scenes/misc/silly_cutscene.tscn")
+		elif GlobalBus.enable_old_cutscene == true:
+			SfxHandler.stop_music()
 			get_tree().change_scene_to_file("res://Scenes/misc/start_cutscene.tscn")
 		else:
 			SfxHandler.play_song("cutscene.ogg", 1.0)

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://12f5inxb205d"]
+
+[ext_resource type="VideoStream" uid="uid://k1v4ea0gujiy" path="res://misc/best_car_commercial_ever.ogv" id="1_mhqfo"]
+[ext_resource type="Script" uid="uid://bylewpsirqwlt" path="res://Scripts/misc/silly_cutscene.gd" id="1_nrur8"]
+[ext_resource type="FontFile" uid="uid://c5fg0ady1rbd" path="res://misc/VCR_OSD_MONO_1.001.ttf" id="3_odfgq"]
+
+[sub_resource type="Animation" id="Animation_cxd7x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g46sb"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lxlbj"]
+_data = {
+&"RESET": SubResource("Animation_cxd7x"),
+&"fade": SubResource("Animation_g46sb")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1255886023]
+script = ExtResource("1_nrur8")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1473669638]
+offset_right = 800.0
+offset_bottom = 608.0
+stream = ExtResource("1_mhqfo")
+autoplay = true
+expand = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1706002395]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=488949785]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 5
+offset_left = 600.0
+offset_top = 584.0
+offset_right = 797.0
+offset_bottom = 607.0
+theme_override_fonts/font = ExtResource("3_odfgq")
+text = "PRESS \"SPACE\" TO SKIP"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=353327004]
+libraries/ = SubResource("AnimationLibrary_lxlbj")
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

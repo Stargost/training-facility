@@ -2681,7 +2681,7 @@ texture = ExtResource("33_dyf4d")
 libraries/ = SubResource("AnimationLibrary_myjga")
 
 [node name="Timer" type="Timer" parent="." unique_id=165834845]
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 autostart = true
 ignore_time_scale = true
@@ -2691,14 +2691,15 @@ libraries/ = SubResource("AnimationLibrary_xq0fg")
 
 [node name="Label" type="Label" parent="." unique_id=430785017]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 600.0
+offset_left = 152.0
 offset_top = 576.0
-offset_right = 793.0
-offset_bottom = 599.0
+offset_right = 768.0
+offset_bottom = 607.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.5)
 theme_override_fonts/font = ExtResource("35_myjga")
 theme_override_font_sizes/font_size = 22
-text = "Press SPACE key"
+text = "CUT_SKIP_TXT"
+horizontal_alignment = 2
 
 [node name="fade_to_white" type="ColorRect" parent="." unique_id=1464580619]
 offset_right = 800.0

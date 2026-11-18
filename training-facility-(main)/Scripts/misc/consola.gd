@@ -20,6 +20,9 @@ func console_map(mapa):
 		GlobalBus.scan_levels()
 	level_list = GlobalBus.level_list
 	
+	if mapa not in level_list:
+		Console.print_error("Invalid map name")
+		return
 	var pointer = level_list[mapa]
 	get_tree().change_scene_to_file(pointer)
 
