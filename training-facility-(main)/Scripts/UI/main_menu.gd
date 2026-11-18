@@ -101,7 +101,7 @@ func _on_credits_button_pressed() -> void:
 	credits.visible = true
 	bg.global_position = credits.global_position
 	bg.global_position.y = credits.global_position.y - 10
-	bg.size = credits.size
+	bg.size = Vector2(credits.size.x, 260.0)
 	SfxHandler.play_sfx("misc_menu.wav")
 
 func checking_shut_up():
