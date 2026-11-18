@@ -35,8 +35,11 @@ func console_suicide():
 
 func console_play_sound(target):
 	var sfxes = GlobalBus.extract_SFX_list()
-	if ".mp3" not in target:
+	if ".mp3" not in target or ".wav" not in target:
 		target = str(target) + ".mp3"
+	if target not in sfxes:
+		Console.print_error("Invalid SFX name")
+		return
 	var play_index = sfxes.find(target)
 	var play_shit = sfxes.get(play_index)
 	SfxHandler.play_sfx(play_shit)
