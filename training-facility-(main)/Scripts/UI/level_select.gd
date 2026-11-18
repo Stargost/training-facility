@@ -25,6 +25,7 @@ func _on_visibility_changed() -> void:
 		button_load_game.disabled = true
 
 func _on_new_game_pressed() -> void:
+	GlobalBus.post_reset_deaths = 0
 	if GlobalBus.enable_start_cutscene == true:
 		if GlobalBus.silly_mode == true:
 			SfxHandler.stop_music()

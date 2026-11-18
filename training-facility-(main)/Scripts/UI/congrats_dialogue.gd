@@ -33,6 +33,7 @@ func _ready() -> void:
 	var texto_diff: String
 	var text_td_n: String = str(GlobalBus.post_reset_deaths)
 	
+	# Utterly evil string manipulation
 	if GlobalBus.difficulty == "normal":
 		texto_diff = tr("CONGRATS_DIFF_NORMAL_TXT")
 		GlobalBus.game_won = true
@@ -44,9 +45,7 @@ func _ready() -> void:
 	var texto_2: String = tr("CONGRATS_TWO_TXT")
 	if GlobalBus.enable_prd_text == true:
 		text_prd_n = str(GlobalBus.total_deaths)
-	# Test code, comment out on release builds.
-	#text_prd_n = str(GlobalBus.total_deaths) 
-	#text_prd = "[br]" + tr("CONGRATS_PRD_TXT")
+		text_prd = "[br]" + tr("CONGRATS_PRD_TXT")
 	
 	final_text.text = texto_diff + "[br][color=#ffffff00]_[/color][br]" + texto_1 + "[br][color=#ffffff00]_[/color][br]" + tttext + final_time + "[br]" + text_td + text_td_n + text_prd + text_prd_n + "[br][color=#ffffff00]_[/color][br]" + texto_2
 	nine_slice_resize()

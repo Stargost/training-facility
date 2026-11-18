@@ -29,8 +29,8 @@ var last_level: String = "null"
 var game_won: bool = false
 var game_won_on_hard: bool = false
 # Stats
-var post_reset_deaths: int = 0
-var total_deaths: int = 0
+var post_reset_deaths: int = 0 # Deaths overall
+var total_deaths: int = 0 # Deaths on this run
 var was_game_saved: bool = false
 
 
